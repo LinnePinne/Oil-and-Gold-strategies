@@ -51,29 +51,128 @@ Expectancy (USD/trade): -0.2171
 Max Drawdown (USD): 18111.0000
 Max Losing Streak (trades): 23
 Sharpe (trade-level): -0.0166
-Detta gav ingen edge heller så idén skrotas. Vi kollar tillbaka på vad opening range volatilitets percentilerna säger från första testet. Vi ser att shorts presterar extremt 
-bra jämfört med longs. Vi tar reda mer om de båda sidornas prestation i olika miljöer:
+Detta gav ingen edge heller så idén skrotas. Vi testar att förlänga opening range fram till 16:30 och justerar sessionsfönstret till 16:30-18:30:
+Market: Brent Crude Oil (5min)
+Trades: 1461
+Total PnL (USD): 71105.9990
+Gross Profit (USD): 715140.0000
+Gross Loss (USD): -644034.0010
+Profit Factor: 1.1104
+Winrate: 0.3450
+Avg Win (USD): 1418.9286
+Avg Loss (USD): -672.9718
+Expectancy (USD/trade): 48.6694
+Max Drawdown (USD): 24494.0000
+Max Losing Streak (trades): 16
+Sharpe (trade-level): 1.6119
+Detta förbättrar edge en hel del. Vi kollar tillbaka på vad opening range volatilitets percentilerna säger från första testet. Vi ser att shorts presterar extremt 
+bra jämfört med longs. Vi tar reda mer om de båda sidornas prestation i olika miljöer med det nya sessionsfönstret:
 SHORTS > 75th percentile Opening range
-{'Trades': 268, 'Total PnL (USD)': 21964.99999999974, 'Gross Profit (USD)': 136448.99999999994, 'Gross Loss (USD)': -114484.00000000023, 'Profit Factor': 1.1918608713881387, 'Winrate': 0.3694029850746269, 'Avg Win (USD)': 1378.2727272727268, 'Avg Loss (USD)': -677.4201183431967, 'Expectancy (USD/trade)': 81.95895522387963, 'Max Drawdown (USD)': 9783.00000000015, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 1.1807722438254817}
+{'Trades': 214, 'Total PnL (USD)': 53653.00000000008, 'Gross Profit (USD)': 172883.00000000017, 'Gross Loss (USD)': -119230.00000000013, 'Profit Factor': 1.4499958064245575, 'Winrate': 0.3878504672897196, 'Avg Win (USD)': 2082.9277108433757, 'Avg Loss (USD)': -910.1526717557261, 'Expectancy (USD/trade)': 250.7149532710284, 'Max Drawdown (USD)': 12734.999999999978, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 2.273987967667864}
 
 SHORTS 25-75th percentile Opening range
-{'Trades': 483, 'Total PnL (USD)': -15754.99999999994, 'Gross Profit (USD)': 118650.00000000029, 'Gross Loss (USD)': -134405.00000000023, 'Profit Factor': 0.8827796584948483, 'Winrate': 0.3146997929606625, 'Avg Win (USD)': 780.5921052631599, 'Avg Loss (USD)': -406.05740181268953, 'Expectancy (USD/trade)': -32.61904761904749, 'Max Drawdown (USD)': 21563.999999999985, 'Max Losing Streak (trades)': 15, 'Sharpe (trade-level)': -1.167612190211615}
+{'Trades': 392, 'Total PnL (USD)': -10169.999999999876, 'Gross Profit (USD)': 146253.0000000002, 'Gross Loss (USD)': -156423.00000000012, 'Profit Factor': 0.9349839857309993, 'Winrate': 0.31887755102040816, 'Avg Win (USD)': 1170.0240000000017, 'Avg Loss (USD)': -585.8539325842701, 'Expectancy (USD/trade)': -25.943877551020094, 'Max Drawdown (USD)': 21692.999999999978, 'Max Losing Streak (trades)': 18, 'Sharpe (trade-level)': -0.5725548740040941}
 
 SHORTS 40-60th percentile Opening range
-{'Trades': 208, 'Total PnL (USD)': 1679.0000000002015, 'Gross Profit (USD)': 54344.00000000025, 'Gross Loss (USD)': -52665.000000000044, 'Profit Factor': 1.0318807557201215, 'Winrate': 0.34615384615384615, 'Avg Win (USD)': 754.7777777777812, 'Avg Loss (USD)': -387.2426470588239, 'Expectancy (USD/trade)': 8.072115384616353, 'Max Drawdown (USD)': 6710.99999999992, 'Max Losing Streak (trades)': 11, 'Sharpe (trade-level)': 0.19248243265776116}
+{'Trades': 171, 'Total PnL (USD)': 9248.000000000164, 'Gross Profit (USD)': 73320.00000000017, 'Gross Loss (USD)': -64072.000000000015, 'Profit Factor': 1.144337620177303, 'Winrate': 0.38596491228070173, 'Avg Win (USD)': 1110.9090909090935, 'Avg Loss (USD)': -610.209523809524, 'Expectancy (USD/trade)': 54.081871345030194, 'Max Drawdown (USD)': 9392.000000000005, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 0.7637623546781117}
 
 SHORTS <= 25th percentile Opening range
-{'Trades': 176, 'Total PnL (USD)': 7034.000999999977, 'Gross Profit (USD)': 43294.000000000065, 'Gross Loss (USD)': -36259.999000000076, 'Profit Factor': 1.1939878983449497, 'Winrate': 0.3409090909090909, 'Avg Win (USD)': 721.5666666666677, 'Avg Loss (USD)': -312.5861982758627, 'Expectancy (USD/trade)': 39.96591477272714, 'Max Drawdown (USD)': 7380.9990000000325, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 0.7133094704746972}
+{'Trades': 125, 'Total PnL (USD)': 13170.999000000113, 'Gross Profit (USD)': 50423.00000000009, 'Gross Loss (USD)': -37252.000999999975, 'Profit Factor': 1.3535648729312586, 'Winrate': 0.344, 'Avg Win (USD)': 1172.6279069767463, 'Avg Loss (USD)': -454.2926951219509, 'Expectancy (USD/trade)': 105.3679920000009, 'Max Drawdown (USD)': 6034.998999999978, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.1390504047420718}
 
 LONGS > 75th percentile Opening range
-{'Trades': 248, 'Total PnL (USD)': -6778.0000000000155, 'Gross Profit (USD)': 106569.00000000016, 'Gross Loss (USD)': -113347.00000000017, 'Profit Factor': 0.9402013286633082, 'Winrate': 0.3225806451612903, 'Avg Win (USD)': 1332.112500000002, 'Avg Loss (USD)': -674.6845238095249, 'Expectancy (USD/trade)': -27.330645161290384, 'Max Drawdown (USD)': 19268.000000000036, 'Max Losing Streak (trades)': 12, 'Sharpe (trade-level)': -0.41388114360240685}
+{'Trades': 187, 'Total PnL (USD)': -26246.000000000004, 'Gross Profit (USD)': 105265.00000000009, 'Gross Loss (USD)': -131511.00000000012, 'Profit Factor': 0.8004273406787265, 'Winrate': 0.3048128342245989, 'Avg Win (USD)': 1846.7543859649138, 'Avg Loss (USD)': -1011.6230769230779, 'Expectancy (USD/trade)': -140.3529411764706, 'Max Drawdown (USD)': 31331.00000000007, 'Max Losing Streak (trades)': 11, 'Sharpe (trade-level)': -1.294730954378286}
 
 LONGS 25-75th percentile Opening range
-{'Trades': 481, 'Total PnL (USD)': 7502.000000000133, 'Gross Profit (USD)': 139769.0000000002, 'Gross Loss (USD)': -132267.00000000006, 'Profit Factor': 1.056718607059963, 'Winrate': 0.3471933471933472, 'Avg Win (USD)': 836.9401197604802, 'Avg Loss (USD)': -421.2324840764333, 'Expectancy (USD/trade)': 15.596673596673872, 'Max Drawdown (USD)': 12254.000000000024, 'Max Losing Streak (trades)': 12, 'Sharpe (trade-level)': 0.5122918660508164}
+{'Trades': 371, 'Total PnL (USD)': 37042.00000000002, 'Gross Profit (USD)': 171423.00000000012, 'Gross Loss (USD)': -134381.00000000012, 'Profit Factor': 1.275649087296567, 'Winrate': 0.3746630727762803, 'Avg Win (USD)': 1233.2589928057562, 'Avg Loss (USD)': -579.2284482758625, 'Expectancy (USD/trade)': 99.84366576819413, 'Max Drawdown (USD)': 12618.00000000003, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 2.014320876901104}
 
 LONGS 40-60th percentile Opening range
-{'Trades': 216, 'Total PnL (USD)': -4045.999999999895, 'Gross Profit (USD)': 57470.00000000018, 'Gross Loss (USD)': -61516.00000000007, 'Profit Factor': 0.9342284934000928, 'Winrate': 0.3148148148148148, 'Avg Win (USD)': 845.1470588235321, 'Avg Loss (USD)': -415.64864864864916, 'Expectancy (USD/trade)': -18.731481481480994, 'Max Drawdown (USD)': 11295.000000000011, 'Max Losing Streak (trades)': 9, 'Sharpe (trade-level)': -0.41874278209803834}
+{'Trades': 160, 'Total PnL (USD)': 15236.000000000007, 'Gross Profit (USD)': 70592.00000000004, 'Gross Loss (USD)': -55356.00000000004, 'Profit Factor': 1.2752366500469687, 'Winrate': 0.375, 'Avg Win (USD)': 1176.533333333334, 'Avg Loss (USD)': -553.5600000000004, 'Expectancy (USD/trade)': 95.22500000000005, 'Max Drawdown (USD)': 6573.999999999992, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 1.3241351439806772}
 
 LONGS <= 25th percentile Opening range
-{'Trades': 174, 'Total PnL (USD)': -2079.0000000001146, 'Gross Profit (USD)': 31732.000000000015, 'Gross Loss (USD)': -33811.000000000146, 'Profit Factor': 0.9385111354292945, 'Winrate': 0.2988505747126437, 'Avg Win (USD)': 610.2307692307695, 'Avg Loss (USD)': -277.1393442622963, 'Expectancy (USD/trade)': -11.948275862069623, 'Max Drawdown (USD)': 6842.000000000038, 'Max Losing Streak (trades)': 15, 'Sharpe (trade-level)': -0.35005809112669634}
-Shorts funkar alltså i extrem miljöer, antingen extremt låg eller extremt hög volatilitet. Longs däremot fungerar inte någonstanns eller så har den liten edge i normal miljö. 
+{'Trades': 138, 'Total PnL (USD)': -6503.999999999987, 'Gross Profit (USD)': 36926.00000000005, 'Gross Loss (USD)': -43430.00000000003, 'Profit Factor': 0.8502417683628835, 'Winrate': 0.30434782608695654, 'Avg Win (USD)': 879.1904761904774, 'Avg Loss (USD)': -452.39583333333366, 'Expectancy (USD/trade)': -47.1304347826086, 'Max Drawdown (USD)': 13817.999999999958, 'Max Losing Streak (trades)': 21, 'Sharpe (trade-level)': -0.7889863659761622}
+Shorts funkar alltså bäst i extrem miljöer, antingen extremt låg eller extremt hög volatilitet. Longs däremot fungerar bäst i normal miljö. Vi testar att endast ta longs i 25-75e 
+percentilen, och shorts endast i > 75 och < 25:
+Market: Brent Crude Oil (5min)
+Trades: 756
+Total PnL (USD): 105090.0000
+Gross Profit (USD): 418221.0000
+Gross Loss (USD): -313131.0000
+Profit Factor: 1.3356
+Winrate: 0.3849
+Avg Win (USD): 1437.1856
+Avg Loss (USD): -673.4000
+Expectancy (USD/trade): 139.0079
+Max Drawdown (USD): 11875.0000
+Max Losing Streak (trades): 11
+Sharpe (trade-level): 3.2545
+Det här är redan tillräckligt bra för out of sample test. Men vi behöver testa andra variationer som optimering och robusthets test. Vi testar 3rr för båda sidorna:
+SHORTS > 75th percentile Opening range
+{'Trades': 222, 'Total PnL (USD)': 11732.999999999844, 'Gross Profit (USD)': 164718.0, 'Gross Loss (USD)': -152985.00000000017, 'Profit Factor': 1.0766937935091663, 'Winrate': 0.25675675675675674, 'Avg Win (USD)': 2889.7894736842104, 'Avg Loss (USD)': -927.1818181818193, 'Expectancy (USD/trade)': 52.851351351350644, 'Max Drawdown (USD)': 30145.000000000036, 'Max Losing Streak (trades)': 13, 'Sharpe (trade-level)': 0.43508784258303096}
+LONGS 25-75th percentile Opening range
+{'Trades': 429, 'Total PnL (USD)': 46886.00000000013, 'Gross Profit (USD)': 218795.00000000026, 'Gross Loss (USD)': -171909.00000000012, 'Profit Factor': 1.2727373203264525, 'Winrate': 0.29836829836829837, 'Avg Win (USD)': 1709.335937500002, 'Avg Loss (USD)': -571.1262458471765, 'Expectancy (USD/trade)': 109.2913752913756, 'Max Drawdown (USD)': 13721.999999999987, 'Max Losing Streak (trades)': 23, 'Sharpe (trade-level)': 1.9756829559364555}
+Market: Brent Crude Oil (5min)
+Trades: 651
+Total PnL (USD): 58619.0000
+Gross Profit (USD): 383513.0000
+Gross Loss (USD): -324894.0000
+Profit Factor: 1.1804
+Winrate: 0.2842
+Avg Win (USD): 2073.0432
+Avg Loss (USD): -697.1974
+Expectancy (USD/trade): 90.0445
+Max Drawdown (USD): 23895.0000
+Max Losing Streak (trades): 17
+Sharpe (trade-level): 1.6332
+Totalt blir det sämre, men separerar vi på longs och shorts ser vi att longs expectancy och total pnl går upp med lite uppoffring på sharpe. Shorts blir utan tvekan sämre. Vi 
+testar 2rr för shorts och 3rr för longs:
+Market: Brent Crude Oil (5min)
+Trades: 716
+Total PnL (USD): 101966.0000
+Gross Profit (USD): 427717.0000
+Gross Loss (USD): -325751.0000
+Profit Factor: 1.3130
+Winrate: 0.3226
+Avg Win (USD): 1851.5887
+Avg Loss (USD): -671.6515
+Expectancy (USD/trade): 142.4106
+Max Drawdown (USD): 14035.0000
+Max Losing Streak (trades): 13
+Sharpe (trade-level): 2.9067
+2rr för båda är bättre. long_volatility_filter = 0.30 < opening_range_pct_rank < 0.70 och short_volatility_filter = opening_range_pct_rank > 0.70:
+SHORTS > 70th percentile Opening range
+{'Trades': 302, 'Total PnL (USD)': 66439.00000000001, 'Gross Profit (USD)': 225397.00000000017, 'Gross Loss (USD)': -158958.0000000002, 'Profit Factor': 1.4179657519596365, 'Winrate': 0.38079470198675497, 'Avg Win (USD)': 1959.9739130434798, 'Avg Loss (USD)': -850.0427807486642, 'Expectancy (USD/trade)': 219.9966887417219, 'Max Drawdown (USD)': 17207.0, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 2.535346532194095}
+LONGS 30-70th percentile Opening range
+{'Trades': 420, 'Total PnL (USD)': 52364.99999999994, 'Gross Profit (USD)': 193857.00000000015, 'Gross Loss (USD)': -141492.00000000017, 'Profit Factor': 1.3700915952845385, 'Winrate': 0.4023809523809524, 'Avg Win (USD)': 1147.0828402366872, 'Avg Loss (USD)': -563.7131474103593, 'Expectancy (USD/trade)': 124.67857142857129, 'Max Drawdown (USD)': 8365.999999999969, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 2.7864712288302655}
+--- STATS ---
+Market: Brent Crude Oil (5min)
+Trades: 722
+Total PnL (USD): 118804.0000
+Gross Profit (USD): 419254.0000
+Gross Loss (USD): -300450.0000
+Profit Factor: 1.3954
+Winrate: 0.3934
+Avg Win (USD): 1476.2465
+Avg Loss (USD): -685.9589
+Expectancy (USD/trade): 164.5485
+Max Drawdown (USD): 17704.0000
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 3.6843
+Stor förbättring, totalt och enskilt för båda sidorna. long_volatility_filter = 0.35 < opening_range_pct_rank < 0.65 och short_volatility_filter = opening_range_pct_rank > 0.65:
+SHORTS > 65th percentile Opening range
+{'Trades': 351, 'Total PnL (USD)': 56840.999999999854, 'Gross Profit (USD)': 241363.00000000012, 'Gross Loss (USD)': -184522.0000000003, 'Profit Factor': 1.308044569211258, 'Winrate': 0.36182336182336183, 'Avg Win (USD)': 1900.496062992127, 'Avg Loss (USD)': -823.7589285714299, 'Expectancy (USD/trade)': 161.94017094017053, 'Max Drawdown (USD)': 19994.00000000003, 'Max Losing Streak (trades)': 11, 'Sharpe (trade-level)': 2.099498321005033}
+LONGS 35-65th percentile Opening range
+{'Trades': 332, 'Total PnL (USD)': 38249.99999999993, 'Gross Profit (USD)': 147692.00000000012, 'Gross Loss (USD)': -109442.00000000017, 'Profit Factor': 1.3495001918824572, 'Winrate': 0.3855421686746988, 'Avg Win (USD)': 1153.843750000001, 'Avg Loss (USD)': -536.4803921568636, 'Expectancy (USD/trade)': 115.21084337349376, 'Max Drawdown (USD)': 8968.000000000084, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 2.3465786021862667}
+Market: Brent Crude Oil (5min)
+Trades: 683
+Total PnL (USD): 95091.0000
+Gross Profit (USD): 389055.0000
+Gross Loss (USD): -293964.0000
+Profit Factor: 1.3235
+Winrate: 0.3734
+Avg Win (USD): 1525.7059
+Avg Loss (USD): -686.8318
+Expectancy (USD/trade): 139.2255
+Max Drawdown (USD): 23680.0000
+Max Losing Streak (trades): 15
+Sharpe (trade-level): 3.0106
+0.70 och 0.30 är sweet spot.
