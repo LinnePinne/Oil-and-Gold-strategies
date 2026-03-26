@@ -425,5 +425,6 @@ Den riktiga insikten är att det inte bara “volatilitet”, det är riktad vol
 som (VIX / ATR) kan vara högt även fast marknaden är mycket upp och ner, eller chop. Detta är ofta dåligt för breakout och inte den typen av vol vi vill åt. Directional 
 volatility innebär istället stora stora rörelser, mindre retraces och tydlig flöde. Detta är vad strategin behöver. Det är alltså en expansion fångande strategi i 
 trendande/regime-marknader. Därför funkar den i krig, geopolitiska events påverkar olja extremt mycket med utbud/efterfrågan chockar, panik, trender och väldigt sällan mean 
-reversion. Slutsatsen är att strategin behöver ett filter som avgör när den ska användas baserat på denna information. Vi börjar testa ett glidande medelvärde av ATR.
-Vi använder ATR14 och räknar ut glidande medelvärde av 100 historiska perioder där vi endast tillåter entries om nuvarande ATR14 är över medelvärdet:
+reversion. Slutsatsen är att strategin behöver ett filter som avgör när den ska användas baserat på denna information. Eftersom vi vill filtrera på generell marknads-volatilitet/
+trend måste filtret baseras på en högre tidsram än 5 minuters. Vi testar ett trendfilter baserat på daily moving average 
+ trend_long = df["close"] > df["close"].rolling(50).mean() och trend_short = df["close"] < df["close"].rolling(50).mean():
