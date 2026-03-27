@@ -1454,17 +1454,218 @@ PF
 expectancy
 avg win/loss
 Hur ofta och hur snabbt pris går +0.5R, +1R, +1.5R, +2R
-
 2. MFE/MAE för longs vs shorts
-
 3. Andel trades som når:
 +0.5R
 +1R
 +1.5R
 +2R
-
 4. Samma uppdelat per regim:
 låg OR
 medium OR
 hög OR
 låg vs hög ATR-ratio
+
+Vi har redam PF, expectancy, avg win/loss:
+LONGS
+'Profit Factor': 1.0117640589723187, 'Winrate': 0.3414985590778098, 'Avg Win (USD)': 1319.8270042194104, 'Avg Loss (USD)': -676.5032822757116, 'Expectancy (USD/trade)': 5.240634005763747
+SHORTS
+'Profit Factor': 1.1810581448648698, 'Winrate': 0.3433652530779754, 'Avg Win (USD)': 1472.346613545819, 'Avg Loss (USD)': -651.8854187500006, 'Expectancy (USD/trade)': 77.5020506155955
+LONGS:
+{'hit_rate_0.5R': np.float64(0.6610878661087866), 'avg_time_0.5R': np.float64(40.54641350210971), 'hit_rate_1.0R': np.float64(0.5104602510460251), 
+'avg_time_1.0R': np.float64(109.27868852459017), 'hit_rate_1.5R': np.float64(0.4100418410041841), 'avg_time_1.5R': np.float64(195.5204081632653), 
+'hit_rate_2.0R': np.float64(0.3472803347280335), 'avg_time_2.0R': np.float64(311.13253012048193), 'avg_mfe': np.float64(1.1778305972548548), 
+'avg_mae': np.float64(-0.9302426234408667)}
+SHORTS:
+{'hit_rate_0.5R': np.float64(0.6505376344086021), 'avg_time_0.5R': np.float64(35.171487603305785), 'hit_rate_1.0R': np.float64(0.4959677419354839), 
+'avg_time_1.0R': np.float64(108.34688346883469), 'hit_rate_1.5R': np.float64(0.40456989247311825), 'avg_time_1.5R': np.float64(206.91029900332225), 
+'hit_rate_2.0R': np.float64(0.34408602150537637), 'avg_time_2.0R': np.float64(305.00390625), 'avg_mfe': np.float64(1.1534798764503045), 
+'avg_mae': np.float64(-0.9474456128605726)}
+Longs och shorts beter sig i princip identiskt, detta går emot hypotesen. Det verkar inte finnas någon strukturell edge i direction. Hit rates vid olika R är extremt lika, time
+hit är också lika. Shorts är lite snabbare till 0.5r men longs är snabbare till 1.5r och 2r är nästan identiskt, det finns ingen tydlig trend. MFE och MAE har också ungefär
+samma distribution mellan shorts och longs. Detta betyder att shorts inte har bättre momentum, och att antagandet att olja går bättre ner än upp i denna setup är fel. Anledning
+till att shorts utpresterar longs enormt måste ligga i att average win är större och average loss är mindre för shorts, givet båda sidorna har samma winrate är det den enda
+rimliga förklaringen baserat på datan vi samlat ihop än så länge. Därför måste vi fråga oss varför avg win och avg loss ser bättre ut hos shorts. Båda sidorna når 2r lika ofta
+och har samma winrate men shorts tjänar mer pengar, detta innebär att skillnaden kan ligga i riskavståndet i pris. Om shorts tenderar att tas på dagar med större Opening Range
+blir 2r vinst och 1r förlust större i USD. Vi bör alltså ta reda på genomsnittlig initial risk i USD och faktisk win size och loss size i r, inte USD. 
+Det är även möjligt att shorts brukar ge bättre entry pris än longs, detta är möjligt eftersom vi har entry på next bar open och det kan ske prisskillnad mellan opening 
+low/high och faktisk entry på next bar open. Eftersom trades inte har någon time exit kan de hållas över helger och maintenence tid på natten. Under denna tid kan pris öppna 
+med stor mellanskillnad från föregående bar. Detta kan mätas genom entry slippage där slippage = entry_price - breakout_level, hypotesen är att shorts har negativ slippage, 
+vilket är förmånligt och att longs har positiv slippage vilket är dåligt. Vi börjar kolla på måtten genomsnittlig initial risk i USD och faktisk win/loss i R:
+           Trades  Avg_Risk_USD  Median_Risk_USD  Avg_Win_USD  Avg_Loss_USD  Avg_Win_R  Avg_Loss_R  Median_Win_R  Median_Loss_R   TP_Rate   SL_Rate
+Direction                                                                                                                                          
+LONG          717    682.938633            585.0  1359.112450   -688.408120        2.0        -1.0           2.0           -1.0  0.347280  0.652720
+SHORT         744    683.349464            589.0  1477.337255   -658.198366        2.0        -1.0           2.0           -1.0  0.342742  0.657258
+Risken är identisk överallt, detta är alltså inte förklaringen. Avg_Risk_Usd är identiska men average loss blir signifikant lägre för short jämfört med longs som blir större.
+Detta innebär att det med stor sannolikhet är slippage som ger shorts den stora edgen. Shorts får bättre fills och förlorar därför på snitt mindre och tjänar på snitt mer.
+Enklaste sättet att vidare bekräfta detta antagande är att isolera ursprunget, vi kollar helt enkelt statistik på de trades där vi får bättre entry än breakout level i de 
+trades som är winners.
+                              Trades     Avg_PnL   TP_Rate
+Direction favorable_slippage                              
+LONG      False                  490   67.534694  0.369388
+          True                   227  -74.220264  0.299559
+SHORT     False                  515  106.485435  0.347573
+          True                   229    0.096070  0.331878
+Proportion
+Direction  favorable_slippage
+LONG       False                 0.683403
+           True                  0.316597
+SHORT      False                 0.692204
+           True                  0.307796
+Detta betyder bara en sak med säkerhet, att trades där entry sker på “fel” sida relativt breakout level presterar bättre än trades där entry sker på “fördelaktig” sida 
+relativt breakout level, dne fördelaktig sidan är vad som förstör edgen i longs. Det vi har upptäckt än så länge är att riktning inte förklarar skillnaden särskilt väl, 
+eftersom hit rates, MFE/MAE och TP-rate är nästan lika. Favorable vs unfavorable slippage har däremot tydlig koppling till outcome. Den kopplingen går i motsatt riktning mot 
+vad vi först antog, det som vi definierar som “favorable slippage” ger sämre resultat. Det vi ännu inte har bevisat är varför shorts totalt ändå ser bättre ut än longs i 
+baseline. Med all data vi samlat in nu kan vi observera att båda sidorna har samma winrate, samma rr, samma slippage fördelning, detta borde ge samma pnl. Men det gör det inte.
+Matematiskt är winrate, tp, sl identiskt. Då borde expetancy också vara identisk, men det är den verkligen inte. Den effektiva R-distributionen är inte identisk i verkligheten.
+Vi har mätt entry distribution och den var samma, det som återstår som påverkar R-distributionen är alltså exits. Även fast vi har en fast 2r exit i koden kan gaps under natten
+eller helgen ge bättre exits. Detta är den mest rimliga förklaringen utifrån vad vi undersökt hittills. Sättet vi mäter exits i koden nu är inte justerbart för slippage och gaps.
+Exits definieras till 2rr bara om high > 2r (för longs). I beräkningen för exit price och pnl tar vi inte hänsyn till gaps och att fillpris kan vara extremt mycket högre eller 
+lägre. Det som krävs nu är faktisk exit per trade, real_R = actual_exit_price - entry_price / risk. 
+TP overshoot
+           TP_Trades  Avg_TP_Overshoot_R  Median_TP_Overshoot_R
+Direction                                                      
+LONG             249            0.195955               0.100748
+SHORT            255            0.202059               0.109635
+SL overshoot
+           SL_Trades  Avg_SL_Overshoot_R  Median_SL_Overshoot_R
+Direction                                                      
+LONG             468            0.198322               0.085183
+SHORT            489            0.222746               0.088235
+           TP_Trades  Total_TP_Overshoot_USD  Avg_TP_Overshoot_USD  Total_PnL  Overshoot_%_of_PnL
+Direction                                                                                        
+LONG             249                 32100.0            128.915663  16244.000            1.976114
+SHORT            255                 33143.0            129.972549  54861.999            0.604116
+           SL_Trades  Total_SL_Overshoot_USD  Avg_SL_Overshoot_USD  Total_PnL  SL_Overshoot_%_of_PnL
+Direction                                                                                           
+LONG             468              -53044.000           -113.341880  16244.000              -3.265452
+SHORT            489              -51740.998           -105.809812  54861.999              -0.943112
+Direction
+LONG     0.097978
+SHORT    0.101030
+Name: overshoot_fraction, dtype: float64
+Longs utan overshoot: 16,244 + 20,944 ≈ +37,188 och shorts utan overshoot: 54,862 + 18,598 ≈ +73,460. Overshoots förklarar fortfarande inte varför shorts är bättre. Shorts och 
+longs har samma winrate, RR, MFE/MAE, slippage, overshoot men shorts genererar mer PnL per trade i baseline-strukturen. Det enda som återstår är att distributionen av returns
+är olika. En undersökning av detta kräver inte fler medelvärden, utan hela fördelningen av trade-PnL eller ännu bättre PnL i R.
+LONG percentiles
+0.01   -1.0
+0.05   -1.0
+0.10   -1.0
+0.25   -1.0
+0.50   -1.0
+0.75    2.0
+0.90    2.0
+0.95    2.0
+0.99    2.0
+Name: pnl_R, dtype: float64
+SHORT percentiles
+0.01   -1.0
+0.05   -1.0
+0.10   -1.0
+0.25   -1.0
+0.50   -1.0
+0.75    2.0
+0.90    2.0
+0.95    2.0
+0.99    2.0
+Name: pnl_R, dtype: float64
+KS statistic: 0.004538399244162505
+KS p-value: 1.0
+Anderson_ksampResult(statistic=np.float64(-1.2269778448601243), critical_values=array([0.325, 1.226, 1.961, 2.718, 3.752, 4.592, 6.546]), pvalue=np.float64(0.25))
+LONG tails: {'count': 717, 'share_gt_1_5R': np.float64(0.3472803347280335), 'share_gt_2_0R': np.float64(0.0041841004184100415), 'share_lt_minus_1_0R': np.float64(0.0), 'share_lt_minus_1_2R': np.float64(0.0), 'p90': np.float64(2.0), 'p95': np.float64(2.0), 'p99': np.float64(2.0)}
+SHORT tails: {'count': 744, 'share_gt_1_5R': np.float64(0.34274193548387094), 'share_gt_2_0R': np.float64(0.0), 'share_lt_minus_1_0R': np.float64(0.0), 'share_lt_minus_1_2R': np.float64(0.0), 'p90': np.float64(2.0), 'p95': np.float64(2.0), 'p99': np.float64(2.0)}
+count    2.490000e+02
+mean     2.000000e+00
+std      1.580944e-15
+min      2.000000e+00
+25%      2.000000e+00
+50%      2.000000e+00
+75%      2.000000e+00
+max      2.000000e+00
+Name: pnl_R, dtype: float64
+count    255.0
+mean       2.0
+std        0.0
+min        2.0
+25%        2.0
+50%        2.0
+75%        2.0
+max        2.0
+Name: pnl_R, dtype: float64
+LONG net R percentiles
+0.01   -1.030063
+0.05   -1.019547
+0.10   -1.015124
+0.25   -1.009901
+0.50   -1.005841
+0.75    1.989247
+0.90    1.993548
+0.95    1.994746
+0.99    1.996788
+Name: net_pnl_R, dtype: float64
+SHORT net R percentiles
+0.01   -1.026774
+0.05   -1.017206
+0.10   -1.014480
+0.25   -1.010000
+0.50   -1.006200
+0.75    1.989832
+0.90    1.994067
+0.95    1.995358
+0.99    1.997306
+Name: net_pnl_R, dtype: float64
+KS test on net R:
+KS statistic: 0.03802807396409772
+KS p-value: 0.6465222672665287
+=== 2011 ===
+Long mean: 0.0983821045461529
+Short mean: 0.3461947251943828
+Long count: 87
+Short count: 51
+=== 2012 ===
+Long mean: 0.09807271973743929
+Short mean: 0.03290164806791283
+Long count: 57
+Short count: 75
+=== 2013 ===
+Long mean: 0.02478048198847465
+Short mean: -0.02160480149512444
+Long count: 84
+Short count: 85
+=== 2014 ===
+Long mean: -0.17873008716972827
+Short mean: 0.04174246635716177
+Long count: 72
+Short count: 114
+=== 2015 ===
+Long mean: -0.15221578440217096
+Short mean: 0.09643108257946947
+Long count: 84
+Short count: 95
+=== 2016 ===
+Long mean: 0.2713664833861874
+Short mean: 0.19826303755248958
+Long count: 96
+Short count: 77
+=== 2017 ===
+Long mean: 0.00044508588693502126
+Short mean: -0.25572128994987164
+Long count: 77
+Short count: 87
+=== 2018 ===
+Long mean: -0.03432331131533882
+Short mean: 0.001559067675742808
+Long count: 83
+Short count: 92
+=== 2019 ===
+Long mean: 0.11919796416941959
+Short mean: -0.1715750944480503
+Long count: 77
+Short count: 68
+Det finns ingen strukturell skillnad i trade distribution mellan long och short. I vissa år är shorts bättre (2011, 2014, 2015), i vissa år är longs bättre (2016, 2017, 2019). 
+Om det dessa är identiska:
+- antal trades
+- winrate
+- r per trade
+- inga andra effekter
+Då måste pnl bli samma. 
