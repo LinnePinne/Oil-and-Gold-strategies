@@ -1663,9 +1663,71 @@ Short mean: -0.1715750944480503
 Long count: 77
 Short count: 68
 Det finns ingen strukturell skillnad i trade distribution mellan long och short. I vissa år är shorts bättre (2011, 2014, 2015), i vissa år är longs bättre (2016, 2017, 2019). 
-Om det dessa är identiska:
-- antal trades
-- winrate
-- r per trade
-- inga andra effekter
-Då måste pnl bli samma. 
+Nu har vi upptäckt något som inte hänger ihop. Total pnl för hela strategin är 71105, samtidigt som print outen visar att longs har totalt 3637 pnl och shorts har 56653 pnl.
+Går vi igenom longs resultat år för år och räknar ihop pnl blir det 16000. Alltså är det förmodligen print outen som skiljer på longs och shorts för hela perioden som är fel.
+Dessutom blir shorts 2000 pnl mindre när vi lägger ihop de separata åren. Longs saknar också trades i printouten, de separate åren får ihop 717 trades men print outen visar 694.
+Detta är nästan lite ironisk givet hur mycket vi försökt undersöka för att hitta var shorts relativt long edgen kommer ifrån, när vi printat longs vs shorts har vi använt
+longs = trades_df[(trades_df["Direction"] == "LONG") & (trades_df["opening_range_pct_rank"])], vi har alltså lämnat kvar opening_range_pct_rank från tidigare analys. När vi tar
+bort det ser allt korrekt ut:
+LONGS
+{'Trades': 717, 'Total PnL (USD)': 16244.00000000004, 'Gross Profit (USD)': 338419.0000000003, 'Gross Loss (USD)': -322175.00000000023, 'Profit Factor': 1.0504198029021496, 'Winrate': 0.3472803347280335, 'Avg Win (USD)': 1359.112449799198, 'Avg Loss (USD)': -688.4081196581202, 'Expectancy (USD/trade)': 22.655509065550962, 'Max Drawdown (USD)': 30859.000000000022, 'Max Losing Streak (trades)': 11, 'Sharpe (trade-level)': 0.540019118521502}
+SHORTS
+{'Trades': 744, 'Total PnL (USD)': 54861.99900000037, 'Gross Profit (USD)': 376721.0000000006, 'Gross Loss (USD)': -321859.0010000002, 'Profit Factor': 1.170453517936571, 'Winrate': 0.34274193548387094, 'Avg Win (USD)': 1477.337254901963, 'Avg Loss (USD)': -658.1983660531702, 'Expectancy (USD/trade)': 73.73924596774243, 'Max Drawdown (USD)': 20484.999999999956, 'Max Losing Streak (trades)': 21, 'Sharpe (trade-level)': 1.6999879987774418}
+--- STATS ---
+Market: Brent Crude Oil (5min)
+Trades: 1461
+Total PnL (USD): 71105.9990
+Gross Profit (USD): 715140.0000
+Gross Loss (USD): -644034.0010
+Profit Factor: 1.1104
+Winrate: 0.3450
+Avg Win (USD): 1418.9286
+Avg Loss (USD): -672.9718
+Expectancy (USD/trade): 48.6694
+Max Drawdown (USD): 24494.0000
+Max Losing Streak (trades): 16
+Sharpe (trade-level): 1.6119
+Shorts är fortfarande bättre men inte lika dramatiskt, och nu kan skillnaden faktiskt förklaras av större wins och mindre losses på shorts. Eftersom rr alltid är fast, är det 
+enda som kan göra avg win större distansen i pris från entry till tp för longs vs shorts
+TP distance stats:
+           count      mean       std    min    25%    50%    75%    max
+Direction                                                              
+LONG       717.0  1.365877  0.814037  0.124  0.850  1.170  1.648  8.188
+SHORT      744.0  1.366699  0.805818  0.060  0.852  1.178  1.654  7.180
+
+SL distance stats:
+           count      mean       std    min    25%    50%    75%    max
+Direction                                                              
+LONG       717.0  0.682939  0.407019  0.062  0.425  0.585  0.824  4.094
+SHORT      744.0  0.683349  0.402909  0.030  0.426  0.589  0.827  3.590
+Det vi egenligen vill kolla här hur många av de högre tp distans tradesen blir vinster och vice versa för losses.
+
+Longs enskilt:
+--- STATS ---
+Market: Brent Crude Oil (5min)
+Trades: 996
+Total PnL (USD): 28752.0000
+Gross Profit (USD): 438430.0000
+Gross Loss (USD): -409678.0000
+Profit Factor: 1.0702
+Winrate: 0.3594
+Avg Win (USD): 1224.6648
+Avg Loss (USD): -642.1285
+Expectancy (USD/trade): 28.8675
+Max Drawdown (USD): 28004.0000
+Max Losing Streak (trades): 18
+Sharpe (trade-level): 0.8841
+Shorts enskilt:
+Market: Brent Crude Oil (5min)
+Trades: 1044
+Total PnL (USD): 58365.9990
+Gross Profit (USD): 479226.0000
+Gross Loss (USD): -420860.0010
+Profit Factor: 1.1387
+Winrate: 0.3391
+Avg Win (USD): 1353.7458
+Avg Loss (USD): -609.9420
+Expectancy (USD/trade): 55.9061
+Max Drawdown (USD): 24174.0000
+Max Losing Streak (trades): 14
+Sharpe (trade-level): 1.6596
