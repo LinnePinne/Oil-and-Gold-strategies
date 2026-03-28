@@ -1700,8 +1700,7 @@ SL distance stats:
 Direction                                                              
 LONG       717.0  0.682939  0.407019  0.062  0.425  0.585  0.824  4.094
 SHORT      744.0  0.683349  0.402909  0.030  0.426  0.589  0.827  3.590
-Det vi egenligen vill kolla här hur många av de högre tp distans tradesen blir vinster och vice versa för losses.
-
+Det vi egenligen vill kolla här hur många av de högre tp distans tradesen blir vinster och vice versa för losses. Nu finns mer basis för att kunna förklara skillnaden. Vi testar att backtesta strategtin helt utan varje sida:
 Longs enskilt:
 --- STATS ---
 Market: Brent Crude Oil (5min)
@@ -1731,3 +1730,102 @@ Expectancy (USD/trade): 55.9061
 Max Drawdown (USD): 24174.0000
 Max Losing Streak (trades): 14
 Sharpe (trade-level): 1.6596
+I och med att tp och sl är fasta risk to reward ratios är bara högre prisdistans som kan göra shorts avg win större. Vår hypotes är alltså att ju större distansen från entry till tp, desto bättre edge för shorts. För longs är det nog lite åt andra hållet. Vi kan testa
+detta genom att inte ta de shorts där distansen från entry till stop loss (tp baseras på sl så det är samma sak) är under en 0.5e percentilen av de historiska sl distanserna, och vice versa för longs:
+Threshold: longs_sl_distance_pct_rank < 0.50 shorts_sl_distance_pct_rank > 0.50
+Totalt antal trades i analysis_valid: 1460
+Totalt antal baseline LONG trades: 717
+Totalt antal baseline SHORT trades: 743
+
+BASELINE LONGS
+Trades: 717
+Total PnL (USD): 16244.0000
+Gross Profit (USD): 338419.0000
+Gross Loss (USD): -322175.0000
+Profit Factor: 1.0504
+Winrate: 0.3473
+Avg Win (USD): 1359.1124
+Avg Loss (USD): -688.4081
+Expectancy (USD/trade): 22.6555
+Max Drawdown (USD): 30859.0000
+Max Losing Streak (trades): 11
+Sharpe (trade-level): 0.5400
+Avg sl_distance: 0.6829
+Median sl_distance: 0.5850
+Avg sl_distance_pct_rank: 0.4096
+Median sl_distance_pct_rank: 0.3861
+
+BASELINE SHORTS
+Trades: 743
+Total PnL (USD): 53598.9990
+Gross Profit (USD): 375458.0000
+Gross Loss (USD): -321859.0010
+Profit Factor: 1.1665
+Winrate: 0.3419
+Avg Win (USD): 1478.1811
+Avg Loss (USD): -658.1984
+Expectancy (USD/trade): 72.1386
+Max Drawdown (USD): 20485.0000
+Max Losing Streak (trades): 21
+Sharpe (trade-level): 1.6620
+Avg sl_distance: 0.6834
+Median sl_distance: 0.5890
+Avg sl_distance_pct_rank: 0.4148
+Median sl_distance_pct_rank: 0.3969
+FILTERED LONGS (sl_distance_pct_rank < 0.50)
+Trades: 442
+Total PnL (USD): 31659.0000
+Gross Profit (USD): 159305.0000
+Gross Loss (USD): -127646.0000
+Profit Factor: 1.2480
+Winrate: 0.3643
+Avg Win (USD): 989.4720
+Avg Loss (USD): -454.2562
+Expectancy (USD/trade): 71.6267
+Max Drawdown (USD): 7940.0000
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 2.0588
+Avg sl_distance: 0.4667
+Median sl_distance: 0.4685
+Avg sl_distance_pct_rank: 0.2278
+Median sl_distance_pct_rank: 0.2176
+Andel av parent subset: 0.6165
+
+FILTERED SHORTS (sl_distance_pct_rank > 0.50)
+Trades: 290
+Total PnL (USD): 64009.0010
+Gross Profit (USD): 239555.0000
+Gross Loss (USD): -175545.9990
+Profit Factor: 1.3646
+Winrate: 0.3897
+Avg Win (USD): 2119.9558
+Avg Loss (USD): -991.7853
+Expectancy (USD/trade): 220.7207
+Max Drawdown (USD): 10037.0000
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 2.2519
+Avg sl_distance: 1.0163
+Median sl_distance: 0.8930
+Avg sl_distance_pct_rank: 0.7013
+Median sl_distance_pct_rank: 0.6788
+Andel av parent subset: 0.3903
+
+FILTERED COMBINED STRATEGY
+Trades: 732
+Total PnL (USD): 95668.0010
+Gross Profit (USD): 398860.0000
+Gross Loss (USD): -303191.9990
+Profit Factor: 1.3155
+Winrate: 0.3743
+Avg Win (USD): 1455.6934
+Avg Loss (USD): -661.9913
+Expectancy (USD/trade): 130.6940
+Max Drawdown (USD): 12610.0000
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 2.9575
+Avg sl_distance: 0.6844
+Median sl_distance: 0.5865
+Avg sl_distance_pct_rank: 0.4154
+Median sl_distance_pct_rank: 0.3991
+Andel av parent subset: 0.5014
+
