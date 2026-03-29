@@ -1736,7 +1736,6 @@ Threshold: longs_sl_distance_pct_rank < 0.50 shorts_sl_distance_pct_rank > 0.50
 Totalt antal trades i analysis_valid: 1460
 Totalt antal baseline LONG trades: 717
 Totalt antal baseline SHORT trades: 743
-
 BASELINE LONGS
 Trades: 717
 Total PnL (USD): 16244.0000
@@ -1754,7 +1753,6 @@ Avg sl_distance: 0.6829
 Median sl_distance: 0.5850
 Avg sl_distance_pct_rank: 0.4096
 Median sl_distance_pct_rank: 0.3861
-
 BASELINE SHORTS
 Trades: 743
 Total PnL (USD): 53598.9990
@@ -1790,7 +1788,6 @@ Median sl_distance: 0.4685
 Avg sl_distance_pct_rank: 0.2278
 Median sl_distance_pct_rank: 0.2176
 Andel av parent subset: 0.6165
-
 FILTERED SHORTS (sl_distance_pct_rank > 0.50)
 Trades: 290
 Total PnL (USD): 64009.0010
@@ -1809,23 +1806,76 @@ Median sl_distance: 0.8930
 Avg sl_distance_pct_rank: 0.7013
 Median sl_distance_pct_rank: 0.6788
 Andel av parent subset: 0.3903
-
-FILTERED COMBINED STRATEGY
-Trades: 732
-Total PnL (USD): 95668.0010
-Gross Profit (USD): 398860.0000
-Gross Loss (USD): -303191.9990
-Profit Factor: 1.3155
-Winrate: 0.3743
-Avg Win (USD): 1455.6934
-Avg Loss (USD): -661.9913
-Expectancy (USD/trade): 130.6940
-Max Drawdown (USD): 12610.0000
-Max Losing Streak (trades): 9
-Sharpe (trade-level): 2.9575
-Avg sl_distance: 0.6844
-Median sl_distance: 0.5865
-Avg sl_distance_pct_rank: 0.4154
-Median sl_distance_pct_rank: 0.3991
-Andel av parent subset: 0.5014
+FILTERED LONGS (sl_distance_pct_rank < 0.65)
+Trades: 558
+Total PnL (USD): 19174.0000
+Gross Profit (USD): 211324.0000
+Gross Loss (USD): -192150.0000
+Profit Factor: 1.0998
+Winrate: 0.3477
+Avg Win (USD): 1089.2990
+Avg Loss (USD): -527.8846
+Expectancy (USD/trade): 34.3620
+Max Drawdown (USD): 13486.0000
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.9883
+Avg sl_distance: 0.5313
+Median sl_distance: 0.5120
+Avg sl_distance_pct_rank: 0.3001
+Median sl_distance_pct_rank: 0.2922
+Andel av parent subset: 0.7782
+FILTERED SHORTS (sl_distance_pct_rank > 0.65)
+Trades: 161
+Total PnL (USD): 49737.0010
+Gross Profit (USD): 162344.0000
+Gross Loss (USD): -112606.9990
+Profit Factor: 1.4417
+Winrate: 0.4099
+Avg Win (USD): 2459.7576
+Avg Loss (USD): -1185.3368
+Expectancy (USD/trade): 308.9255
+Max Drawdown (USD): 14282.0000
+Max Losing Streak (trades): 12
+Sharpe (trade-level): 1.9908
+Avg sl_distance: 1.2017
+Median sl_distance: 1.0180
+Avg sl_distance_pct_rank: 0.8073
+Median sl_distance_pct_rank: 0.7942
+Andel av parent subset: 0.2167
+FILTERED LONGS (sl_distance_pct_rank < 0.40)
+Trades: 367
+Total PnL (USD): 19217.0000
+Gross Profit (USD): 117386.0000
+Gross Loss (USD): -98169.0000
+Profit Factor: 1.1958
+Winrate: 0.3542
+Avg Win (USD): 902.9692
+Avg Loss (USD): -414.2152
+Expectancy (USD/trade): 52.3624
+Max Drawdown (USD): 6529.0000
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 1.5289
+Avg sl_distance: 0.4251
+Median sl_distance: 0.4310
+Avg sl_distance_pct_rank: 0.1831
+Median sl_distance_pct_rank: 0.1720
+Andel av parent subset: 0.5119
+FILTERED SHORTS (sl_distance_pct_rank > 0.40)
+Trades: 369
+Total PnL (USD): 71870.0010
+Gross Profit (USD): 279636.0000
+Gross Loss (USD): -207765.9990
+Profit Factor: 1.3459
+Winrate: 0.3902
+Avg Win (USD): 1941.9167
+Avg Loss (USD): -923.4044
+Expectancy (USD/trade): 194.7697
+Max Drawdown (USD): 10617.0000
+Max Losing Streak (trades): 12
+Sharpe (trade-level): 2.4172
+Avg sl_distance: 0.9399
+Median sl_distance: 0.8270
+Avg sl_distance_pct_rank: 0.6476
+Median sl_distance_pct_rank: 0.6120
+Andel av parent subset: 0.4966
 
