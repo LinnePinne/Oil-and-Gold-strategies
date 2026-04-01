@@ -1878,4 +1878,6 @@ Median sl_distance: 0.8270
 Avg sl_distance_pct_rank: 0.6476
 Median sl_distance_pct_rank: 0.6120
 Andel av parent subset: 0.4966
-
+Alla dessa tester visar kontinuerligt att shorts presterar bättre när mindre stop losses inte tillåts, och longs presterar när stora stop losses inte tillåts. Detta förklarar
+varför shorts får högre avg wins, eftersom det blir högre winrate ju större stop loss det är och därmed högre dollar i vinst. När vi sedan portfölj simulerar denna strategi
+och tilldelar kapital utifrån portföljens kapital kommer inte skillnaden vara lika stor. 50 är den mest balanserade och simplate tröskeln så den kommer vi använda. 
