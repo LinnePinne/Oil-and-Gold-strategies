@@ -192,4 +192,7 @@ Expectancy (USD/trade): -62.7878
 Max Drawdown (USD): 38844.9770
 Max Losing Streak (trades): 9
 Sharpe (trade-level): -0.9283
-Ingen edge här
+Ingen edge här, edgen ligger i att USAs makro och equities förser marknaden med likviditet och momentum, vi håller oss alltså till New York Opening range.
+Strategin har redan tillräckligt mycket komplexitet i parametrar utan att behöva tilläg som driver upp edge. Vi kan däremot testa att tvinga exits i slutet
+av dagen vid 23:00:
+
