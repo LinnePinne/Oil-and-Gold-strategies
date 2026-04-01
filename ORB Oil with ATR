@@ -178,4 +178,18 @@ Max Losing Streak (trades): 9
 Sharpe (trade-level): 1.8138
 Med lägre tidsram kan vi komma in i marknaden snabbare och ta del av rörelserna bättre jämfört med högre tidsram. Vi vill också testa hur strategin
 presterar runt Europa opening range. Mest marknadslogisk är att definiera den när energi- och makrovolatilitet koncentreras vilket sker runt morgon/förmdiddag
-svensk tid. Vi testar 09:00-09:30, den halvtimmen bör fånga detta bra. Handelsfönster sätts till 09:30-11:30
+svensk tid. Vi testar 09:00-09:30, den halvtimmen bör fånga detta bra. Handelsfönster sätts till 09:30-11:30:
+Market: Brent Crude Oil (30Min)
+Trades: 410
+Total PnL (USD): -25742.9780
+Gross Profit (USD): 187483.0190
+Gross Loss (USD): -213225.9970
+Profit Factor: 0.8793
+Winrate: 0.4463
+Avg Win (USD): 1024.4974
+Avg Loss (USD): -939.3216
+Expectancy (USD/trade): -62.7878
+Max Drawdown (USD): 38844.9770
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -0.9283
+Ingen edge här
