@@ -195,4 +195,32 @@ Sharpe (trade-level): -0.9283
 Ingen edge här, edgen ligger i att USAs makro och equities förser marknaden med likviditet och momentum, vi håller oss alltså till New York Opening range.
 Strategin har redan tillräckligt mycket komplexitet i parametrar utan att behöva tilläg som driver upp edge. Vi kan däremot testa att tvinga exits i slutet
 av dagen vid 23:00:
-
+Market: Brent Crude Oil (30Min)
+Trades: 1525
+Total PnL (USD): 30654.9900
+Gross Profit (USD): 461905.9990
+Gross Loss (USD): -431251.0090
+Profit Factor: 1.0711
+Winrate: 0.4944
+Avg Win (USD): 612.6074
+Avg Loss (USD): -559.3398
+Expectancy (USD/trade): 20.1016
+Max Drawdown (USD): 18586.0000
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 0.9663
+Verkar som att vi stänger positioner tidigare och därmed tillåter fler entries vid New York open dagen efter. Vi testar att flytta exit till 15:00 nästa dag:
+Market: Brent Crude Oil (30Min)
+Trades: 1544
+Total PnL (USD): 42116.9970
+Gross Profit (USD): 568724.0000
+Gross Loss (USD): -526607.0030
+Profit Factor: 1.0800
+Winrate: 0.5032
+Avg Win (USD): 731.9485
+Avg Loss (USD): -686.5802
+Expectancy (USD/trade): 27.2778
+Max Drawdown (USD): 31007.0000
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 1.0736
+Vi behåller edge av att låta trades vara till den riktiga exiten. Nu testar vi en opening range baserad stop. För longs stänger vi positionen om pris går under
+opening low
