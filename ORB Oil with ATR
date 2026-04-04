@@ -237,10 +237,11 @@ Expectancy (USD/trade): 18.8647
 Max Drawdown (USD): 17204.0000
 Max Losing Streak (trades): 12
 Sharpe (trade-level): 0.9358
-Detta fungerar dåligt. Vi låser strategin som den är nu, det ska bli vår referenspunkt under forskningsfasen. Våran referenspunkt är alltså entry på or close 
-utanför och atr > atr_ma(150) och exit när atr < atr_ma(50). Innan vi börjar bryta ner resultaten och undersöka vad edgen faktiskt kommer ifrån ska vi snabbt 
-robusthetstesta atr moving average. Detta gör vi genom att testa närliggande värden av 150, vi vill att edge ska hålla i olika värden eftersom det tyder på att 
-edgen ligger i hur vi utnyttjar marknadslogiken, ifall det endast är 150 som fungerar så har vi slumpmässig edge. 150 ma:
+Detta fungerar dåligt. Vi går vidare utan hard stop eftersom det inte verkar vara kompatibelt med hur denna edge realiseras, detta ska bli vår referenspunkt under 
+forskningsfasen. Våran referenspunkt är alltså entry på or close  utanför och atr > atr_ma(150) och exit när atr < atr_ma(50). Innan vi börjar bryta ner resultaten 
+och undersöka vad edgen faktiskt kommer ifrån ska vi snabbt robusthetstesta atr moving average. Detta gör vi genom att testa närliggande värden av 150, vi vill 
+att edge ska hålla i olika värden eftersom det tyder på att edgen ligger i hur vi utnyttjar marknadslogiken, ifall det endast är 150 som fungerar så har vi 
+slumpmässig edge. 150 ma:
 Market: Brent Crude Oil (30Min)
 Trades: 1404
 Total PnL (USD): 60342.0070
@@ -324,7 +325,8 @@ Expectancy (USD/trade): 49.4707
 Max Drawdown (USD): 17132.0000
 Max Losing Streak (trades): 10
 Sharpe (trade-level): 2.0343
-175 ma verkar vara sweet spot så den låses in. Referenspunkten inför nedbrytningen och forskningen är:
+175 ma verkar ligga i ett läga med bra balans mellan fungerande långsamma ma värden. Det viktiga här är att vi upptäckt att en relativt långsam vol-regim 
+referens fungerar. Så vi använder det som arbetsreferens. Referenspunkten inför nedbrytningen och forskningen är:
 --- STATS ---
 Market: Brent Crude Oil (30Min)
 Trades: 1366
@@ -521,14 +523,23 @@ LONGS 33-66th percentile Opening range
 LONGS > 66th percentile Opening range
 {'Trades': 239, 'Total PnL (USD)': 18500.006999999794, 'Gross Profit (USD)': 89454.99799999982, 'Gross Loss (USD)': -70954.99100000001, 'Profit Factor': 1.2607287625475114, 'Winrate': 0.5230125523012552, 'Avg Win (USD)': 715.6399839999985, 'Avg Loss (USD)': -622.412201754386, 'Expectancy (USD/trade)': 77.40588702928784, 'Max Drawdown (USD)': 7221.000000000033, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.3466687593214455}
 Longs har mycket mer edge, totalt gör longs 53000 pnl när shorts endast gör 14000. Short har en profit factor på 1.06 och en winrate på 47% samtidigt som longs
-har 1.23 pf och 54% win rate. Det intressant med longs är att också att edge är väldigt jämnt fördelat mellan de olika percentilerna, för shorts ligger edgen
-istället i mitten percentilerna, edgen blir negativ över 66:e percentilen och väldigt svag unver 33:e. Än så länge har vi tagit reda på att vi måsta låta trades
-löpa för att utnyttja vinnare så mycket som möjligt, detta upptäcktes när time based exit undersökdes. Vi vet också att hard stop vid motsatt sida av opening
-range förstör edge, det kan förklaras med samma logik, att låta trades löpa tills volatilitet sjunker historiskt sätt och atr går under atr ma175. Seperationen
-av longs och shorts tillsammans med volatilitet percentilerna visar att longs är den drivande sidan i edge med en balanserad fördel i alla vol-regimer. Shorts 
-har en väldigt specifik volatilitets beroende edge där opening ranges omkring det historiska medelvärdet är frodande för shorts. 
+har 1.23 pf och 54% win rate. Det intressant med longs är att också att edge är väldigt jämnt fördelat mellan de olika percentilerna, förutom i den nedersta 
+tredjedelen. För shorts ligger edgen istället i mitten percentilerna, edgen blir negativ över 66:e percentilen och väldigt svag unver 33:e. Än så länge har vi 
+tagit reda på att vi måsta låta trades löpa för att utnyttja vinnare så mycket som möjligt, detta upptäcktes när time based exit undersökdes. Vi vet också att 
+hard stop vid motsatt sida av opening range förstör edge, det kan förklaras med samma logik, att låta trades löpa tills volatilitet sjunker historiskt sätt och 
+atr går under atr ma175. Seperationen av longs och shorts tillsammans med volatilitet percentilerna visar att longs är den drivande sidan i edge med en balanserad 
+fördel i medelstora till höga vol-regimer. Shorts har en väldigt specifik volatilitets beroende edge där opening ranges omkring det historiska medelvärdet är 
+frodande för shorts. Av detta dras slutsatsen att denna modell av strategin är primärt en long-driven breakout model, med sekundär villkorlig short edge. Longs
+har en bred edge i vol-regimer men presterar sämre i lägre vol. Shorts är extremt selektiva, endast stark i medel volatilitet. Detta tolkas som att när Opening 
+range är för stor blir breakouts sannolikt mer utsatta för squeeze positioner i ett volatilt och osäkert landskap utan klar riktning. Liten opening range innebär 
+för lite rörelse för att shorts ska kunna utnyttja någon typ av expansion, därför faller adgen i ett normalare marknads tillstånd där bättre balans mellan breakout, 
+acceptans och fortsatt riktning. Detta är ganska typsikt beteende för råvaror, att longs får bättre riktnings fortsättning på grund av global risk-deltagande, dollar 
+dynamik, makro prissättning, nyhetsdrivande trender. Dessa resultat öppnar upp för nya modeller. Modell A: Endast long-bias, eller åtminstone mer fokus på longs. 
+Modell B: Endast handla shorts när OR-percentilerna ligger i gynnsamma mittenregimer. Innan vi väljer att hoppa direkt till någon av dessa vill vi ta reda på mer 
+om varför denna asymmetrin finns. 
 Det vi vill vidare undersöka:
 - Segmentera breakout-styrka. Definiera styrka genom (close - opening_high)/ opening range, dela upp och kolla resultat för svag, medel och stark breakout för
 båda sidorna.
 - Segmenetera på tid till breakout efter open. Dela upp när breakout sker, första möjliga bar, andra bar eller senare i sessionen. Dela upp per sida här också.
-- Undersöka och förstå mer varför longs driver edge, troligtvis skiftar edge med olje-regimerna.
+- Årsvis gruppering av OR-percentiler.
+- Distribution beroende, kommer long/short edge från några stora vinnare?
