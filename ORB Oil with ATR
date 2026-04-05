@@ -543,3 +543,71 @@ båda sidorna.
 - Segmenetera på tid till breakout efter open. Dela upp när breakout sker, första möjliga bar, andra bar eller senare i sessionen. Dela upp per sida här också.
 - Årsvis gruppering av OR-percentiler.
 - Distribution beroende, kommer long/short edge från några stora vinnare?
+
+Hypotesen för breakout strength är att det kan ge insikt om och förklara varför shorts är känsliga för OR-regim. Breakout strength ska hjälpa att skilja mellan 
+marginella breakouts, tydlig acceptans utanför rangen eller potentiellt översträckta rörelser som gör breakout. Vi definierar styrkan för longs såhär:
+breakout_strength = (close - opening_high) / opening_range och för shorts: breakout_strength = (opening_low - close) / opening_range. Exempelvis blir resultatet
+0.05 vilket är väldigt marginell breakout, ju närmare 1.0 breakouten kommer desto större och närmare är breakout storleken på opening range eftersom det är 
+opening range vi jämför mot. Svag breakout definieras som 0.00 - 0.15, medium som 0.15 - 0.40 och stark som > 0.40:
+Weak Breakouts < 0.15
+{'Trades': 269, 'Total PnL (USD)': 18763.009999999675, 'Gross Profit (USD)': 99594.00099999976, 'Gross Loss (USD)': -80830.99100000008, 'Profit Factor': 1.232126437742173, 'Winrate': 0.5539033457249071, 'Avg Win (USD)': 668.4161140939581, 'Avg Loss (USD)': -673.5915916666673, 'Expectancy (USD/trade)': 69.75096654274972, 'Max Drawdown (USD)': 6585.000000000024, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 1.2259142848338043}
+Weak Breakouts LONGS < 0.15
+{'Trades': 151, 'Total PnL (USD)': 19683.005999999783, 'Gross Profit (USD)': 62806.999999999825, 'Gross Loss (USD)': -43123.994000000035, 'Profit Factor': 1.4564281777796317, 'Winrate': 0.543046357615894, 'Avg Win (USD)': 765.9390243902418, 'Avg Loss (USD)': -624.9854202898556, 'Expectancy (USD/trade)': 130.35103311258135, 'Max Drawdown (USD)': 7236.994000000026, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.6762329051416016}
+Weak Breakouts SHORTS < 0.15
+{'Trades': 118, 'Total PnL (USD)': -919.9960000001131, 'Gross Profit (USD)': 36787.00099999993, 'Gross Loss (USD)': -37706.99700000003, 'Profit Factor': 0.975601451369885, 'Winrate': 0.5677966101694916, 'Avg Win (USD)': 549.0597164179094, 'Avg Loss (USD)': -739.3528823529418, 'Expectancy (USD/trade)': -7.796576271187399, 'Max Drawdown (USD)': 9344.99900000001, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': -0.093916204113081}
+Medium Breakouts 0.10-0.15
+{'Trades': 80, 'Total PnL (USD)': 6896.000999999927, 'Gross Profit (USD)': 27968.00099999997, 'Gross Loss (USD)': -21072.00000000004, 'Profit Factor': 1.3272589692482877, 'Winrate': 0.5375, 'Avg Win (USD)': 650.4186279069761, 'Avg Loss (USD)': -569.5135135135146, 'Expectancy (USD/trade)': 86.20001249999909, 'Max Drawdown (USD)': 4560.000000000012, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 0.8769996186060255}
+Medium Breakouts LONGS 0.10-0.15
+{'Trades': 39, 'Total PnL (USD)': 5814.000999999942, 'Gross Profit (USD)': 16611.00099999997, 'Gross Loss (USD)': -10797.000000000033, 'Profit Factor': 1.5384830045382902, 'Winrate': 0.5641025641025641, 'Avg Win (USD)': 755.0454999999987, 'Avg Loss (USD)': -635.1176470588255, 'Expectancy (USD/trade)': 149.07694871794723, 'Max Drawdown (USD)': 4698.998000000002, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 0.9096949894172351}
+Medium Breakouts SHORTS 0.10-0.15
+{'Trades': 41, 'Total PnL (USD)': 1081.999999999984, 'Gross Profit (USD)': 11356.999999999995, 'Gross Loss (USD)': -10275.000000000011, 'Profit Factor': 1.1053041362530396, 'Winrate': 0.5121951219512195, 'Avg Win (USD)': 540.8095238095235, 'Avg Loss (USD)': -513.7500000000006, 'Expectancy (USD/trade)': 26.390243902438637, 'Max Drawdown (USD)': 3169.000000000001, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': 0.23345763909744188}
+Strong Breakouts >= 0.40
+{'Trades': 782, 'Total PnL (USD)': 44269.988999999296, 'Gross Profit (USD)': 264062.99399999954, 'Gross Loss (USD)': -219793.0050000003, 'Profit Factor': 1.2014167329847425, 'Winrate': 0.4948849104859335, 'Avg Win (USD)': 682.3333178294562, 'Avg Loss (USD)': -556.4379873417729, 'Expectancy (USD/trade)': 56.61123913043388, 'Max Drawdown (USD)': 18104.00000000024, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 1.7513462387268564}
+Strong Breakouts LONGS >= 0.40
+{'Trades': 390, 'Total PnL (USD)': 26523.99799999976, 'Gross Profit (USD)': 126519.99799999982, 'Gross Loss (USD)': -99996.00000000006, 'Profit Factor': 1.2652505900235984, 'Winrate': 0.541025641025641, 'Avg Win (USD)': 599.6208436018949, 'Avg Loss (USD)': -558.6368715083802, 'Expectancy (USD/trade)': 68.01025128205066, 'Max Drawdown (USD)': 15410.000000000047, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.6908144565993972}
+Strong Breakouts SHORTS >= 0.40
+{'Trades': 392, 'Total PnL (USD)': 17745.990999999533, 'Gross Profit (USD)': 137542.99599999975, 'Gross Loss (USD)': -119797.0050000002, 'Profit Factor': 1.1481338452492993, 'Winrate': 0.4489795918367347, 'Avg Win (USD)': 781.494295454544, 'Avg Loss (USD)': -554.6157638888898, 'Expectancy (USD/trade)': 45.27038520408044, 'Max Drawdown (USD)': 15093.000000000116, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 0.8944922227312968}
+För longs är svag eller medium breakouts bäst, samtidigt som starka breakouts fortfarande har edge. Detta är motsatsen till vanlig breakout-logik, intutionen säger 
+att ju starkare breakouten är, desto bättre continuation, men dessa resultat säger att ju starkare breakout det är, desto sämre edge. I kontrast beter sig shorts 
+annorlunda. Shorts fungerar alltså bäst när breakout är tydlig och stark, longs fungerar bäst när breakout är tidig/svag. Denna dynamik kan förklars utifrån samma 
+råvarudynamik som troligen ligger bakom obalansen i opening range percentilerna. Bullish expansioner tenderar att vara tydligare på råvaror eftersom det drivs av 
+makroekonomi och därför blir riktning stabilare. Shorts presterade dåligt i de låga or-percentilerna, då drog vi slutsatsen att för lite volatilitet inte leder
+till expansion, detta hänger ihop med breakout styrka, shorts har större edge i större breakouts med relativt normal opening range percentil. NU upptäckte vi att
+vi råkat lägga medium breakout som 0.10-0.15 vilket är fel, det ska vara 0.15-0.40. Här är rätt indelning:
+Weak Breakouts < 0.15
+{'Trades': 269, 'Total PnL (USD)': 18763.009999999675, 'Gross Profit (USD)': 99594.00099999976, 'Gross Loss (USD)': -80830.99100000008, 'Profit Factor': 1.232126437742173, 'Winrate': 0.5539033457249071, 'Avg Win (USD)': 668.4161140939581, 'Avg Loss (USD)': -673.5915916666673, 'Expectancy (USD/trade)': 69.75096654274972, 'Max Drawdown (USD)': 6585.000000000024, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 1.2259142848338043}
+Weak Breakouts LONGS < 0.15
+{'Trades': 151, 'Total PnL (USD)': 19683.005999999783, 'Gross Profit (USD)': 62806.999999999825, 'Gross Loss (USD)': -43123.994000000035, 'Profit Factor': 1.4564281777796317, 'Winrate': 0.543046357615894, 'Avg Win (USD)': 765.9390243902418, 'Avg Loss (USD)': -624.9854202898556, 'Expectancy (USD/trade)': 130.35103311258135, 'Max Drawdown (USD)': 7236.994000000026, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.6762329051416016}
+Weak Breakouts SHORTS < 0.15
+{'Trades': 118, 'Total PnL (USD)': -919.9960000001131, 'Gross Profit (USD)': 36787.00099999993, 'Gross Loss (USD)': -37706.99700000003, 'Profit Factor': 0.975601451369885, 'Winrate': 0.5677966101694916, 'Avg Win (USD)': 549.0597164179094, 'Avg Loss (USD)': -739.3528823529418, 'Expectancy (USD/trade)': -7.796576271187399, 'Max Drawdown (USD)': 9344.99900000001, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': -0.093916204113081}
+Medium Breakouts 0.15-0.40
+{'Trades': 316, 'Total PnL (USD)': 4479.005999999668, 'Gross Profit (USD)': 101054.00199999983, 'Gross Loss (USD)': -96574.99600000014, 'Profit Factor': 1.0463785263837824, 'Winrate': 0.4873417721518987, 'Avg Win (USD)': 656.1948181818171, 'Avg Loss (USD)': -596.1419506172848, 'Expectancy (USD/trade)': 14.174069620252116, 'Max Drawdown (USD)': 12411.999999999985, 'Max Losing Streak (trades)': 6, 'Sharpe (trade-level)': 0.2944805473012794}
+Medium Breakouts LONGS 0.15-0.40
+{'Trades': 145, 'Total PnL (USD)': 6913.007999999918, 'Gross Profit (USD)': 47753.00399999994, 'Gross Loss (USD)': -40839.99600000003, 'Profit Factor': 1.1692705356778172, 'Winrate': 0.5448275862068965, 'Avg Win (USD)': 604.4684050632904, 'Avg Loss (USD)': -618.7878181818186, 'Expectancy (USD/trade)': 47.67591724137874, 'Max Drawdown (USD)': 8586.99999999999, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 0.698088979347784}
+Medium Breakouts SHORTS 0.15-0.40
+{'Trades': 171, 'Total PnL (USD)': -2434.002000000246, 'Gross Profit (USD)': 53300.99799999987, 'Gross Loss (USD)': -55735.000000000124, 'Profit Factor': 0.9563290212613215, 'Winrate': 0.43859649122807015, 'Avg Win (USD)': 710.6799733333315, 'Avg Loss (USD)': -580.572916666668, 'Expectancy (USD/trade)': -14.233929824562843, 'Max Drawdown (USD)': 9157.000000000173, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': -0.210501256597302}
+Strong Breakouts >= 0.40
+{'Trades': 782, 'Total PnL (USD)': 44269.988999999296, 'Gross Profit (USD)': 264062.99399999954, 'Gross Loss (USD)': -219793.0050000003, 'Profit Factor': 1.2014167329847425, 'Winrate': 0.4948849104859335, 'Avg Win (USD)': 682.3333178294562, 'Avg Loss (USD)': -556.4379873417729, 'Expectancy (USD/trade)': 56.61123913043388, 'Max Drawdown (USD)': 18104.00000000024, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 1.7513462387268564}
+Strong Breakouts LONGS >= 0.40
+{'Trades': 390, 'Total PnL (USD)': 26523.99799999976, 'Gross Profit (USD)': 126519.99799999982, 'Gross Loss (USD)': -99996.00000000006, 'Profit Factor': 1.2652505900235984, 'Winrate': 0.541025641025641, 'Avg Win (USD)': 599.6208436018949, 'Avg Loss (USD)': -558.6368715083802, 'Expectancy (USD/trade)': 68.01025128205066, 'Max Drawdown (USD)': 15410.000000000047, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.6908144565993972}
+Strong Breakouts SHORTS >= 0.40
+{'Trades': 392, 'Total PnL (USD)': 17745.990999999533, 'Gross Profit (USD)': 137542.99599999975, 'Gross Loss (USD)': -119797.0050000002, 'Profit Factor': 1.1481338452492993, 'Winrate': 0.4489795918367347, 'Avg Win (USD)': 781.494295454544, 'Avg Loss (USD)': -554.6157638888898, 'Expectancy (USD/trade)': 45.27038520408044, 'Max Drawdown (USD)': 15093.000000000116, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 0.8944922227312968}
+Rättning visar ju samma resultat som tidgare för svaga och starka breakouts så slutsatserna i de indelningarna är samma. Det skiljer sig inte mycket för medium 
+breakouts från föregående indelning, för longs är fortfarande medium breakouts värst av de tre indelningarna och för shorts går edgen från svagt positiv till negativ.
+Det viktigaste:
+LONGS:
+Weak: 151 trades → 19.6k PnL, 
+Strong: 390 trades → 26.5k PnL
+Strong ger mer total PnL med fler trades men weak ger mycket högre kvalitet per trade
+SHORTS:
+Weak + Medium = negativ edge
+Strong = hela short edge
+Vi har isolerat precis vart short edge kommer ifrån
+Medium är sämst för longs och negativ för shorts, strategin utnyttjar marknaden bäst i extrema breakouts. Ni har vi ännu fler möjliga modeller som kan förbättre helhets 
+edge. Vi har redan Modell A: Endast long-bias, eller åtminstone mer fokus på longs och Modell B: Endast handla shorts när OR-percentilerna ligger i gynnsamma mittenregimer. 
+Nu har vi också Modell C där vi endast tillåter longs ifall breakout styrka är svag (< 0.15) och möjligtvis också om breakout är stark (> 40) och shorts om breakout är 
+stark (> 40). Så Modell C ignorerar helt breakouts som faller i medium grupperingen 0.15 - 0.40. Vi ska fortsätta undersöka andra aspekter som kan ge mer information, som 
+vi tidigare nämnde ska vi även kolla på tid till breakout efter open. När breakout sker delas breakout time in i första möjliga bar, andra bar, tredje eller den sista och 
+fjärde baren i sessionen.  
+
+
