@@ -938,6 +938,356 @@ Expectancy (USD/trade): 57.8411
 Max Drawdown (USD): 22769.0000
 Max Losing Streak (trades): 5
 Sharpe (trade-level): 0.7032
+--- PER-ÅR STATS ---
+=== 2019 ===
+LONGS:
+{'Trades': 41, 'Total PnL (USD)': -6618.000000000061, 'Gross Profit (USD)': 7890.999999999974, 'Gross Loss (USD)': -14509.000000000035, 'Profit Factor': 0.5438693224894862, 'Winrate': 0.5121951219512195, 'Avg Win (USD)': 375.7619047619035, 'Avg Loss (USD)': -725.4500000000018, 'Expectancy (USD/trade)': -161.41463414634296, 'Max Drawdown (USD)': 9191.000000000036, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': -1.2111378434129758}
+SHORTS:
+{'Trades': 8, 'Total PnL (USD)': -2821.00000000002, 'Gross Profit (USD)': 1132.999999999989, 'Gross Loss (USD)': -3954.000000000009, 'Profit Factor': 0.286545270612035, 'Winrate': 0.375, 'Avg Win (USD)': 377.66666666666305, 'Avg Loss (USD)': -790.8000000000018, 'Expectancy (USD/trade)': -352.6250000000025, 'Max Drawdown (USD)': 2582.000000000012, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': -1.539863449353083}
+Brent Crude Oil (30Min) - 2019:
+Trades: 49
+Total PnL (USD): -9439.0000
+Gross Profit (USD): 9024.0000
+Gross Loss (USD): -18463.0000
+Profit Factor: 0.4888
+Winrate: 0.4898
+Avg Win (USD): 376.0000
+Avg Loss (USD): -738.5200
+Expectancy (USD/trade): -192.6327
+Max Drawdown (USD): 12012.0000
+Max Losing Streak (trades): 5
+Sharpe (trade-level): -1.6435
+=== 2020 ===
+LONGS:
+{'Trades': 36, 'Total PnL (USD)': -3389.0000000000423, 'Gross Profit (USD)': 10859.999999999985, 'Gross Loss (USD)': -14249.000000000025, 'Profit Factor': 0.7621587479823122, 'Winrate': 0.5277777777777778, 'Avg Win (USD)': 571.5789473684202, 'Avg Loss (USD)': -838.1764705882368, 'Expectancy (USD/trade)': -94.13888888889007, 'Max Drawdown (USD)': 4863.000000000014, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': -0.5355214981442327}
+SHORTS:
+{'Trades': 17, 'Total PnL (USD)': 500.99999999997385, 'Gross Profit (USD)': 5014.99999999998, 'Gross Loss (USD)': -4514.0000000000055, 'Profit Factor': 1.1109880372175396, 'Winrate': 0.4117647058823529, 'Avg Win (USD)': 716.4285714285686, 'Avg Loss (USD)': -451.40000000000055, 'Expectancy (USD/trade)': 29.47058823529258, 'Max Drawdown (USD)': 3310.0000000000095, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 0.16743006860845977}
+Brent Crude Oil (30Min) - 2020:
+Trades: 53
+Total PnL (USD): -2888.0000
+Gross Profit (USD): 15875.0000
+Gross Loss (USD): -18763.0000
+Profit Factor: 0.8461
+Winrate: 0.4906
+Avg Win (USD): 610.5769
+Avg Loss (USD): -694.9259
+Expectancy (USD/trade): -54.4906
+Max Drawdown (USD): 5902.0000
+Max Losing Streak (trades): 4
+Sharpe (trade-level): -0.4149
+=== 2021 ===
+LONGS:
+{'Trades': 58, 'Total PnL (USD)': -438.000000000054, 'Gross Profit (USD)': 17144.999999999956, 'Gross Loss (USD)': -17583.000000000007, 'Profit Factor': 0.97508957515782, 'Winrate': 0.5344827586206896, 'Avg Win (USD)': 553.0645161290308, 'Avg Loss (USD)': -651.2222222222225, 'Expectancy (USD/trade)': -7.5517241379319655, 'Max Drawdown (USD)': 4097.000000000025, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': -0.0706690511115353}
+SHORTS:
+{'Trades': 19, 'Total PnL (USD)': -1137.999999999999, 'Gross Profit (USD)': 5061.999999999982, 'Gross Loss (USD)': -6199.999999999981, 'Profit Factor': 0.8164516129032254, 'Winrate': 0.42105263157894735, 'Avg Win (USD)': 632.7499999999977, 'Avg Loss (USD)': -563.6363636363619, 'Expectancy (USD/trade)': -59.89473684210522, 'Max Drawdown (USD)': 2335.9999999999827, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': -0.35040923988673034}
+Brent Crude Oil (30Min) - 2021:
+Trades: 77
+Total PnL (USD): -1576.0000
+Gross Profit (USD): 22207.0000
+Gross Loss (USD): -23783.0000
+Profit Factor: 0.9337
+Winrate: 0.5065
+Avg Win (USD): 569.4103
+Avg Loss (USD): -625.8684
+Expectancy (USD/trade): -20.4675
+Max Drawdown (USD): 4006.0000
+Max Losing Streak (trades): 5
+Sharpe (trade-level): -0.2265
+=== 2022 ===
+LONGS:
+{'Trades': 56, 'Total PnL (USD)': 32537.999999999913, 'Gross Profit (USD)': 58265.99999999991, 'Gross Loss (USD)': -25728.000000000007, 'Profit Factor': 2.2646921641791002, 'Winrate': 0.625, 'Avg Win (USD)': 1664.7428571428547, 'Avg Loss (USD)': -1225.1428571428576, 'Expectancy (USD/trade)': 581.0357142857127, 'Max Drawdown (USD)': 7646.00000000004, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': 1.3126790289675299}
+SHORTS:
+{'Trades': 21, 'Total PnL (USD)': 1820.9999999999736, 'Gross Profit (USD)': 8535.999999999989, 'Gross Loss (USD)': -6715.0000000000155, 'Profit Factor': 1.271183916604612, 'Winrate': 0.5714285714285714, 'Avg Win (USD)': 711.3333333333325, 'Avg Loss (USD)': -746.1111111111128, 'Expectancy (USD/trade)': 86.71428571428446, 'Max Drawdown (USD)': 3020.000000000005, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': 0.37288340228815764}
+Brent Crude Oil (30Min) - 2022:
+Trades: 77
+Total PnL (USD): 34359.0000
+Gross Profit (USD): 66802.0000
+Gross Loss (USD): -32443.0000
+Profit Factor: 2.0591
+Winrate: 0.6104
+Avg Win (USD): 1421.3191
+Avg Loss (USD): -1081.4333
+Expectancy (USD/trade): 446.2208
+Max Drawdown (USD): 8397.0000
+Max Losing Streak (trades): 4
+Sharpe (trade-level): 1.3601
+=== 2023 ===
+LONGS:
+{'Trades': 37, 'Total PnL (USD)': -15917.999999999989, 'Gross Profit (USD)': 9177.999999999985, 'Gross Loss (USD)': -25095.999999999978, 'Profit Factor': 0.36571565189671634, 'Winrate': 0.4864864864864865, 'Avg Win (USD)': 509.88888888888806, 'Avg Loss (USD)': -1320.8421052631568, 'Expectancy (USD/trade)': -430.2162162162159, 'Max Drawdown (USD)': 16642.999999999985, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': -2.1793200363359504}
+SHORTS:
+{'Trades': 15, 'Total PnL (USD)': -1304.9999999999895, 'Gross Profit (USD)': 3678.0000000000036, 'Gross Loss (USD)': -4982.999999999993, 'Profit Factor': 0.7381095725466604, 'Winrate': 0.5333333333333333, 'Avg Win (USD)': 459.75000000000045, 'Avg Loss (USD)': -711.8571428571419, 'Expectancy (USD/trade)': -86.9999999999993, 'Max Drawdown (USD)': 3161.9999999999764, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': -0.47113588800558986}
+Brent Crude Oil (30Min) - 2023:
+Trades: 52
+Total PnL (USD): -17223.0000
+Gross Profit (USD): 12856.0000
+Gross Loss (USD): -30079.0000
+Profit Factor: 0.4274
+Winrate: 0.5000
+Avg Win (USD): 494.4615
+Avg Loss (USD): -1156.8846
+Expectancy (USD/trade): -331.2115
+Max Drawdown (USD): 18628.0000
+Max Losing Streak (trades): 4
+Sharpe (trade-level): -2.1960
+=== 2024 ===
+LONGS:
+{'Trades': 41, 'Total PnL (USD)': 6599.999999999978, 'Gross Profit (USD)': 13619.999999999958, 'Gross Loss (USD)': -7019.999999999978, 'Profit Factor': 1.9401709401709402, 'Winrate': 0.6341463414634146, 'Avg Win (USD)': 523.8461538461522, 'Avg Loss (USD)': -467.9999999999985, 'Expectancy (USD/trade)': 160.97560975609701, 'Max Drawdown (USD)': 2185.9999999999864, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 1.7510375242011385}
+SHORTS:
+{'Trades': 19, 'Total PnL (USD)': 10558.00000000002, 'Gross Profit (USD)': 13301.000000000016, 'Gross Loss (USD)': -2742.9999999999936, 'Profit Factor': 4.849070360918719, 'Winrate': 0.6842105263157895, 'Avg Win (USD)': 1023.1538461538474, 'Avg Loss (USD)': -457.1666666666656, 'Expectancy (USD/trade)': 555.6842105263169, 'Max Drawdown (USD)': 1332.0000000000018, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': 2.263275547156616}
+Brent Crude Oil (30Min) - 2024:
+Trades: 60
+Total PnL (USD): 17158.0000
+Gross Profit (USD): 26921.0000
+Gross Loss (USD): -9763.0000
+Profit Factor: 2.7575
+Winrate: 0.6500
+Avg Win (USD): 690.2821
+Avg Loss (USD): -464.9048
+Expectancy (USD/trade): 285.9667
+Max Drawdown (USD): 1709.0000
+Max Losing Streak (trades): 3
+Sharpe (trade-level): 2.8163
+=== 2025 ===
+LONGS:
+{'Trades': 27, 'Total PnL (USD)': 2282.9999999999422, 'Gross Profit (USD)': 9074.999999999955, 'Gross Loss (USD)': -6792.000000000013, 'Profit Factor': 1.3361307420494608, 'Winrate': 0.5555555555555556, 'Avg Win (USD)': 604.9999999999969, 'Avg Loss (USD)': -566.000000000001, 'Expectancy (USD/trade)': 84.55555555555341, 'Max Drawdown (USD)': 2614.9999999999986, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 0.3790940829430227}
+SHORTS:
+{'Trades': 16, 'Total PnL (USD)': -49.00000000000841, 'Gross Profit (USD)': 4009.000000000002, 'Gross Loss (USD)': -4058.000000000011, 'Profit Factor': 0.9879250862493817, 'Winrate': 0.5625, 'Avg Win (USD)': 445.4444444444446, 'Avg Loss (USD)': -579.7142857142873, 'Expectancy (USD/trade)': -3.062500000000526, 'Max Drawdown (USD)': 2243.0000000000146, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': -0.020971967444656566}
+Brent Crude Oil (30Min) - 2025:
+Trades: 43
+Total PnL (USD): 2234.0000
+Gross Profit (USD): 13084.0000
+Gross Loss (USD): -10850.0000
+Profit Factor: 1.2059
+Winrate: 0.5581
+Avg Win (USD): 545.1667
+Avg Loss (USD): -571.0526
+Expectancy (USD/trade): 51.9535
+Max Drawdown (USD): 4447.0000
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 0.3486
+--- EXKL. 2011 ---
+{'Trades': 334, 'Total PnL (USD)': -11734.000000000253, 'Gross Profit (USD)': 99966.99999999977, 'Gross Loss (USD)': -111701.00000000003, 'Profit Factor': 0.8949517014171738, 'Winrate': 0.5329341317365269, 'Avg Win (USD)': 561.6123595505605, 'Avg Loss (USD)': -716.0320512820515, 'Expectancy (USD/trade)': -35.13173652694687, 'Max Drawdown (USD)': 32691.000000000182, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': -0.7040963302185451}
 Sammanfattningsvis dör baseline edgen i OOS, detta innebär att ofiltrerad opening range breakout inte är robust. Likaså, fallerar modell C också i OOS.
 Breakout strength var alltså mer av ett informationsvärde från in sample. Modell D och B är de två komponenter som är postivia i out of sample, timing
-och regim filter är de två som tillsammans är den bästa kandidaten
+och regim filter är de två som tillsammans är den bästa kandidaten. Det är en accepterad out of sample men inte tillräckligt för att modellen ska vara 
+produktionsklar. Det är instabil över år och för beroende av några starka år, speciellt börjarn av 2022 när ukraina kriget började. Det behöver inte 
+vara dåligt eftersom många råvarumodeller fungerar så men denna årsdistributionen är alldelles för ojämn. Exkluderar vi 2022 är de övriga åren 
+tillsammans negativa vilket är ett stort varningstecken. Slutsatsen för out of sample är att modellen är en lovande, regimkänslig kandidat med verkliga 
+edge-komponenter, men ännu otillräckligt stabil över tid. Det viktigaste nu är att förstå varför 2022 och 2024 fungerar och varför de andra åren inte 
+gör det. Enklaste sättet att göra detta är att analysera och jämföra genomsnittlig OR-percentil, andel hög- och lågvolatilitets dagar, breakout styrka 
+per år. Denna typ av data kan säga mer modellen bara fungerar i en viss typ av regim, och vilken typ av regim i sådana fall. Tillägsvis är det även
+viktigt att ta fram hur mycket av total pnl som kommer från topp 10 eller 20 trades. Den data som kommer tas fram ska inte användas för att optimera 
+något, då hade vi skapat ett till in sample scenario. Det viktigaste och enda valet vi kan göra nu är walk-forward. Mer data att analysera:
+--- DAILY REGIME SUMMARY PER ÅR ---
+      days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share
+Year                                                                                                                                              
+2019   209             0.3883                 0.326           0.4746              0.4701              0.3158             0.2919             0.3923
+2020   259             0.4045                 0.365           0.5036              0.4861              0.3629             0.3166             0.3205
+2021   258             0.5031                 0.450           0.6196              0.6766              0.5078             0.2907             0.2016
+2022   258             1.0264                 0.932           0.6495              0.7123              0.5543             0.2829             0.1628
+2023   257             0.6408                 0.565           0.3468              0.2877              0.1634             0.2724             0.5642
+2024   259             0.4845                 0.430           0.3949              0.3294              0.2510             0.2471             0.5019
+2025   258             0.4102                 0.340           0.4266              0.3710              0.2636             0.2868             0.4496
+
+--- YEARLY TRADE FEATURE SUMMARY ---
+      avg_breakout_strength  median_breakout_strength  avg_bars_after_or  median_bars_after_or  avg_trade_or_pct_rank  median_trade_or_pct_rank
+Year                                                                                                                                           
+2019                 0.5461                    0.4043             1.4082                   1.0                 0.6413                    0.6244
+2020                 0.5546                    0.3934             1.4528                   1.0                 0.5907                    0.5278
+2021                 0.5441                    0.3724             1.5000                   1.5                 0.6815                    0.6895
+2022                 0.5032                    0.3243             1.3816                   1.0                 0.6774                    0.6577
+2023                 0.3041                    0.2478             1.4423                   1.0                 0.5637                    0.5625
+2024                 0.3970                    0.3604             1.3333                   1.0                 0.6021                    0.5804
+2025                 0.3437                    0.3333             1.3953                   1.0                 0.5494                    0.5179
+
+--- TIMING MIX PER ÅR ---
+timing_bucket  trade_share_bar1  trade_share_bar2  trade_share_bar3plus
+Year                                                                   
+2019                     0.5918            0.4082                   0.0
+2020                     0.5472            0.4528                   0.0
+2021                     0.5000            0.5000                   0.0
+2022                     0.6184            0.3816                   0.0
+2023                     0.5577            0.4423                   0.0
+2024                     0.6667            0.3333                   0.0
+2025                     0.6047            0.3953                   0.0
+
+--- DIRECTION MIX PER ÅR ---
+Direction  trade_share_long  trade_share_short
+Year                                          
+2019                 0.8367             0.1633
+2020                 0.6792             0.3208
+2021                 0.7436             0.2564
+2022                 0.7368             0.2632
+2023                 0.7115             0.2885
+2024                 0.6833             0.3167
+2025                 0.6279             0.3721
+
+--- BREAKOUT STRENGTH MIX PER ÅR ---
+strength_bucket  trade_share_weak  trade_share_medium  trade_share_strong
+Year                                                                     
+2019                       0.2653              0.2245              0.5102
+2020                       0.2264              0.2830              0.4906
+2021                       0.2821              0.2564              0.4615
+2022                       0.2105              0.3553              0.4342
+2023                       0.3654              0.3462              0.2885
+2024                       0.2833              0.2500              0.4667
+2025                       0.2558              0.3488              0.3953
+
+--- OR BUCKET MIX PER ÅR ---
+or_bucket  trade_share_or_low  trade_share_or_mid  trade_share_or_high
+Year                                                                  
+2019                      0.0              0.5510               0.4490
+2020                      0.0              0.6981               0.3019
+2021                      0.0              0.4872               0.5128
+2022                      0.0              0.5000               0.5000
+2023                      0.0              0.7115               0.2885
+2024                      0.0              0.6500               0.3500
+2025                      0.0              0.7907               0.2093
+
+--- REGIME DASHBOARD PER ÅR ---
+      days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share  avg_breakout_strength  median_breakout_strength  \
+Year                                                                                                                                                                                                  
+2019   209             0.3883                 0.326           0.4746              0.4701              0.3158             0.2919             0.3923                 0.5461                    0.4043   
+2020   259             0.4045                 0.365           0.5036              0.4861              0.3629             0.3166             0.3205                 0.5546                    0.3934   
+2021   258             0.5031                 0.450           0.6196              0.6766              0.5078             0.2907             0.2016                 0.5441                    0.3724   
+2022   258             1.0264                 0.932           0.6495              0.7123              0.5543             0.2829             0.1628                 0.5032                    0.3243   
+2023   257             0.6408                 0.565           0.3468              0.2877              0.1634             0.2724             0.5642                 0.3041                    0.2478   
+2024   259             0.4845                 0.430           0.3949              0.3294              0.2510             0.2471             0.5019                 0.3970                    0.3604   
+2025   258             0.4102                 0.340           0.4266              0.3710              0.2636             0.2868             0.4496                 0.3437                    0.3333   
+
+      avg_bars_after_or  median_bars_after_or  avg_trade_or_pct_rank  median_trade_or_pct_rank  trade_share_bar1  trade_share_bar2  trade_share_bar3plus  trade_share_long  trade_share_short  \
+Year                                                                                                                                                                                            
+2019             1.4082                   1.0                 0.6413                    0.6244            0.5918            0.4082                   0.0            0.8367             0.1633   
+2020             1.4528                   1.0                 0.5907                    0.5278            0.5472            0.4528                   0.0            0.6792             0.3208   
+2021             1.5000                   1.5                 0.6815                    0.6895            0.5000            0.5000                   0.0            0.7436             0.2564   
+2022             1.3816                   1.0                 0.6774                    0.6577            0.6184            0.3816                   0.0            0.7368             0.2632   
+2023             1.4423                   1.0                 0.5637                    0.5625            0.5577            0.4423                   0.0            0.7115             0.2885   
+2024             1.3333                   1.0                 0.6021                    0.5804            0.6667            0.3333                   0.0            0.6833             0.3167   
+2025             1.3953                   1.0                 0.5494                    0.5179            0.6047            0.3953                   0.0            0.6279             0.3721   
+
+      trade_share_weak  trade_share_medium  trade_share_strong  trade_share_or_low  trade_share_or_mid  trade_share_or_high  Trades  Total PnL (USD)  Profit Factor  Winrate  Expectancy (USD/trade)  \
+Year                                                                                                                                                                                                   
+2019            0.2653              0.2245              0.5102                 0.0              0.5510               0.4490      49          -9439.0         0.4888   0.4898               -192.6327   
+2020            0.2264              0.2830              0.4906                 0.0              0.6981               0.3019      53          -2888.0         0.8461   0.4906                -54.4906   
+2021            0.2821              0.2564              0.4615                 0.0              0.4872               0.5128      78          -1411.0         0.9407   0.5128                -18.0897   
+2022            0.2105              0.3553              0.4342                 0.0              0.5000               0.5000      76          34194.0         2.0540   0.6053                449.9211   
+2023            0.3654              0.3462              0.2885                 0.0              0.7115               0.2885      52         -17223.0         0.4274   0.5000               -331.2115   
+2024            0.2833              0.2500              0.4667                 0.0              0.6500               0.3500      60          17158.0         2.7575   0.6500                285.9667   
+2025            0.2558              0.3488              0.3953                 0.0              0.7907               0.2093      43           2234.0         1.2059   0.5581                 51.9535   
+
+      Sharpe (trade-level)  Max Drawdown (USD)  Max Losing Streak (trades)  
+Year                                                                        
+2019               -1.6435             12012.0                           5  
+2020               -0.4149              5902.0                           4  
+2021               -0.2027              4006.0                           5  
+2022                1.3535              8397.0                           4  
+2023               -2.1960             18628.0                           4  
+2024                2.8163              1709.0                           3  
+2025                0.3486              4447.0                           5  
+
+--- GOOD YEARS VS BAD YEARS: DAILY REGIME SUMMARY ---
+            days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share
+year_group                                                                                                                                              
+BadYears     983             0.4887                 0.435           0.4869              0.4782              0.3388             0.2930             0.3683
+GoodYears    517             0.7549                 0.630           0.5220              0.5496              0.4023             0.2650             0.3327
+Other        258             0.4102                 0.340           0.4266              0.3710              0.2636             0.2868             0.4496
+
+--- GOOD YEARS VS BAD YEARS: REGIME DASHBOARD ---
+            days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share  avg_breakout_strength  \
+year_group                                                                                                                                                                        
+BadYears     983             0.4887                 0.435           0.4869              0.4782              0.3388             0.2930             0.3683                 0.4931   
+GoodYears    517             0.7549                 0.630           0.5220              0.5496              0.4023             0.2650             0.3327                 0.4564   
+Other        258             0.4102                 0.340           0.4266              0.3710              0.2636             0.2868             0.4496                 0.3437   
+
+            median_breakout_strength  avg_bars_after_or  median_bars_after_or  avg_trade_or_pct_rank  median_trade_or_pct_rank  trade_share_bar1  trade_share_bar2  trade_share_bar3plus  \
+year_group                                                                                                                                                                                 
+BadYears                      0.3503             1.4569                   1.0                 0.6259                    0.6114            0.5431            0.4569                   0.0   
+GoodYears                     0.3464             1.3603                   1.0                 0.6442                    0.6210            0.6397            0.3603                   0.0   
+Other                         0.3333             1.3953                   1.0                 0.5494                    0.5179            0.6047            0.3953                   0.0   
+
+            trade_share_long  trade_share_short  trade_share_weak  trade_share_medium  trade_share_strong  trade_share_or_low  trade_share_or_mid  trade_share_or_high  Trades  Total PnL (USD)  \
+year_group                                                                                                                                                                                        
+BadYears              0.7414             0.2586            0.2845              0.2759              0.4397                 0.0              0.5991               0.4009     232         -30961.0   
+GoodYears             0.7132             0.2868            0.2426              0.3088              0.4485                 0.0              0.5662               0.4338     136          51352.0   
+Other                 0.6279             0.3721            0.2558              0.3488              0.3953                 0.0              0.7907               0.2093      43           2234.0   
+
+            Profit Factor  Winrate  Expectancy (USD/trade)  Sharpe (trade-level)  Max Drawdown (USD)  Max Losing Streak (trades)  
+year_group                                                                                                                        
+BadYears           0.6601   0.5000               -133.4526               -2.2321             32526.0                           5  
+GoodYears          2.2167   0.6250                377.5882                1.9807              8397.0                           4  
+Other              1.2059   0.5581                 51.9535                0.3486              4447.0                           5  
+BD:s edge är i hög grad en high-OR / early-timing modell, men den är fortfarande känslig för fel long-exponering i “fel” regimer. Bra år verkar inte 
+drivas av starkare breakout strength i sig, utan av bättre OR-miljö och tidigare signal-timing. 
+1. Bra år har tydligt bättre OR-miljö
+Jämför GoodYears vs BadYears:
+avg_opening_range: 0.7549 vs 0.4887
+avg_or_pct_rank: 0.5220 vs 0.4869
+high_vol_day_share: 0.4023 vs 0.3388
+low_vol_day_share: 0.3327 vs 0.3683
+Detta säger:
+bra år har större opening ranges
+bra år har fler high-vol days
+bra år har färre low-vol days
+Det här är helt i linje med att BD inte är en miljö allsidig OR breakout, utan en modell som vill ha mer expansionsvänliga sessioner.
+
+2. Timing skiljer bra år från dåliga år
+GoodYears:
+trade_share_bar1: 0.6397
+trade_share_bar2: 0.3603
+BadYears:
+trade_share_bar1: 0.5431
+trade_share_bar2: 0.4569
+Detta är starkt, bra år får alltså:
+fler signaler på första baren
+färre på andra baren
+Det stärker vår tidigare insikt i in sample, att omedelbarhet spelar roll. Modellen fungerar bättre när breakout kommer direkt efter OR, inte när den 
+dröjer.
+
+3. Breakout strength verkar inte vara huvudförklaringen
+Det här är viktigt, för det hjälper oss att prioritera rätt.
+GoodYears vs BadYears:
+avg_breakout_strength: 0.4564 vs 0.4931
+median_breakout_strength: 0.3464 vs 0.3503
+Det är i princip ingen fördel för bra år här. Snarare tvärtom i snitt. Det betyder att skillnaden mellan bra och dåliga år inte förklaras primärt av 
+att signalerna är “starkare”. Det här är en viktig korrigering av fokus. Breakout strength är fortfarande användbar, men den verkar inte vara den 
+huvudsakliga regimdrivaren i BD.
+
+4. Long-sidan är fortfarande huvudproblemet
+Det här ser jag som den största praktiska svagheten.
+I dåliga år:
+trade_share_long: 0.7414
+alltså nästan 74% longs
+Och årsresultat visar att när longs går fel:
+2019: dåligt
+2020: dåligt
+2021: svagt negativt
+2023: mycket dåligt
+Detta betyder att modellen i dåliga år har mycket long-exponering i en miljö där den long-exponeringen inte får betalt. Det är kärnproblemet.
+
+5. 2023 sticker ut som ett väldigt tydligt failure mode
+2023 är den mest lärorika negativa perioden.
+Vi ser:
+låg avg_or_pct_rank: 0.3468
+hög low_vol_day_share: 0.5642
+låg trade_share_strong: 0.2885
+hög trade_share_medium: 0.3462
+långandel: 0.7115
+resultat: katastrofalt negativt
+Det här säger i praktiken att BD fungerar väldigt dåligt när marknaden ger många låga OR-dagar och en större andel medium-strength setups samtidigt 
+som modellen fortfarande tar mycket longs. Det här är nästan en “case study” i modellens svaghet.
+
+6. 2022 och 2024 fungerar av olika skäl, men med gemensam nämnare
+Båda är bra år, men de ser inte identiska ut.
+2022
+extremt stor OR
+väldigt hög high-vol share
+mycket stark performance
+2024
+inte lika stor OR som 2022
+men mycket hög bar1-andel: 0.6667
+stark performance ändå
+Så den gemensamma nämnaren verkar vara expansionsvänlig OR-miljö, fler tidiga signaler och inte nödvändigtvis högre breakout strength. Det är viktigt. 
+Det säger att vi ska fokusera mer på OR-regim och timing än på strength som huvudfilter.
+Modell BD presterar sammanfattningsvis bäst i högre opening range percentiler, tidiga breakouts och miljlöer där expansion efter US-open är mer 
+sannolik. Det som skadar modellen är low-vol opening range dagar, väldigt hög andel longs och senare entries. Skillnaden mellan bra och dåliga år för
+BD förklaras mer av OR-regim och signaltiming än av breakout strength. 
