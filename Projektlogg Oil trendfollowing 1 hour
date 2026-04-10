@@ -1,1 +1,2 @@
+Basidén är simpel, vi går in i position vid moving average crossover samtidigt som atr(14) > atr(14) ma. In sample är 2011 - 2017, där vi optimerar och sedan validerar olika modeller på walk forward som är 2018-2019. Out of sample blir 2020 - 2025.
 
