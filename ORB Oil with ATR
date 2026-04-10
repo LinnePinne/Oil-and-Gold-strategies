@@ -1302,10 +1302,178 @@ kommer ungefär se ut såhär:
 3. När vi har en ny kandidat, kör den en gång på 2019–2025
 Vi delar upp in sample i 2011-2016 där vi testar och utforkar nya ideér för att skapa nya modeller. Sedan testas modellerna på 2017-2018 där modellerna 
 valideras inför stora out of sample igen. I det nya in sample 2011-2016 är det Modell B + D som är baseline, och resultatet där ser ut såhär:
-All LONGS
-{'Trades': 275, 'Total PnL (USD)': 31220.005999999754, 'Gross Profit (USD)': 117235.0019999998, 'Gross Loss (USD)': -86014.99600000006, 'Profit Factor': 1.3629600354803217, 'Winrate': 0.5345454545454545, 'Avg Win (USD)': 797.5170204081619, 'Avg Loss (USD)': -671.9921562500004, 'Expectancy (USD/trade)': 113.52729454545366, 'Max Drawdown (USD)': 7805.000000000022, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 1.886550188990925}
 All SHORTS
 {'Trades': 166, 'Total PnL (USD)': 20422.003999999855, 'Gross Profit (USD)': 68324.99999999987, 'Gross Loss (USD)': -47902.99599999999, 'Profit Factor': 1.4263199738070638, 'Winrate': 0.4879518072289157, 'Avg Win (USD)': 843.5185185185169, 'Avg Loss (USD)': -563.5646588235293, 'Expectancy (USD/trade)': 123.02412048192684, 'Max Drawdown (USD)': 3865.0000000000073, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 1.5524810000575546}
+SHORTS > 60th percentile Opening range
+{'Trades': 29, 'Total PnL (USD)': -745.9980000000219, 'Gross Profit (USD)': 9895.000000000002, 'Gross Loss (USD)': -10640.998000000025, 'Profit Factor': 0.9298939817487024, 'Winrate': 0.41379310344827586, 'Avg Win (USD)': 824.5833333333335, 'Avg Loss (USD)': -625.9410588235309, 'Expectancy (USD/trade)': -25.724068965517997, 'Max Drawdown (USD)': 5115.998000000027, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': -0.14749245187668322}
+SHORTS 40-60th percentile Opening range
+{'Trades': 99, 'Total PnL (USD)': 15114.001999999935, 'Gross Profit (USD)': 46248.99999999989, 'Gross Loss (USD)': -31134.99799999996, 'Profit Factor': 1.4854344940057471, 'Winrate': 0.47474747474747475, 'Avg Win (USD)': 984.0212765957424, 'Avg Loss (USD)': -598.7499615384608, 'Expectancy (USD/trade)': 152.6666868686862, 'Max Drawdown (USD)': 4682.999999999991, 'Max Losing Streak (trades)': 6, 'Sharpe (trade-level)': 1.3079962543453678}
+SHORTS > 50th percentile Opening range
+{'Trades': 82, 'Total PnL (USD)': 13193.00399999991, 'Gross Profit (USD)': 41021.001999999935, 'Gross Loss (USD)': -27827.99800000003, 'Profit Factor': 1.4740910215675556, 'Winrate': 0.5, 'Avg Win (USD)': 1000.5122439024375, 'Avg Loss (USD)': -678.7316585365861, 'Expectancy (USD/trade)': 160.89029268292572, 'Max Drawdown (USD)': 4213.996000000008, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 1.2031381914245014}
+SHORTS <= 40th percentile Opening range
+{'Trades': 38, 'Total PnL (USD)': 6053.999999999943, 'Gross Profit (USD)': 12180.999999999962, 'Gross Loss (USD)': -6127.000000000018, 'Profit Factor': 1.9880855230944876, 'Winrate': 0.5789473684210527, 'Avg Win (USD)': 553.6818181818164, 'Avg Loss (USD)': -382.93750000000114, 'Expectancy (USD/trade)': 159.3157894736827, 'Max Drawdown (USD)': 1508.0, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': 1.5771522581970605}
+SHORTS < 33th percentile Opening range
+{}
+SHORTS 33-66th percentile Opening range
+{'Trades': 166, 'Total PnL (USD)': 20422.003999999855, 'Gross Profit (USD)': 68324.99999999987, 'Gross Loss (USD)': -47902.99599999999, 'Profit Factor': 1.4263199738070638, 'Winrate': 0.4879518072289157, 'Avg Win (USD)': 843.5185185185169, 'Avg Loss (USD)': -563.5646588235293, 'Expectancy (USD/trade)': 123.02412048192684, 'Max Drawdown (USD)': 3865.0000000000073, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 1.5524810000575546}
+SHORTS > 66th percentile Opening range
+{}
+All LONGS
+{'Trades': 275, 'Total PnL (USD)': 31220.005999999754, 'Gross Profit (USD)': 117235.0019999998, 'Gross Loss (USD)': -86014.99600000006, 'Profit Factor': 1.3629600354803217, 'Winrate': 0.5345454545454545, 'Avg Win (USD)': 797.5170204081619, 'Avg Loss (USD)': -671.9921562500004, 'Expectancy (USD/trade)': 113.52729454545366, 'Max Drawdown (USD)': 7805.000000000022, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 1.886550188990925}
+LONGS > 60th percentile Opening range
+{'Trades': 149, 'Total PnL (USD)': 15473.000999999882, 'Gross Profit (USD)': 61798.9979999999, 'Gross Loss (USD)': -46325.99700000001, 'Profit Factor': 1.3340025472090733, 'Winrate': 0.5033557046979866, 'Avg Win (USD)': 823.9866399999986, 'Avg Loss (USD)': -626.0269864864866, 'Expectancy (USD/trade)': 103.84564429530123, 'Max Drawdown (USD)': 6362.000000000027, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.3006414323949567}
+LONGS 40-60th percentile Opening range
+{'Trades': 89, 'Total PnL (USD)': -1527.9920000001143, 'Gross Profit (USD)': 32599.0049999999, 'Gross Loss (USD)': -34126.99700000001, 'Profit Factor': 0.9552262978192863, 'Winrate': 0.5280898876404494, 'Avg Win (USD)': 693.5958510638277, 'Avg Loss (USD)': -812.5475476190479, 'Expectancy (USD/trade)': -17.16844943820353, 'Max Drawdown (USD)': 9024.999999999998, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': -0.15982825118614163}
+LONGS > 50th percentile Opening range
+{'Trades': 197, 'Total PnL (USD)': 15552.006999999861, 'Gross Profit (USD)': 80812.00199999986, 'Gross Loss (USD)': -65259.99499999999, 'Profit Factor': 1.2383084307622132, 'Winrate': 0.5228426395939086, 'Avg Win (USD)': 784.5825436893191, 'Avg Loss (USD)': -694.2552659574467, 'Expectancy (USD/trade)': 78.94419796954244, 'Max Drawdown (USD)': 6727.000000000019, 'Max Losing Streak (trades)': 6, 'Sharpe (trade-level)': 1.1135182342809393}
+LONGS <= 40th percentile Opening range
+{'Trades': 37, 'Total PnL (USD)': 17274.996999999978, 'Gross Profit (USD)': 22836.999000000003, 'Gross Loss (USD)': -5562.002000000027, 'Profit Factor': 4.10589550309401, 'Winrate': 0.6756756756756757, 'Avg Win (USD)': 913.4799600000001, 'Avg Loss (USD)': -463.5001666666689, 'Expectancy (USD/trade)': 466.8918108108102, 'Max Drawdown (USD)': 1730.999999999994, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 2.8493413789123836}
+LONGS < 33th percentile Opening range
+{}
+LONGS 33-66th percentile Opening range
+{'Trades': 145, 'Total PnL (USD)': 11747.00499999986, 'Gross Profit (USD)': 62625.00399999991, 'Gross Loss (USD)': -50877.999000000054, 'Profit Factor': 1.230885750833083, 'Winrate': 0.5517241379310345, 'Avg Win (USD)': 782.812549999999, 'Avg Loss (USD)': -782.738446153847, 'Expectancy (USD/trade)': 81.01382758620592, 'Max Drawdown (USD)': 10249.000000000087, 'Max Losing Streak (trades)': 6, 'Sharpe (trade-level)': 0.9163991482573101}
+LONGS > 66th percentile Opening range
+{'Trades': 130, 'Total PnL (USD)': 19473.000999999887, 'Gross Profit (USD)': 54609.99799999989, 'Gross Loss (USD)': -35136.996999999996, 'Profit Factor': 1.5542021988959358, 'Winrate': 0.5153846153846153, 'Avg Win (USD)': 815.0745970149237, 'Avg Loss (USD)': -557.730111111111, 'Expectancy (USD/trade)': 149.7923153846145, 'Max Drawdown (USD)': 6288.0, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.8549643793791892}
+Weak Breakouts < 0.15
+{'Trades': 97, 'Total PnL (USD)': 24164.000999999895, 'Gross Profit (USD)': 49019.99899999987, 'Gross Loss (USD)': -24855.99799999998, 'Profit Factor': 1.9721597579787344, 'Winrate': 0.6082474226804123, 'Avg Win (USD)': 830.847440677964, 'Avg Loss (USD)': -654.1052105263153, 'Expectancy (USD/trade)': 249.11341237113294, 'Max Drawdown (USD)': 4971.000000000007, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 2.4497801409843643}
+Weak Breakouts LONGS < 0.15
+{'Trades': 65, 'Total PnL (USD)': 20122.99799999991, 'Gross Profit (USD)': 37937.99799999991, 'Gross Loss (USD)': -17814.999999999996, 'Profit Factor': 2.1295536345775985, 'Winrate': 0.6, 'Avg Win (USD)': 972.7691794871772, 'Avg Loss (USD)': -685.1923076923075, 'Expectancy (USD/trade)': 309.5845846153832, 'Max Drawdown (USD)': 3631.0000000000055, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 2.2386345149033113}
+Weak Breakouts SHORTS < 0.15
+{'Trades': 32, 'Total PnL (USD)': 4041.0029999999815, 'Gross Profit (USD)': 11082.00099999997, 'Gross Loss (USD)': -7040.997999999985, 'Profit Factor': 1.5739247475997, 'Winrate': 0.625, 'Avg Win (USD)': 554.1000499999984, 'Avg Loss (USD)': -586.749833333332, 'Expectancy (USD/trade)': 126.28134374999942, 'Max Drawdown (USD)': 2606.99999999998, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': 0.9939806515067248}
+Medium Breakouts 0.15-0.40
+{'Trades': 115, 'Total PnL (USD)': 15364.008999999964, 'Gross Profit (USD)': 48271.00399999996, 'Gross Loss (USD)': -32906.994999999995, 'Profit Factor': 1.4668918872719907, 'Winrate': 0.5043478260869565, 'Avg Win (USD)': 832.2586896551717, 'Avg Loss (USD)': -577.3157017543858, 'Expectancy (USD/trade)': 133.60007826086925, 'Max Drawdown (USD)': 6836.000000000011, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 1.5010806523276985}
+Medium Breakouts LONGS 0.15-0.40
+{'Trades': 68, 'Total PnL (USD)': 7984.009999999995, 'Gross Profit (USD)': 28474.003999999975, 'Gross Loss (USD)': -20489.993999999984, 'Profit Factor': 1.3896540916507831, 'Winrate': 0.5294117647058824, 'Avg Win (USD)': 790.9445555555549, 'Avg Loss (USD)': -640.3123124999995, 'Expectancy (USD/trade)': 117.4119117647058, 'Max Drawdown (USD)': 5595.999999999992, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.038297204957489}
+Medium Breakouts SHORTS 0.15-0.40
+{'Trades': 47, 'Total PnL (USD)': 7379.998999999969, 'Gross Profit (USD)': 19796.999999999978, 'Gross Loss (USD)': -12417.001000000007, 'Profit Factor': 1.5943463320974176, 'Winrate': 0.46808510638297873, 'Avg Win (USD)': 899.8636363636354, 'Avg Loss (USD)': -496.6800400000003, 'Expectancy (USD/trade)': 157.02125531914828, 'Max Drawdown (USD)': 4110.000000000012, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': 1.0818169233004253}
+Strong Breakouts >= 0.40
+{'Trades': 229, 'Total PnL (USD)': 12113.999999999745, 'Gross Profit (USD)': 88268.99899999984, 'Gross Loss (USD)': -76154.99900000007, 'Profit Factor': 1.1590703192051746, 'Winrate': 0.4847161572052402, 'Avg Win (USD)': 795.2162072072057, 'Avg Loss (USD)': -645.3813474576277, 'Expectancy (USD/trade)': 52.89956331877618, 'Max Drawdown (USD)': 13560.00000000012, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 0.7769123952818728}
+Strong Breakouts LONGS >= 0.40
+{'Trades': 142, 'Total PnL (USD)': 3112.9979999998504, 'Gross Profit (USD)': 50822.99999999991, 'Gross Loss (USD)': -47710.002000000066, 'Profit Factor': 1.0652483309474572, 'Winrate': 0.5070422535211268, 'Avg Win (USD)': 705.8749999999987, 'Avg Loss (USD)': -681.5714571428581, 'Expectancy (USD/trade)': 21.92252112675951, 'Max Drawdown (USD)': 11427.000000000055, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 0.27065711044700685}
+Strong Breakouts SHORTS >= 0.40
+{'Trades': 87, 'Total PnL (USD)': 9001.001999999904, 'Gross Profit (USD)': 37445.99899999992, 'Gross Loss (USD)': -28444.99700000001, 'Profit Factor': 1.316435329559005, 'Winrate': 0.4482758620689655, 'Avg Win (USD)': 960.1538205128186, 'Avg Loss (USD)': -592.6041041666668, 'Expectancy (USD/trade)': 103.45979310344717, 'Max Drawdown (USD)': 7237.000000000025, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 0.8519128490540262}
+First Bar Breakouts
+{'Trades': 267, 'Total PnL (USD)': 30028.004999999877, 'Gross Profit (USD)': 111321.00099999987, 'Gross Loss (USD)': -81292.99600000001, 'Profit Factor': 1.3693799770892914, 'Winrate': 0.5093632958801498, 'Avg Win (USD)': 818.5367720588226, 'Avg Loss (USD)': -620.5572213740459, 'Expectancy (USD/trade)': 112.46443820224673, 'Max Drawdown (USD)': 6714.999999999967, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 1.8449192096792169}
+First Bar Breakouts LONGS
+{'Trades': 159, 'Total PnL (USD)': 12920.003999999979, 'Gross Profit (USD)': 66451.00199999996, 'Gross Loss (USD)': -53530.997999999985, 'Profit Factor': 1.241355560006559, 'Winrate': 0.5157232704402516, 'Avg Win (USD)': 810.3780731707312, 'Avg Loss (USD)': -695.207766233766, 'Expectancy (USD/trade)': 81.2578867924527, 'Max Drawdown (USD)': 7234.000000000018, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 1.0021974581726416}
+First Bar Breakouts SHORTS
+{'Trades': 108, 'Total PnL (USD)': 17108.0009999999, 'Gross Profit (USD)': 44869.99899999991, 'Gross Loss (USD)': -27761.998000000014, 'Profit Factor': 1.616238103611991, 'Winrate': 0.5, 'Avg Win (USD)': 830.9259074074057, 'Avg Loss (USD)': -514.1110740740743, 'Expectancy (USD/trade)': 158.40741666666574, 'Max Drawdown (USD)': 3191.000000000022, 'Max Losing Streak (trades)': 6, 'Sharpe (trade-level)': 1.7167813487006813}
+Second Bar Breakouts
+{'Trades': 174, 'Total PnL (USD)': 21614.00499999973, 'Gross Profit (USD)': 74239.00099999979, 'Gross Loss (USD)': -52624.99600000004, 'Profit Factor': 1.4107174658977595, 'Winrate': 0.5287356321839081, 'Avg Win (USD)': 806.945663043476, 'Avg Loss (USD)': -641.7682439024395, 'Expectancy (USD/trade)': 124.21841954022834, 'Max Drawdown (USD)': 6455.000000000047, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.6022066707284166}
+Second Bar Breakouts LONGS
+{'Trades': 116, 'Total PnL (USD)': 18300.00199999978, 'Gross Profit (USD)': 50783.999999999825, 'Gross Loss (USD)': -32483.998000000058, 'Profit Factor': 1.5633543629697224, 'Winrate': 0.5603448275862069, 'Avg Win (USD)': 781.292307692305, 'Avg Loss (USD)': -636.9411372549031, 'Expectancy (USD/trade)': 157.75863793103258, 'Max Drawdown (USD)': 6040.000000000018, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 1.758841437244278}
+Second Bar Breakouts SHORTS
+{'Trades': 58, 'Total PnL (USD)': 3314.0029999999615, 'Gross Profit (USD)': 23455.000999999953, 'Gross Loss (USD)': -20140.99799999999, 'Profit Factor': 1.164540158337733, 'Winrate': 0.46551724137931033, 'Avg Win (USD)': 868.703740740739, 'Avg Loss (USD)': -649.7096129032254, 'Expectancy (USD/trade)': 57.137982758620026, 'Max Drawdown (USD)': 5300.996999999997, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 0.3839259335052867}
+--- DAILY REGIME SUMMARY PER ÅR ---
+      days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share
+Year                                                                                                                                              
+2011   157             0.7777                0.6820           0.5860              0.5942              0.4331             0.3694             0.1975
+2012   294             0.3647                0.3700           0.3240              0.2500              0.1395             0.2721             0.5884
+2013   336             0.2242                0.2355           0.4939              0.5079              0.3155             0.3274             0.3571
+2014   295             0.2921                0.2700           0.5839              0.5813              0.4237             0.3966             0.1797
+2015   258             0.4426                0.3945           0.5414              0.5417              0.3837             0.3488             0.2674
+2016   258             0.3910                0.3715           0.4551              0.4524              0.2829             0.3178             0.3992
+--- YEARLY TRADE FEATURE SUMMARY ---
+      avg_breakout_strength  median_breakout_strength  avg_bars_after_or  median_bars_after_or  avg_trade_or_pct_rank  median_trade_or_pct_rank
+Year                                                                                                                                           
+2011                 0.5078                    0.4286             1.4912                   1.0                 0.6185                    0.6027
+2012                 0.4593                    0.3365             1.3077                   1.0                 0.5104                    0.4685
+2013                 0.5248                    0.3822             1.3258                   1.0                 0.6017                    0.5794
+2014                 0.7694                    0.5548             1.4316                   1.0                 0.6005                    0.5595
+2015                 0.6857                    0.4724             1.4545                   1.0                 0.5794                    0.5595
+2016                 0.4554                    0.2942             1.3521                   1.0                 0.5739                    0.5536
+--- TIMING MIX PER ÅR ---
+timing_bucket  trade_share_bar1  trade_share_bar2  trade_share_bar3plus
+Year                                                                   
+2011                     0.5088            0.4912                   0.0
+2012                     0.6923            0.3077                   0.0
+2013                     0.6742            0.3258                   0.0
+2014                     0.5684            0.4316                   0.0
+2015                     0.5455            0.4545                   0.0
+2016                     0.6479            0.3521                   0.0
+--- DIRECTION MIX PER ÅR ---
+Direction  trade_share_long  trade_share_short
+Year                                          
+2011                 0.8246             0.1754
+2012                 0.5000             0.5000
+2013                 0.6067             0.3933
+2014                 0.6105             0.3895
+2015                 0.6494             0.3506
+2016                 0.5634             0.4366
+--- BREAKOUT STRENGTH MIX PER ÅR ---
+strength_bucket  trade_share_weak  trade_share_medium  trade_share_strong
+Year                                                                     
+2011                       0.2105              0.2456              0.5439
+2012                       0.2500              0.3462              0.4038
+2013                       0.2247              0.2921              0.4831
+2014                       0.1789              0.2000              0.6211
+2015                       0.1169              0.2987              0.5844
+2016                       0.3662              0.2113              0.4225
+--- OR BUCKET MIX PER ÅR ---
+or_bucket  trade_share_or_low  trade_share_or_mid  trade_share_or_high
+Year                                                                  
+2011                      0.0              0.6140               0.3860
+2012                      0.0              0.8462               0.1538
+2013                      0.0              0.6742               0.3258
+2014                      0.0              0.6421               0.3579
+2015                      0.0              0.7403               0.2597
+2016                      0.0              0.7606               0.2394
+
+--- REGIME DASHBOARD PER ÅR ---
+days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share  avg_breakout_strength  median_breakout_strength  \
+Year                                                                                                                                                                                                  
+2011   157             0.7777                0.6820           0.5860              0.5942              0.4331             0.3694             0.1975                 0.5078                    0.4286   
+2012   294             0.3647                0.3700           0.3240              0.2500              0.1395             0.2721             0.5884                 0.4593                    0.3365   
+2013   336             0.2242                0.2355           0.4939              0.5079              0.3155             0.3274             0.3571                 0.5248                    0.3822   
+2014   295             0.2921                0.2700           0.5839              0.5813              0.4237             0.3966             0.1797                 0.7694                    0.5548   
+2015   258             0.4426                0.3945           0.5414              0.5417              0.3837             0.3488             0.2674                 0.6857                    0.4724   
+2016   258             0.3910                0.3715           0.4551              0.4524              0.2829             0.3178             0.3992                 0.4554                    0.2942   
+      avg_bars_after_or  median_bars_after_or  avg_trade_or_pct_rank  median_trade_or_pct_rank  trade_share_bar1  trade_share_bar2  trade_share_bar3plus  trade_share_long  trade_share_short  \
+Year                                                                                                                                                                                            
+2011             1.4912                   1.0                 0.6185                    0.6027            0.5088            0.4912                   0.0            0.8246             0.1754   
+2012             1.3077                   1.0                 0.5104                    0.4685            0.6923            0.3077                   0.0            0.5000             0.5000   
+2013             1.3258                   1.0                 0.6017                    0.5794            0.6742            0.3258                   0.0            0.6067             0.3933   
+2014             1.4316                   1.0                 0.6005                    0.5595            0.5684            0.4316                   0.0            0.6105             0.3895   
+2015             1.4545                   1.0                 0.5794                    0.5595            0.5455            0.4545                   0.0            0.6494             0.3506   
+2016             1.3521                   1.0                 0.5739                    0.5536            0.6479            0.3521                   0.0            0.5634             0.4366   
+      trade_share_weak  trade_share_medium  trade_share_strong  trade_share_or_low  trade_share_or_mid  trade_share_or_high  Trades  Total PnL (USD)  Profit Factor  Winrate  Expectancy (USD/trade)  \
+Year                                                                                                                                                                                                   
+2011            0.2105              0.2456              0.5439                 0.0              0.6140               0.3860      57         6098.000         1.2554   0.5614                106.9825   
+2012            0.2500              0.3462              0.4038                 0.0              0.8462               0.1538      52        27110.007         3.5491   0.6731                521.3463   
+2013            0.2247              0.2921              0.4831                 0.0              0.6742               0.3258      89        13473.003         1.4360   0.4944                151.3821   
+2014            0.1789              0.2000              0.6211                 0.0              0.6421               0.3579      95        -1577.000         0.9382   0.4526                -16.6000   
+2015            0.1169              0.2987              0.5844                 0.0              0.7403               0.2597      77         2861.000         1.1196   0.4416                 37.1558   
+2016            0.3662              0.2113              0.4225                 0.0              0.7606               0.2394      71         3677.000         1.1930   0.5634                 51.7887   
+      Sharpe (trade-level)  Max Drawdown (USD)  Max Losing Streak (trades)  
+Year                                                                        
+2011                0.6304            7145.000                           5  
+2012                3.2885            2735.002                           2  
+2013                1.1880           10468.000                           5  
+2014               -0.2172            6817.000                           4  
+2015                0.3699            6966.000                           7  
+2016                0.6018            3607.000                           5  
+--- GOOD YEARS VS BAD YEARS: DAILY REGIME SUMMARY ---
+            days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share
+year_group                                                                                                                                              
+BadYears     968             0.4373                  0.38           0.5386              0.5417              0.3771             0.3585             0.2645
+GoodYears    630             0.2898                  0.29           0.4146              0.3665              0.2333             0.3016             0.4651
+--- GOOD YEARS VS BAD YEARS: REGIME DASHBOARD ---
+            days  avg_opening_range  median_opening_range  avg_or_pct_rank  median_or_pct_rank  high_vol_day_share  mid_vol_day_share  low_vol_day_share  avg_breakout_strength  \
+year_group                                                                                                                                                                        
+BadYears     968             0.4373                  0.38           0.5386              0.5417              0.3771             0.3585             0.2645                 0.6239   
+GoodYears    630             0.2898                  0.29           0.4146              0.3665              0.2333             0.3016             0.4651                 0.5006   
+           median_breakout_strength  avg_bars_after_or  median_bars_after_or  avg_trade_or_pct_rank  median_trade_or_pct_rank  trade_share_bar1  trade_share_bar2  trade_share_bar3plus  \
+year_group                                                                                                                                                                                 
+BadYears                      0.4620             1.4300                   1.0                 0.5922                    0.5645            0.5700            0.4300                   0.0   
+GoodYears                     0.3675             1.3191                   1.0                 0.5680                    0.5516            0.6809            0.3191                   0.0   
+            trade_share_long  trade_share_short  trade_share_weak  trade_share_medium  trade_share_strong  trade_share_or_low  trade_share_or_mid  trade_share_or_high  Trades  Total PnL (USD)  \
+year_group                                                                                                                                                                                        
+BadYears              0.6500             0.3500            0.2133              0.2367              0.5500                 0.0              0.6900               0.3100     300         11059.00   
+GoodYears             0.5674             0.4326            0.2340              0.3121              0.4539                 0.0              0.7376               0.2624     141         40583.01   
+            Profit Factor  Winrate  Expectancy (USD/trade)  Sharpe (trade-level)  Max Drawdown (USD)  Max Losing Streak (trades)  
+year_group                                                                                                                        
+BadYears           1.1197   0.4967                 36.8633                0.7119              9590.0                           7  
+GoodYears          1.9771   0.5603                287.8228                2.8716             10468.0                           5  
 --- STATS ---
 Market: Brent Crude Oil (30Min)
 Trades: 441
@@ -1691,4 +1859,5 @@ Expectancy (USD/trade): 67.1803
 Max Drawdown (USD): 3741.0000
 Max Losing Streak (trades): 6
 Sharpe (trade-level): 0.6914
-
+Modell BD är klart bättre än båda dessa varianter. Vi får fortsätta hypotisera och komma upp med nya idéer. Om vi jämför diagnostiken från stora out of sample 2019 - 2025 och vårt nya in sample finns det ingen data som är konsekvent mellan två proverna.
+Det enda som är liknande är att i dåliga år så blir longs lite mer förekommande jämfört med bättre år. Detta är inte riktigt ett kvantifierbart mönster. Vi lägger detta projelt på hyllan och tar fram det igen om vi får nya ideér.
