@@ -375,3 +375,27 @@ Expectancy (USD/trade): 41.8571
 Max Drawdown (USD): 2885.0000
 Max Losing Streak (trades): 6
 Sharpe (trade-level): 0.6747
+Edgen verkar helt och hållet komma från exiten, filtret på endast entryär svagt för shorts och extremt negativt för longs. Därav kan vi falsifiera hypotesen att ATR hjälper främst genom att välja bättre entries. Det faktum att ATR entry inte ger edge
+säger att strategin vinner när en förbättrad exit modell implementeras som kan kapa förlorare snabbare, förkorta dåliga regimer och ge mer relevanta exits utifrån regimskifte. ATR exit versionen har också relativt balanserade resultat över åren där de
+flesta år är positiva med ett negativt år och ett svagt negativt år. Det starkaste tecknet är att både longs och shorts förbättras, och gör det över flera år. Nu har tre hypoteser testats, Hypotes A som säger att crossover i sig har edge, som felbevisades.
+Hypotes B, att ATR hjälper genom att filtrera entries, vilket inte var sant eller åtminstone inte nog för att bära modellen. Hypotes C, att ATR hjälper genom exit / trade management. Detta är just nu den klart starkaste kandidaten. En viktig nyans är att 
+ATR på både entry och exit inte är automatiskt bättre,
+ATR entry + ATR exit:
+PF 2.12
+expectancy 188
+DD ~ 5415
+389 trades
+
+ATR-exit-only:
+PF 1.756
+expectancy 104
+DD ~ 11803
+716 trades
+Den kombinerade modellen ser “bättre” ut på huvud metrik. Men det betyder inte automatiskt att den är bättre i professionell mening. Eftersom ATR-entry också halverar antal trades och därmed gör modellen mer selektiv. Detta kan göra den mer parameterkänslig
+och kan öka risken att vi fångar just den historiska struktur som passade samplet. Så ATR-båda kan vara bäst in-sample, men ATR-exit-only kan fortfarande vara den mer robusta kärnan. Det här måste bevisas i walk-forward, inte antas. Däremot är det viktigt
+att förstå att ATR-exit ATR(14) < ATR(14).ma50 går igenom direkt efter entry om påståendet är sant och ATR-entry ATR(14) > ATR(14).ma50 inte används. ATR-entry kan alltså ses som ett slags förutsatt påstående som måste vara sant för att ATR-exit inte ska gå
+igenom direkt efter entries. Utan ATR-entry och endast ATR-exit blir det inte längre “lämna när volregimen dör” utan ibland mer som “gå in och bli nästan omedelbart utkastad eftersom vi aldrig krävde rätt regim från början”. Så ATR-entry kan ses som ett slags 
+förhandsvillkor eller gating condition som gör ATR-exiten logiskt konsekvent, det betyder fortfarande inte att ATR-entry har edge utan att det kan fylla en logisk kompatibilitetsfunktion för ATR-exiteen. ATR-entry fungerar som ett regimvillkor som säkerställer 
+att nya positioner endast öppnas i den del av tillståndsrummet där ATR-exiten ännu inte är aktiv eller nära att aktiveras. Utan detta villkor kan ATR-exit triggas omedelbart eller nästan omedelbart efter entry, vilket gör entry- och exitlogiken mindre konsekvent.
+Detta förklarar även varför båda filtrerna tillsammans ger det bästa resultatet, vilket trots denna insikt måste bevisas i out of sample. Nästa steg är att näta hur många ATR-exits som sker 1-3 bars efter entry och resultatet på de trades, en sådan analys skulle
+testa detta påstående empiriskt. Det är även värt att jämföra average holding time för ATR-båda jämfört med endast crossover versionen, det kan validera påståendet att vi tar bättre justerade exits vid regimskifte. 
