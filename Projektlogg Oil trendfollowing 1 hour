@@ -424,4 +424,160 @@ exit sker. En betydande del av edge kommer från att ATR-baserad exit identifier
 innan walk forward testing ska vi göra en parameterstabilitetsstudie, vi vill se att strategin inte är parameter känslig. Är det endast en variation av parameter värden som har edge är strategin troligtiv overfittad till vårat sample, vi vill se att edge är konsekvent
 i liknande variationer som våran utgångsvariation EMA 25/50 och ATR(14), ATR(14).MA50. Detta görs genom en simuelring som testar alla möjliga variationer av dessa förutsatta värden ema_fast: 15, 20, 25, 30, 35, ema_slow: 40, 50, 60, 70, 80, atr_period: 10, 14, 20,
 atr_ma_period: 30, 50, 70, 100.
+=== TOP 20 efter Profit Factor ===
+                       Market  Trades  Total PnL (USD)  Gross Profit (USD)  Gross Loss (USD)  Profit Factor   Winrate  Avg Win (USD)  Avg Loss (USD)  Expectancy (USD/trade)  Max Drawdown (USD)  \
+11   Brent Crude Oil (1 Hour)     404       162097.010          201713.004        -39615.994       5.091706  0.589109     847.533630     -238.650566              401.230223            3144.998   
+23   Brent Crude Oil (1 Hour)     365       144969.010          184630.004        -39660.994       4.655204  0.594521     850.829512     -267.979689              397.175370            3593.000   
+71   Brent Crude Oil (1 Hour)     367       140884.009          182195.000        -41310.991       4.410328  0.569482     871.746411     -261.461968              383.880134            3268.000   
+35   Brent Crude Oil (1 Hour)     339       131809.012          173399.004        -41589.992       4.169248  0.566372     903.119812     -282.925116              388.817145            3688.000   
+47   Brent Crude Oil (1 Hour)     330       123681.011          163298.005        -39616.994       4.121918  0.542424     912.279358     -262.364199              374.790942            3955.000   
+83   Brent Crude Oil (1 Hour)     346       125490.010          168164.001        -42673.991       3.940667  0.543353     894.489367     -270.088551              362.687890            3908.000   
+131  Brent Crude Oil (1 Hour)     345       123865.010          169444.999        -45579.989       3.717530  0.556522     882.526036     -297.908425              359.029014            4849.000   
+227  Brent Crude Oil (1 Hour)     255        98155.011          135472.001        -37316.990       3.630304  0.498039    1066.708669     -291.538984              384.921612            3994.998   
+59   Brent Crude Oil (1 Hour)     325       116966.009          161634.000        -44667.991       3.618564  0.513846     967.868263     -282.708804              359.895412            3740.000   
+95   Brent Crude Oil (1 Hour)     318       108561.011          153965.003        -45403.992       3.391001  0.522013     927.500018     -298.710474              341.386827            5008.000   
+119  Brent Crude Oil (1 Hour)     305       104330.011          149150.002        -44819.991       3.327756  0.485246    1007.770284     -285.477650              342.065610            4687.000   
+179  Brent Crude Oil (1 Hour)     257        94679.009          135873.001        -41193.992       3.298369  0.486381    1086.984008     -312.075697              368.400813            3995.000   
+275  Brent Crude Oil (1 Hour)     252        91820.009          132089.999        -40269.990       3.280110  0.503968    1040.078732     -322.159920              364.365115            3615.000   
+251  Brent Crude Oil (1 Hour)     307       103920.010          149687.006        -45766.996       3.270632  0.530945     918.325190     -317.826361              338.501661            4462.000   
+191  Brent Crude Oil (1 Hour)     330       108296.013          156029.002        -47732.989       3.268788  0.512121     923.248533     -296.478193              328.169736            5552.000   
+239  Brent Crude Oil (1 Hour)     241        89352.010          129333.999        -39981.989       3.234807  0.543568     987.282435     -363.472627              370.755228            4013.000   
+10   Brent Crude Oil (1 Hour)     418       115431.007          167095.003        -51663.996       3.234264  0.555024     720.237082     -277.763419              276.150734            4806.000   
+33   Brent Crude Oil (1 Hour)     383       107600.010          156047.004        -48446.994       3.220984  0.519582     784.155799     -263.298880              280.939974            3545.000   
+143  Brent Crude Oil (1 Hour)     321       104477.012          152159.004        -47681.992       3.191121  0.529595     895.052965     -315.774781              325.473558            5559.000   
+7    Brent Crude Oil (1 Hour)     443       119192.014          173748.010        -54555.996       3.184765  0.541761     723.950042     -268.748749              269.056465            4167.000   
 
+     Max Losing Streak (trades)  Sharpe (trade-level)  EMA Fast  EMA Slow  ATR Period  ATR MA  Average Holding Time (hours)  Positive Years  Negative Years  
+11                            7              7.640299        15        40          20     100                     25.368812               8               0  
+23                            6              7.053227        15        50          20     100                     25.734247               7               1  
+71                            6              6.825113        20        40          20     100                     26.141689               8               0  
+35                            6              6.453279        15        60          20     100                     26.368732               7               1  
+47                            6              6.166626        15        70          20     100                     26.860606               7               1  
+83                            6              6.103957        20        50          20     100                     26.135838               7               1  
+131                           6              5.994308        25        40          20     100                     26.794203               7               1  
+227                           6              5.112498        30        70          20     100                     29.811765               7               1  
+59                           10              5.699076        15        80          20     100                     26.526154               7               1  
+95                            5              5.389163        20        60          20     100                     27.358491               7               1  
+119                           7              5.283996        20        80          20     100                     26.445902               7               1  
+179                           6              4.923601        25        80          20     100                     29.171206               6               2  
+275                           7              4.764928        35        60          20     100                     29.988095               7               1  
+251                           7              5.201447        35        40          20     100                     28.566775               6               2  
+191                           8              5.272345        30        40          20     100                     27.172727               6               2  
+239                           5              4.635148        30        80          20     100                     31.543568               7               1  
+10                            6              6.269043        15        40          20      70                     23.009569               8               0  
+33                            7              6.132471        15        60          20      50                     22.133159               7               1  
+143                           8              5.198852        25        50          20     100                     27.813084               6               2  
+7                             7              6.358998        15        40          14     100                     21.119639               8               0  
+
+=== FINAL TOP 30 ===
+                       Market  Trades  Total PnL (USD)  Gross Profit (USD)  Gross Loss (USD)  Profit Factor   Winrate  Avg Win (USD)  Avg Loss (USD)  Expectancy (USD/trade)  Max Drawdown (USD)  \
+11   Brent Crude Oil (1 Hour)     404       162097.010          201713.004        -39615.994       5.091706  0.589109     847.533630     -238.650566              401.230223            3144.998   
+23   Brent Crude Oil (1 Hour)     365       144969.010          184630.004        -39660.994       4.655204  0.594521     850.829512     -267.979689              397.175370            3593.000   
+71   Brent Crude Oil (1 Hour)     367       140884.009          182195.000        -41310.991       4.410328  0.569482     871.746411     -261.461968              383.880134            3268.000   
+35   Brent Crude Oil (1 Hour)     339       131809.012          173399.004        -41589.992       4.169248  0.566372     903.119812     -282.925116              388.817145            3688.000   
+47   Brent Crude Oil (1 Hour)     330       123681.011          163298.005        -39616.994       4.121918  0.542424     912.279358     -262.364199              374.790942            3955.000   
+83   Brent Crude Oil (1 Hour)     346       125490.010          168164.001        -42673.991       3.940667  0.543353     894.489367     -270.088551              362.687890            3908.000   
+131  Brent Crude Oil (1 Hour)     345       123865.010          169444.999        -45579.989       3.717530  0.556522     882.526036     -297.908425              359.029014            4849.000   
+227  Brent Crude Oil (1 Hour)     255        98155.011          135472.001        -37316.990       3.630304  0.498039    1066.708669     -291.538984              384.921612            3994.998   
+59   Brent Crude Oil (1 Hour)     325       116966.009          161634.000        -44667.991       3.618564  0.513846     967.868263     -282.708804              359.895412            3740.000   
+95   Brent Crude Oil (1 Hour)     318       108561.011          153965.003        -45403.992       3.391001  0.522013     927.500018     -298.710474              341.386827            5008.000   
+119  Brent Crude Oil (1 Hour)     305       104330.011          149150.002        -44819.991       3.327756  0.485246    1007.770284     -285.477650              342.065610            4687.000   
+179  Brent Crude Oil (1 Hour)     257        94679.009          135873.001        -41193.992       3.298369  0.486381    1086.984008     -312.075697              368.400813            3995.000   
+275  Brent Crude Oil (1 Hour)     252        91820.009          132089.999        -40269.990       3.280110  0.503968    1040.078732     -322.159920              364.365115            3615.000   
+251  Brent Crude Oil (1 Hour)     307       103920.010          149687.006        -45766.996       3.270632  0.530945     918.325190     -317.826361              338.501661            4462.000   
+191  Brent Crude Oil (1 Hour)     330       108296.013          156029.002        -47732.989       3.268788  0.512121     923.248533     -296.478193              328.169736            5552.000   
+239  Brent Crude Oil (1 Hour)     241        89352.010          129333.999        -39981.989       3.234807  0.543568     987.282435     -363.472627              370.755228            4013.000   
+10   Brent Crude Oil (1 Hour)     418       115431.007          167095.003        -51663.996       3.234264  0.555024     720.237082     -277.763419              276.150734            4806.000   
+33   Brent Crude Oil (1 Hour)     383       107600.010          156047.004        -48446.994       3.220984  0.519582     784.155799     -263.298880              280.939974            3545.000   
+143  Brent Crude Oil (1 Hour)     321       104477.012          152159.004        -47681.992       3.191121  0.529595     895.052965     -315.774781              325.473558            5559.000   
+7    Brent Crude Oil (1 Hour)     443       119192.014          173748.010        -54555.996       3.184765  0.541761     723.950042     -268.748749              269.056465            4167.000   
+167  Brent Crude Oil (1 Hour)     281        95249.013          139286.002        -44036.989       3.162932  0.498221     994.900014     -312.319071              338.964459            4057.000   
+9    Brent Crude Oil (1 Hour)     452       117649.008          172177.004        -54527.996       3.157589  0.517699     735.799162     -250.128422              260.285416            3399.998   
+107  Brent Crude Oil (1 Hour)     306       100090.011          147513.002        -47422.991       3.110580  0.496732     970.480276     -307.941500              327.091539            4486.000   
+21   Brent Crude Oil (1 Hour)     421       109311.008          161138.002        -51826.994       3.109152  0.520190     735.789963     -256.569277              259.646100            3906.000   
+215  Brent Crude Oil (1 Hour)     272        92839.011          136903.000        -44063.989       3.106913  0.492647    1021.664179     -319.304268              341.319893            4015.000   
+299  Brent Crude Oil (1 Hour)     227        79515.011          117533.000        -38017.989       3.091510  0.515419    1004.555556     -345.618082              350.286392            3179.998   
+34   Brent Crude Oil (1 Hour)     360       102930.006          152225.000        -49294.994       3.088042  0.541667     780.641026     -298.757539              285.916683            4586.000   
+69   Brent Crude Oil (1 Hour)     419       109972.008          163642.001        -53669.993       3.049041  0.508353     768.272305     -260.533947              262.463026            3876.000   
+46   Brent Crude Oil (1 Hour)     355        94491.010          141041.000        -46549.990       3.029882  0.546479     727.015464     -289.130373              266.171859            5406.000   
+19   Brent Crude Oil (1 Hour)     414       108903.013          162617.007        -53713.994       3.027461  0.557971     703.969727     -293.519093              263.050756            5090.000   
+
+     Max Losing Streak (trades)  Sharpe (trade-level)  EMA Fast  EMA Slow  ATR Period  ATR MA  Average Holding Time (hours)  Positive Years  Negative Years  
+11                            7              7.640299        15        40          20     100                     25.368812               8               0  
+23                            6              7.053227        15        50          20     100                     25.734247               7               1  
+71                            6              6.825113        20        40          20     100                     26.141689               8               0  
+35                            6              6.453279        15        60          20     100                     26.368732               7               1  
+47                            6              6.166626        15        70          20     100                     26.860606               7               1  
+83                            6              6.103957        20        50          20     100                     26.135838               7               1  
+131                           6              5.994308        25        40          20     100                     26.794203               7               1  
+227                           6              5.112498        30        70          20     100                     29.811765               7               1  
+59                           10              5.699076        15        80          20     100                     26.526154               7               1  
+95                            5              5.389163        20        60          20     100                     27.358491               7               1  
+119                           7              5.283996        20        80          20     100                     26.445902               7               1  
+179                           6              4.923601        25        80          20     100                     29.171206               6               2  
+275                           7              4.764928        35        60          20     100                     29.988095               7               1  
+251                           7              5.201447        35        40          20     100                     28.566775               6               2  
+191                           8              5.272345        30        40          20     100                     27.172727               6               2  
+239                           5              4.635148        30        80          20     100                     31.543568               7               1  
+10                            6              6.269043        15        40          20      70                     23.009569               8               0  
+33                            7              6.132471        15        60          20      50                     22.133159               7               1  
+143                           8              5.198852        25        50          20     100                     27.813084               6               2  
+7                             7              6.358998        15        40          14     100                     21.119639               8               0  
+167                           9              4.927616        25        70          20     100                     28.274021               6               2  
+9                             6              6.265024        15        40          20      50                     20.568584               8               0  
+107                          10              5.006638        20        70          20     100                     27.225490               6               2  
+21                            8              6.118407        15        50          20      50                     21.232779               7               1  
+215                           9              4.787714        30        60          20     100                     28.613971               6               2  
+299                           6              4.742192        35        80          20     100                     33.581498               7               1  
+34                            9              5.992140        15        60          20      70                     24.536111               7               1  
+69                            9              6.003345        20        40          20      50                     21.594272               7               1  
+46                            8              5.725087        15        70          20      70                     24.411268               8               0  
+19                            8              6.076045        15        50          14     100                     21.234300               7               1  
+Detta är bra, det ser ut som en stabil zon, inte bara en enstaka topp. Den tydligaste signalen är:
+ATR period 20 dominerar toppen
+ATR MA 100 återkommer hela tiden
+flera kombinationer av EMA fast/slow fungerar
+många toppkombinationer har 7–8 positiva år och 0–1 negativa år
+Det är alltså inte så att 25/50 råkar fungera utan hela området kring snabbare/långsammare EMA + ATR 20 / MA 100 verkar robust. De bästa EMA zonerna ligger vid fast = 15-25 och slow = 40 -70. För ATR är period 20 bäst med högre ATR ma upp mot 100. Det här antyder 
+att den edge vi fångar med ATR-exit kanske inte handlar om väldigt snabb volregim, utan om en lite långsammare, mer uthållig volregimdefinition. Det matchar också att holding time går upp till cirka 25–30 timmar i toppresultaten, jämfört med kortare i era tidigare 
+varianter. Det bästa är att många närliggande kombinationer fungerar, flera kombinationer har 7-8 positiva år, dd relativt låg i förhållande till total pnl, winrate ligger ganska konsekvent runt 0.50-0.59, avg win är större än avg loss. Detta är fortfarande in sample
+så vi får inte dra slutsatsen att vi har hittat de bästa parametrarna, rätt slutsats är att vi har identifierat en tydlig och lovande parameterregion som ser robust ut i in sample. Vi tar ut några närliggande kombinationer till en kandidatgrupp och kör den vanliga 
+backtest motorn för varje kandidat och tar ut resultat per år. Kandidaterna vi tar ut är 15/40, 20/100 och 15/50, 20/100 och 20/40, 20/100 och 15/60, 20/100 och 20/50, 20/100.
+Möjligt logikfel men in_position variabeln, för entries har alltid if in_position and pos_direction == "LONG": continue använts i entry funktionerna men när vi ändrar till if in_position = continue som globalt över entry blocket förändras resultaten helt. Vi måste 
+felsöka och förstå detta.
+Med bara ATR-exit:
+=== SAME-ITERATION ENTRY TRADES ===
+Antal: 21
+
+Stats:
+{'Trades': 21, 'Total PnL (USD)': -2351.0000000000446, 'Gross Profit (USD)': 562.9999999999939, 'Gross Loss (USD)': -2914.0000000000387, 'Profit Factor': 0.19320521619766176, 'Winrate': 0.23809523809523808, 'Avg Win (USD)': 112.59999999999877, 'Avg Loss (USD)': -182.12500000000242, 'Expectancy (USD/trade)': -111.95238095238308, 'Max Drawdown (USD)': 2623.0000000000414, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': -2.2340500512023302}
+
+Previous direction:
+same_iteration_previous_direction
+LONG     11
+SHORT    10
+Name: count, dtype: int64
+
+Exit reason before entry:
+same_iteration_exit_reason
+atr_exit    21
+Name: count, dtype: int64
+
+Previous direction -> new direction:
+same_iteration_previous_direction  Direction
+LONG                               SHORT        11
+SHORT                              LONG         10
+dtype: int64
+
+=== SAME-ITERATION FLIPS ===
+Antal flips: 21
+{'Trades': 21, 'Total PnL (USD)': -2351.0000000000446, 'Gross Profit (USD)': 562.9999999999939, 'Gross Loss (USD)': -2914.0000000000387, 'Profit Factor': 0.19320521619766176, 'Winrate': 0.23809523809523808, 'Avg Win (USD)': 112.59999999999877, 'Avg Loss (USD)': -182.12500000000242, 'Expectancy (USD/trade)': -111.95238095238308, 'Max Drawdown (USD)': 2623.0000000000414, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': -2.2340500512023302}
+
+=== NON SAME-ITERATION ENTRY TRADES ===
+Antal: 901
+Med ATR-båda:
+=== SAME-ITERATION ENTRY TRADES ===
+Antal: 0
+
+=== NON SAME-ITERATION ENTRY TRADES ===
+Antal: 404
