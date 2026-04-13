@@ -603,7 +603,7 @@ Max Drawdown (USD): 26410.0000
 Max Losing Streak (trades): 10
 Sharpe (trade-level): 0.4087
 Average holding time (hours): 35.30
-Det är det riktiga resultatet och det ser mycket mer realistiskt ut. Vi börjar om hela processen härifrån. Testar vi att sätta att sessionsfönster för entries mellan 11:00 - 19:00 (ATR-båda) får vi:
+Det är det riktiga resultatet och det ser mycket mer realistiskt ut. Vi börjar om hela processen härifrån. Testar vi att sätta att sessionsfönster för entries mellan 11:00 - 19:00 (ATR-båda) och återgå till EMA25/50 och ATR(14)/ATR(14).ma50 får vi:
 All SHORTS
 {'Trades': 104, 'Total PnL (USD)': 21693.0009999998, 'Gross Profit (USD)': 46293.999999999876, 'Gross Loss (USD)': -24600.999000000076, 'Profit Factor': 1.8817934995241345, 'Winrate': 0.5769230769230769, 'Avg Win (USD)': 771.5666666666646, 'Avg Loss (USD)': -559.1136136363654, 'Expectancy (USD/trade)': 208.58654807692116, 'Max Drawdown (USD)': 5546.99900000001, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': 1.9544360463292028}
 All LONGS
@@ -775,7 +775,35 @@ Expectancy (USD/trade): 86.9545
 Max Drawdown (USD): 2638.0000
 Max Losing Streak (trades): 4
 Sharpe (trade-level): 0.4013
-Och endast ATR på exits:
+Vi kör om de andra testerna vi körde i början också, endast crossover logik:
+All SHORTS
+{'Trades': 168, 'Total PnL (USD)': 57033.00099999978, 'Gross Profit (USD)': 160751.99999999988, 'Gross Loss (USD)': -103718.9990000001, 'Profit Factor': 1.5498799790769262, 'Winrate': 0.38095238095238093, 'Avg Win (USD)': 2511.749999999998, 'Avg Loss (USD)': -997.2980673076933, 'Expectancy (USD/trade)': 339.48214880952247, 'Max Drawdown (USD)': 17784.99900000001, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': 1.6654798814304612}
+All LONGS
+{'Trades': 162, 'Total PnL (USD)': -32879.99900000025, 'Gross Profit (USD)': 82551.99999999996, 'Gross Loss (USD)': -115431.9990000002, 'Profit Factor': 0.7151569817308614, 'Winrate': 0.24691358024691357, 'Avg Win (USD)': 2063.799999999999, 'Avg Loss (USD)': -946.1639262295098, 'Expectancy (USD/trade)': -202.962956790125, 'Max Drawdown (USD)': 48213.99900000026, 'Max Losing Streak (trades)': 17, 'Sharpe (trade-level)': -1.4865358593475968}
+--- STATS ---
+Market: Brent Crude Oil (1 Hour)
+Trades: 330
+Total PnL (USD): 24153.0020
+Gross Profit (USD): 243304.0000
+Gross Loss (USD): -219150.9980
+Profit Factor: 1.1102
+Winrate: 0.3152
+Avg Win (USD): 2339.4615
+Avg Loss (USD): -969.6947
+Expectancy (USD/trade): 73.1909
+Max Drawdown (USD): 42255.9980
+Max Losing Streak (trades): 12
+Sharpe (trade-level): 0.5891
+Average holding time (hours): 95.25
+Exited after 1st hour (17 trades)
+{'Trades': 17, 'Total PnL (USD)': -7972.000000000022, 'Gross Profit (USD)': 0.0, 'Gross Loss (USD)': -7972.000000000022, 'Profit Factor': 0.0, 'Winrate': 0.0, 'Avg Win (USD)': nan, 'Avg Loss (USD)': -468.94117647058954, 'Expectancy (USD/trade)': -468.94117647058954, 'Max Drawdown (USD)': 6847.000000000016, 'Max Losing Streak (trades)': 17, 'Sharpe (trade-level)': -7.818014216164081}
+Exited after 2nd hour (7 trades)
+{'Trades': 7, 'Total PnL (USD)': -8308.000000000018, 'Gross Profit (USD)': 0.0, 'Gross Loss (USD)': -8308.000000000018, 'Profit Factor': 0.0, 'Winrate': 0.0, 'Avg Win (USD)': nan, 'Avg Loss (USD)': -1186.8571428571454, 'Expectancy (USD/trade)': -1186.8571428571454, 'Max Drawdown (USD)': 5520.000000000016, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': -4.3077125379144805}
+Exited after 3rd hour (9 trades)
+{'Trades': 9, 'Total PnL (USD)': -5436.00000000002, 'Gross Profit (USD)': 0.0, 'Gross Loss (USD)': -5436.00000000002, 'Profit Factor': 0.0, 'Winrate': 0.0, 'Avg Win (USD)': nan, 'Avg Loss (USD)': -604.0000000000023, 'Expectancy (USD/trade)': -604.0000000000023, 'Max Drawdown (USD)': 4452.000000000021, 'Max Losing Streak (trades)': 9, 'Sharpe (trade-level)': -9.299770067954778}
+All exits after 3rd hour (297 trades)
+{'Trades': 297, 'Total PnL (USD)': 45869.00199999959, 'Gross Profit (USD)': 243303.99999999983, 'Gross Loss (USD)': -197434.99800000025, 'Profit Factor': 1.2323245749975873, 'Winrate': 0.3501683501683502, 'Avg Win (USD)': 2339.4615384615367, 'Avg Loss (USD)': -1022.9792642487059, 'Expectancy (USD/trade)': 154.4410841750828, 'Max Drawdown (USD)': 30691.998000000167, 'Max Losing Streak (trades)': 10, 'Sharpe (trade-level)': 1.1274876614644043}
+Endast ATR på exits:
 All SHORTS
 {'Trades': 150, 'Total PnL (USD)': 26604.000999999756, 'Gross Profit (USD)': 57131.999999999825, 'Gross Loss (USD)': -30527.99900000008, 'Profit Factor': 1.871462325454075, 'Winrate': 0.52, 'Avg Win (USD)': 732.4615384615362, 'Avg Loss (USD)': -423.9999861111122, 'Expectancy (USD/trade)': 177.36000666666504, 'Max Drawdown (USD)': 5466.999000000022, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': 2.202161645752068}
 All LONGS
@@ -795,3 +823,156 @@ Max Drawdown (USD): 8364.9990
 Max Losing Streak (trades): 6
 Sharpe (trade-level): 1.9879
 Average holding time (hours): 18.12
+Exited after 1st hour (97 trades)
+{'Trades': 97, 'Total PnL (USD)': -1724.0000000000828, 'Gross Profit (USD)': 9056.99999999994, 'Gross Loss (USD)': -10781.000000000025, 'Profit Factor': 0.8400890455430775, 'Winrate': 0.44329896907216493, 'Avg Win (USD)': 210.6279069767428, 'Avg Loss (USD)': -199.6481481481486, 'Expectancy (USD/trade)': -17.773195876289513, 'Max Drawdown (USD)': 5256.000000000043, 'Max Losing Streak (trades)': 7, 'Sharpe (trade-level)': -0.6727092908366313}
+Exited after 2nd hour (9 trades)
+{'Trades': 9, 'Total PnL (USD)': -93.99999999999949, 'Gross Profit (USD)': 353.0000000000021, 'Gross Loss (USD)': -447.0000000000016, 'Profit Factor': 0.7897091722595098, 'Winrate': 0.3333333333333333, 'Avg Win (USD)': 117.66666666666737, 'Avg Loss (USD)': -74.50000000000027, 'Expectancy (USD/trade)': -10.444444444444388, 'Max Drawdown (USD)': 305.9999999999968, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': -0.23952076563311286}
+Exited after 3rd hour (3 trades)
+{'Trades': 3, 'Total PnL (USD)': 64.9999999999983, 'Gross Profit (USD)': 104.99999999999943, 'Gross Loss (USD)': -40.00000000000114, 'Profit Factor': 2.624999999999911, 'Winrate': 0.3333333333333333, 'Avg Win (USD)': 104.99999999999943, 'Avg Loss (USD)': -20.00000000000057, 'Expectancy (USD/trade)': 21.6666666666661, 'Max Drawdown (USD)': 5.0, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': 0.509119292492158}
+All exits after 3rd hour (198 trades)
+{'Trades': 198, 'Total PnL (USD)': 31876.000999999575, 'Gross Profit (USD)': 85223.99999999975, 'Gross Loss (USD)': -53347.99900000018, 'Profit Factor': 1.5975107145068266, 'Winrate': 0.5303030303030303, 'Avg Win (USD)': 811.6571428571405, 'Avg Loss (USD)': -573.6343978494643, 'Expectancy (USD/trade)': 160.98990404040188, 'Max Drawdown (USD)': 8279.999000000049, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': 2.143567149451935}
+=== 2011 ===
+LONGS:
+{'Trades': 17, 'Total PnL (USD)': -1609.0000000000578, 'Gross Profit (USD)': 6444.999999999971, 'Gross Loss (USD)': -8054.000000000028, 'Profit Factor': 0.800223491432822, 'Winrate': 0.47058823529411764, 'Avg Win (USD)': 805.6249999999964, 'Avg Loss (USD)': -894.888888888892, 'Expectancy (USD/trade)': -94.6470588235328, 'Max Drawdown (USD)': 5805.0000000000055, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': -0.28861053173254675}
+SHORTS:
+{'Trades': 15, 'Total PnL (USD)': 17216.99999999997, 'Gross Profit (USD)': 18491.999999999978, 'Gross Loss (USD)': -1275.000000000005, 'Profit Factor': 14.503529411764632, 'Winrate': 0.8, 'Avg Win (USD)': 1540.9999999999982, 'Avg Loss (USD)': -425.00000000000165, 'Expectancy (USD/trade)': 1147.7999999999981, 'Max Drawdown (USD)': 1170.000000000011, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': 2.5526498780868185}
+Brent Crude Oil (1 Hour) - 2011:
+Trades: 32
+Total PnL (USD): 15608.0000
+Gross Profit (USD): 24937.0000
+Gross Loss (USD): -9329.0000
+Profit Factor: 2.6731
+Winrate: 0.6250
+Avg Win (USD): 1246.8500
+Avg Loss (USD): -777.4167
+Expectancy (USD/trade): 487.7500
+Max Drawdown (USD): 3784.0000
+Max Losing Streak (trades): 3
+Sharpe (trade-level): 1.6760
+=== 2012 ===
+LONGS:
+{'Trades': 20, 'Total PnL (USD)': -1740.0000000000573, 'Gross Profit (USD)': 3154.9999999999973, 'Gross Loss (USD)': -4895.0000000000555, 'Profit Factor': 0.6445352400408502, 'Winrate': 0.35, 'Avg Win (USD)': 450.7142857142853, 'Avg Loss (USD)': -376.5384615384658, 'Expectancy (USD/trade)': -87.00000000000287, 'Max Drawdown (USD)': 4240.0000000000355, 'Max Losing Streak (trades)': 8, 'Sharpe (trade-level)': -0.6411561372475074}
+SHORTS:
+{'Trades': 9, 'Total PnL (USD)': -3144.9990000000253, 'Gross Profit (USD)': 1644.9999999999873, 'Gross Loss (USD)': -4789.9990000000125, 'Profit Factor': 0.34342387127846646, 'Winrate': 0.5555555555555556, 'Avg Win (USD)': 328.99999999999744, 'Avg Loss (USD)': -1197.4997500000031, 'Expectancy (USD/trade)': -349.44433333333615, 'Max Drawdown (USD)': 4744.999000000015, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': -0.846786608550544}
+Brent Crude Oil (1 Hour) - 2012:
+Trades: 29
+Total PnL (USD): -4884.9990
+Gross Profit (USD): 4800.0000
+Gross Loss (USD): -9684.9990
+Profit Factor: 0.4956
+Winrate: 0.4138
+Avg Win (USD): 400.0000
+Avg Loss (USD): -569.7058
+Expectancy (USD/trade): -168.4482
+Max Drawdown (USD): 7629.9990
+Max Losing Streak (trades): 5
+Sharpe (trade-level): -1.0819
+=== 2013 ===
+LONGS:
+{'Trades': 17, 'Total PnL (USD)': 6752.999999999951, 'Gross Profit (USD)': 8592.999999999964, 'Gross Loss (USD)': -1840.0000000000118, 'Profit Factor': 4.670108695652124, 'Winrate': 0.7058823529411765, 'Avg Win (USD)': 716.0833333333303, 'Avg Loss (USD)': -368.0000000000024, 'Expectancy (USD/trade)': 397.2352941176442, 'Max Drawdown (USD)': 853.0000000000136, 'Max Losing Streak (trades)': 1, 'Sharpe (trade-level)': 1.9300595085973942}
+SHORTS:
+{'Trades': 21, 'Total PnL (USD)': 6452.999999999977, 'Gross Profit (USD)': 12256.000000000013, 'Gross Loss (USD)': -5803.000000000033, 'Profit Factor': 2.1120110287782086, 'Winrate': 0.47619047619047616, 'Avg Win (USD)': 1225.6000000000013, 'Avg Loss (USD)': -527.5454545454576, 'Expectancy (USD/trade)': 307.2857142857132, 'Max Drawdown (USD)': 1667.9999999999968, 'Max Losing Streak (trades)': 2, 'Sharpe (trade-level)': 1.1042804726592528}
+Brent Crude Oil (1 Hour) - 2013:
+Trades: 38
+Total PnL (USD): 13206.0000
+Gross Profit (USD): 20849.0000
+Gross Loss (USD): -7643.0000
+Profit Factor: 2.7279
+Winrate: 0.5789
+Avg Win (USD): 947.6818
+Avg Loss (USD): -477.6875
+Expectancy (USD/trade): 347.5263
+Max Drawdown (USD): 1703.0000
+Max Losing Streak (trades): 3
+Sharpe (trade-level): 1.9618
+=== 2014 ===
+LONGS:
+{'Trades': 19, 'Total PnL (USD)': -589.000000000014, 'Gross Profit (USD)': 1537.999999999979, 'Gross Loss (USD)': -2126.999999999993, 'Profit Factor': 0.7230841560883798, 'Winrate': 0.3684210526315789, 'Avg Win (USD)': 219.71428571428274, 'Avg Loss (USD)': -177.24999999999943, 'Expectancy (USD/trade)': -31.000000000000735, 'Max Drawdown (USD)': 848.0000000000126, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': -0.5483335254289505}
+SHORTS:
+{'Trades': 22, 'Total PnL (USD)': -877.00000000006, 'Gross Profit (USD)': 4018.999999999967, 'Gross Loss (USD)': -4896.000000000027, 'Profit Factor': 0.8208741830065246, 'Winrate': 0.45454545454545453, 'Avg Win (USD)': 401.8999999999967, 'Avg Loss (USD)': -408.0000000000023, 'Expectancy (USD/trade)': -39.863636363639095, 'Max Drawdown (USD)': 1217.0000000000168, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': -0.3472180418675538}
+Brent Crude Oil (1 Hour) - 2014:
+Trades: 41
+Total PnL (USD): -1466.0000
+Gross Profit (USD): 5557.0000
+Gross Loss (USD): -7023.0000
+Profit Factor: 0.7913
+Winrate: 0.4146
+Avg Win (USD): 326.8824
+Avg Loss (USD): -292.6250
+Expectancy (USD/trade): -35.7561
+Max Drawdown (USD): 1709.0000
+Max Losing Streak (trades): 4
+Sharpe (trade-level): -0.5403
+=== 2015 ===
+LONGS:
+{'Trades': 27, 'Total PnL (USD)': 954.9999999999609, 'Gross Profit (USD)': 6519.9999999999645, 'Gross Loss (USD)': -5565.000000000004, 'Profit Factor': 1.1716082659478815, 'Winrate': 0.48148148148148145, 'Avg Win (USD)': 501.5384615384588, 'Avg Loss (USD)': -397.5000000000003, 'Expectancy (USD/trade)': 35.370370370368924, 'Max Drawdown (USD)': 3234.000000000009, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 0.3375873882507492}
+SHORTS:
+{'Trades': 20, 'Total PnL (USD)': 1925.9999999999752, 'Gross Profit (USD)': 4716.999999999986, 'Gross Loss (USD)': -2791.000000000011, 'Profit Factor': 1.6900752418487883, 'Winrate': 0.45, 'Avg Win (USD)': 524.1111111111096, 'Avg Loss (USD)': -253.72727272727371, 'Expectancy (USD/trade)': 96.29999999999876, 'Max Drawdown (USD)': 1586.0000000000095, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 0.911766005465667}
+Brent Crude Oil (1 Hour) - 2015:
+Trades: 47
+Total PnL (USD): 2881.0000
+Gross Profit (USD): 11237.0000
+Gross Loss (USD): -8356.0000
+Profit Factor: 1.3448
+Winrate: 0.4681
+Avg Win (USD): 510.7727
+Avg Loss (USD): -334.2400
+Expectancy (USD/trade): 61.2979
+Max Drawdown (USD): 3036.0000
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 0.8232
+=== 2016 ===
+LONGS:
+{'Trades': 18, 'Total PnL (USD)': 3665.9999999999754, 'Gross Profit (USD)': 8035.999999999984, 'Gross Loss (USD)': -4370.000000000009, 'Profit Factor': 1.838901601830656, 'Winrate': 0.5555555555555556, 'Avg Win (USD)': 803.5999999999983, 'Avg Loss (USD)': -546.2500000000011, 'Expectancy (USD/trade)': 203.6666666666653, 'Max Drawdown (USD)': 2007.0000000000102, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 0.869119514514614}
+SHORTS:
+{'Trades': 21, 'Total PnL (USD)': 942.9999999999592, 'Gross Profit (USD)': 4283.999999999964, 'Gross Loss (USD)': -3341.0000000000036, 'Profit Factor': 1.282250823106842, 'Winrate': 0.5238095238095238, 'Avg Win (USD)': 389.45454545454214, 'Avg Loss (USD)': -334.10000000000036, 'Expectancy (USD/trade)': 44.90476190475996, 'Max Drawdown (USD)': 2597.000000000008, 'Max Losing Streak (trades)': 3, 'Sharpe (trade-level)': 0.3983551191570611}
+Brent Crude Oil (1 Hour) - 2016:
+Trades: 39
+Total PnL (USD): 4609.0000
+Gross Profit (USD): 12320.0000
+Gross Loss (USD): -7711.0000
+Profit Factor: 1.5977
+Winrate: 0.5385
+Avg Win (USD): 586.6667
+Avg Loss (USD): -428.3889
+Expectancy (USD/trade): 118.1795
+Max Drawdown (USD): 2597.0000
+Max Losing Streak (trades): 3
+Sharpe (trade-level): 0.9616
+=== 2017 ===
+LONGS:
+{'Trades': 21, 'Total PnL (USD)': -2086.000000000002, 'Gross Profit (USD)': 1710.0000000000025, 'Gross Loss (USD)': -3796.0000000000045, 'Profit Factor': 0.4504741833508958, 'Winrate': 0.42857142857142855, 'Avg Win (USD)': 190.00000000000028, 'Avg Loss (USD)': -316.3333333333337, 'Expectancy (USD/trade)': -99.33333333333341, 'Max Drawdown (USD)': 2621.000000000012, 'Max Losing Streak (trades)': 6, 'Sharpe (trade-level)': -1.2992173702491512}
+SHORTS:
+{'Trades': 21, 'Total PnL (USD)': -740.0000000000119, 'Gross Profit (USD)': 2194.9999999999905, 'Gross Loss (USD)': -2935.0000000000027, 'Profit Factor': 0.747870528109025, 'Winrate': 0.47619047619047616, 'Avg Win (USD)': 219.49999999999903, 'Avg Loss (USD)': -266.81818181818204, 'Expectancy (USD/trade)': -35.23809523809581, 'Max Drawdown (USD)': 1574.9999999999966, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': -0.43348724911552944}
+Brent Crude Oil (1 Hour) - 2017:
+Trades: 42
+Total PnL (USD): -2826.0000
+Gross Profit (USD): 3905.0000
+Gross Loss (USD): -6731.0000
+Profit Factor: 0.5802
+Winrate: 0.4524
+Avg Win (USD): 205.5263
+Avg Loss (USD): -292.6522
+Expectancy (USD/trade): -67.2857
+Max Drawdown (USD): 3681.0000
+Max Losing Streak (trades): 6
+Sharpe (trade-level): -1.2159
+=== 2018 ===
+LONGS:
+{'Trades': 18, 'Total PnL (USD)': -1831.000000000021, 'Gross Profit (USD)': 1609.9999999999914, 'Gross Loss (USD)': -3441.0000000000127, 'Profit Factor': 0.46788724208078625, 'Winrate': 0.4444444444444444, 'Avg Win (USD)': 201.24999999999892, 'Avg Loss (USD)': -344.1000000000013, 'Expectancy (USD/trade)': -101.72222222222338, 'Max Drawdown (USD)': 1746.0000000000182, 'Max Losing Streak (trades)': 5, 'Sharpe (trade-level)': -1.2195613522158022}
+SHORTS:
+{'Trades': 21, 'Total PnL (USD)': 4826.999999999967, 'Gross Profit (USD)': 9523.99999999995, 'Gross Loss (USD)': -4696.999999999984, 'Profit Factor': 2.0276772407919914, 'Winrate': 0.5238095238095238, 'Avg Win (USD)': 865.8181818181773, 'Avg Loss (USD)': -469.69999999999834, 'Expectancy (USD/trade)': 229.8571428571413, 'Max Drawdown (USD)': 1174.0000000000036, 'Max Losing Streak (trades)': 4, 'Sharpe (trade-level)': 1.0595161529368309}
+Brent Crude Oil (1 Hour) - 2018:
+Trades: 39
+Total PnL (USD): 2996.0000
+Gross Profit (USD): 11134.0000
+Gross Loss (USD): -8138.0000
+Profit Factor: 1.3681
+Winrate: 0.4872
+Avg Win (USD): 586.0000
+Avg Loss (USD): -406.9000
+Expectancy (USD/trade): 76.8205
+Max Drawdown (USD): 2016.0000
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 0.6172
+
