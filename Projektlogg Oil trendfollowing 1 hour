@@ -581,3 +581,9 @@ Antal: 0
 
 === NON SAME-ITERATION ENTRY TRADES ===
 Antal: 404
+Vi har upptäckt att if in_position and pos_direction == "SHORT": continue inte fyller någon funktion eftersom när vi tar bort det får vi samma resultat. Resultatförbättringen verkar inte komma från att flera trades kan vara öppna samtidigt i samma riktning, 
+utan från att koden tillåter att en redan öppen position återinitieras på ny signal i samma riktning, vilket skriver över entrypris och entrytid utan att den tidigare öppna traden först stängs. Detta måste vi mäta, hur ofta när vi redan är i long, får vi en
+ny long_entry som skriver över den föregående long positionen.
+=== SAME-DIRECTION RE-ENTRIES WHILE ALREADY IN POSITION ===
+Antal: 0
+Edgen kommer alltså inte från att flera entries i samma riktning tillåts eller att tidigare positioner överskrivs.
