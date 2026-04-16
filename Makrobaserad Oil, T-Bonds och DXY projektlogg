@@ -12,7 +12,7 @@ profit_factor: 1.24
 avg_r_multiple: 0.11
 cagr_pct: 0.98
 sharpe_daily: 0.27
-Vi tar bort breakout regeln och ändrar till ATR(14) > ATR(14)_ma20 för att entries ska gå igenom, samtidigt sätter vi exit regeln till ATR(14) < ATR(14)_ma20:
+Vi tar bort breakout regeln och ändrar till ATR(14) > ATR(14)_ma20 för att entries ska gå igenom, samtidigt sätter vi exit regeln till ATR(14) < ATR(14)_ma20. Vi behåller också max holding time 20 dagar:
 initial_capital: 100000
 ending_equity: 117846.49
 total_return_pct: 17.85
@@ -34,14 +34,32 @@ profit_factor: 0.86
 avg_r_multiple: -0.04
 cagr_pct: -0.54
 sharpe_daily: -0.14
-Vi återgår till T-bonds. med ATR för entrylogiken men med vanlig stop vid atr_multi samt max 20 dagars hållning:
+Egentligen bör vi vända om logiken eftersom T-bonds är inverse mot Yields, så long bias när yields är över EMA20 och short bias när yields är över EMA20. Dollar logiken är samma som innan. Vi vill se om Yields, som visar faktiskt makrodata,
+inflation och styrs av centralbank förbättrar edge jämfört med T-bonds som reflekterar risk sentiment och positionering i frågan om makrodata:
 initial_capital: 100000
-ending_equity: 132900.47
-total_return_pct: 32.9
-max_drawdown_pct: -7.93
-num_trades: 118
-win_rate_pct: 55.93
-profit_factor: 1.74
-avg_r_multiple: 0.25
-cagr_pct: 3.26
-sharpe_daily: 0.75
+ending_equity: 118441.95
+total_return_pct: 18.44
+max_drawdown_pct: -6.99
+num_trades: 117
+win_rate_pct: 57.26
+profit_factor: 1.58
+avg_r_multiple: 0.15
+cagr_pct: 1.93
+sharpe_daily: 0.53
+Nästintill identisk edge som T-bonds, det spelar alltså mindre roll vad vi använder, så länge logiken är korrekt inverterad. Även fast resultaten är liknande behöver inte signalerna vara samma eftersom T-bonds drivs av marknaden och reflekterar 
+inte bara nuvarande yields men prisar också in prognos med mera. Det faktum att de två speglar varandra till viss del kan vi testa att utnyttja genom divergens, om exempelvis yields går upp men T-bonds inte går ner tillräckligt tolkar vi det som
+att marknaden inte "tror på makro" och att det är felprissättning. Det är även värt att testa kombinationen av de två, så att long bias uppstår när Yields går upp och T-bonds går ner. Vi testar det andra alternativet först eftersom det är simplare
+att implementera i koden, villkoren för long bias är dxy < dxy_ema & yields > yields_ema & tbond < tbond_ema, för shorts blir det dxy > dxy_ema & yields < yields_ema & tbond > tbond_ema:
+initial_capital: 100000
+ending_equity: 117067.49
+total_return_pct: 17.07
+max_drawdown_pct: -6.16
+num_trades: 110
+win_rate_pct: 58.18
+profit_factor: 1.56
+avg_r_multiple: 0.15
+cagr_pct: 1.79
+sharpe_daily: 0.49
+Likadant här, ungefär likadan edge. För divergens variationen använder vi deviation från ema för att definiera divergensen mellan yields och tbonds. Deviation = (Price - EMA) / EMA, för longs krävs dxy < dxy_ema & yield_dev > 0.01 & tbond_dev > -0.002, 
+för shorts krävs dxy > dxy_ema & yield_dev < 0.01 & tbond_dev < -0.002
+
