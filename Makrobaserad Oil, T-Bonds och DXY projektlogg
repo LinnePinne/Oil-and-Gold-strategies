@@ -1,0 +1,47 @@
+Long bias för olja när Dollarn (DXY) och Ränteobligationer (T-bonds) är under EMA20, när dollarn är svag blir oljan billigare globalt eftersom det är prissatt i dollar, efterfrågan går upp. När räntor går ner blir det mer likviditet 
+vilket är bullish för råvaror. Short bias när dollar och räntor är över EMA20, dollarn är stark vilket leder till press på råvaror och högre räntor innebär att kapital flyttar från risk/råvaror. Om inte båda är överens tillåts inga 
+trades, entry villkor är close breakout av senaste high/low på olja där vi använder 2 x ATR för att definiera stop och TP blir 2R. Vi stänger nuvarnade position om makrotillståndet byter bias och flippar positionen om vi får signal 
+åt andra hållet, vi använder även max holding time på 20 dagar. Om både stop och target träffas samma dag tar vi den konservativa vägen och antar att stop träffas först. Vårat in sample blir 2011-2019, på 1 dagars tidsram:
+initial_capital: 100000
+ending_equity: 109122.45
+total_return_pct: 9.12
+max_drawdown_pct: -8.29
+num_trades: 80
+win_rate_pct: 42.5
+profit_factor: 1.24
+avg_r_multiple: 0.11
+cagr_pct: 0.98
+sharpe_daily: 0.27
+Vi tar bort breakout regeln och ändrar till ATR(14) > ATR(14)_ma20 för att entries ska gå igenom, samtidigt sätter vi exit regeln till ATR(14) < ATR(14)_ma20:
+initial_capital: 100000
+ending_equity: 117846.49
+total_return_pct: 17.85
+max_drawdown_pct: -6.59
+num_trades: 122
+win_rate_pct: 59.84
+profit_factor: 1.56
+avg_r_multiple: 0.14
+cagr_pct: 1.87
+sharpe_daily: 0.51
+Vi byter ut t-bonds mot yields och kör exakt samma logik:
+initial_capital: 100000
+ending_equity: 95307.7
+total_return_pct: -4.69
+max_drawdown_pct: -10.15
+num_trades: 124
+win_rate_pct: 48.39
+profit_factor: 0.86
+avg_r_multiple: -0.04
+cagr_pct: -0.54
+sharpe_daily: -0.14
+Med ATR för entrylogiken men med vanlig stop vid atr_multi samt max 20 dagars hållning:
+initial_capital: 100000
+ending_equity: 132900.47
+total_return_pct: 32.9
+max_drawdown_pct: -7.93
+num_trades: 118
+win_rate_pct: 55.93
+profit_factor: 1.74
+avg_r_multiple: 0.25
+cagr_pct: 3.26
+sharpe_daily: 0.75
