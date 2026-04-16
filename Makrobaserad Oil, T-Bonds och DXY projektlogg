@@ -34,7 +34,7 @@ profit_factor: 0.86
 avg_r_multiple: -0.04
 cagr_pct: -0.54
 sharpe_daily: -0.14
-Med ATR för entrylogiken men med vanlig stop vid atr_multi samt max 20 dagars hållning:
+Vi återgår till T-bonds. med ATR för entrylogiken men med vanlig stop vid atr_multi samt max 20 dagars hållning:
 initial_capital: 100000
 ending_equity: 132900.47
 total_return_pct: 32.9
