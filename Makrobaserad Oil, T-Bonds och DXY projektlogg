@@ -48,8 +48,8 @@ cagr_pct: 1.93
 sharpe_daily: 0.53
 Nästintill identisk edge som T-bonds, det spelar alltså mindre roll vad vi använder, så länge logiken är korrekt inverterad. Även fast resultaten är liknande behöver inte signalerna vara samma eftersom T-bonds drivs av marknaden och reflekterar 
 inte bara nuvarande yields men prisar också in prognos med mera. Det faktum att de två speglar varandra till viss del kan vi testa att utnyttja genom divergens, om exempelvis yields går upp men T-bonds inte går ner tillräckligt tolkar vi det som
-att marknaden inte "tror på makro" och att det är felprissättning. Det är även värt att testa kombinationen av de två, så att long bias uppstår när Yields går upp och T-bonds går ner. Vi testar det andra alternativet först eftersom det är simplare
-att implementera i koden, villkoren för long bias är dxy < dxy_ema & yields > yields_ema & tbond < tbond_ema, för shorts blir det dxy > dxy_ema & yields < yields_ema & tbond > tbond_ema:
+att marknaden inte "tror på makro" och att det är felprissättning. Det är även värt att testa kombinationen av de två, så att long bias uppstår när Yields går upp och T-bonds går ner, det blir alltså som en dubbel bekräftelse. Vi testar det andra 
+alternativet först eftersom det är simplare att implementera i koden, villkoren för long bias är dxy < dxy_ema & yields > yields_ema & tbond < tbond_ema, för shorts blir det dxy > dxy_ema & yields < yields_ema & tbond > tbond_ema:
 initial_capital: 100000
 ending_equity: 117067.49
 total_return_pct: 17.07
@@ -62,4 +62,13 @@ cagr_pct: 1.79
 sharpe_daily: 0.49
 Likadant här, ungefär likadan edge. För divergens variationen använder vi deviation från ema för att definiera divergensen mellan yields och tbonds. Deviation = (Price - EMA) / EMA, för longs krävs dxy < dxy_ema & yield_dev > 0.01 & tbond_dev > -0.002, 
 för shorts krävs dxy > dxy_ema & yield_dev < 0.01 & tbond_dev < -0.002
-
+initial_capital: 100000
+ending_equity: 94570.37
+total_return_pct: -5.43
+max_drawdown_pct: -7.41
+num_trades: 16
+win_rate_pct: 43.75
+profit_factor: 0.33
+avg_r_multiple: -0.34
+cagr_pct: -0.63
+sharpe_daily: -0.46
