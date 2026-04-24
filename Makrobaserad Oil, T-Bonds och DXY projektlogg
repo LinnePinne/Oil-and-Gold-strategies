@@ -234,5 +234,337 @@ win_rate_pct: 56.78
 profit_factor: 1.41
 avg_r_multiple: 0.18
 cagr_pct: 2.51
+Sharpe: 0.47
+I koden har vi ett litet logikfel, vi har entry och exit pris satt till close på nuvarande bar, detta blir inte realistiskt i verkligheten. Därför byter vi till next_open för entries och exits
+initial_capital: 100000
+ending_equity: 129218.11
+total_return_pct: 29.22
+max_drawdown_pct: -11.03
+num_trades: 118
+win_rate_pct: 51.69
+profit_factor: 1.48
+avg_r_multiple: 0.23
+cagr_pct: 3.28
+sharpe: 0.57
+Och daily baseline IS med denna nya next_open logiken blir:
+initial_capital: 100000
+ending_equity: 161906.42
+total_return_pct: 61.91
+max_drawdown_pct: -8.23
+num_trades: 105
+win_rate_pct: 65.71
+profit_factor: 2.16
+avg_r_multiple: 0.46
+cagr_pct: 5.58
+sharpe_daily: 0.61
+Och OOS:
+initial_capital: 100000
+ending_equity: 118299.46
+total_return_pct: 18.3
+max_drawdown_pct: -11.07
+num_trades: 51
+win_rate_pct: 52.94
+profit_factor: 1.92
+avg_r_multiple: 0.34
+cagr_pct: 2.93
+sharpe_daily: 0.37
+Baseline på daily är fortfarande bättre, vi börjar nu kolla på execution regler, vi börjar testa en pullpack regel. För longs ska close > ema50, low <= ema20. Alltså en liten pullback intrabar så att pris någon gång är under EMA20 
+men inte så mycket att den stänger under EMA50:
+initial_capital: 100000
+ending_equity: 160968.61
+total_return_pct: 60.97
+max_drawdown_pct: -9.57
+num_trades: 111
+win_rate_pct: 61.26
+profit_factor: 2.19
+avg_r_multiple: 0.44
+cagr_pct: 6.18
+sharpe: 0.97
+Detta är första stora förbättringen, detta filter gör att modellen inte längre entrar slumpmässigt i regime utan istället entrar när risk/reward är bättre. Vi ska testa denna modellen i OOS nu för att validera den. Men först kör vi
+parameterkänslighets test och tar reda på hur känslig regeln är och försöker hitta vart balansen finns. EMA25/50:
+initial_capital: 100000
+ending_equity: 152398.17
+total_return_pct: 52.4
+max_drawdown_pct: -9.57
+num_trades: 111
+win_rate_pct: 59.46
+profit_factor: 2.0
+avg_r_multiple: 0.39
+cagr_pct: 5.45
+sharpe: 0.89
+EMA15/50:
+initial_capital: 100000
+ending_equity: 163916.67
+total_return_pct: 63.92
+max_drawdown_pct: -9.11
+num_trades: 111
+win_rate_pct: 64.86
+profit_factor: 2.27
+avg_r_multiple: 0.46
+cagr_pct: 6.43
+sharpe: 1.0
+EMA15/40
+initial_capital: 100000
+ending_equity: 157626.98
+total_return_pct: 57.63
+max_drawdown_pct: -9.03
+num_trades: 113
+win_rate_pct: 63.72
+profit_factor: 2.08
+avg_r_multiple: 0.41
+cagr_pct: 5.9
+sharpe: 0.92
+EMA15/60:
+initial_capital: 100000
+ending_equity: 169836.53
+total_return_pct: 69.84
+max_drawdown_pct: -9.27
+num_trades: 108
+win_rate_pct: 63.89
+profit_factor: 2.49
+avg_r_multiple: 0.5
+cagr_pct: 6.9
+sharpe: 1.07
+EMA10/60:
+initial_capital: 100000
+ending_equity: 154020.41
+total_return_pct: 54.02
+max_drawdown_pct: -9.21
+num_trades: 111
+win_rate_pct: 61.26
+profit_factor: 1.96
+avg_r_multiple: 0.4
+cagr_pct: 5.59
+sharpe: 0.86
+EMA15/70:
+initial_capital: 100000
+ending_equity: 169465.47
+total_return_pct: 69.47
+max_drawdown_pct: -9.18
+num_trades: 106
+win_rate_pct: 64.15
+profit_factor: 2.52
+avg_r_multiple: 0.51
+cagr_pct: 6.87
+sharpe: 1.07
+EMA15/80:
+initial_capital: 100000
+ending_equity: 175434.37
+total_return_pct: 75.43
+max_drawdown_pct: -9.11
+num_trades: 104
+win_rate_pct: 65.38
+profit_factor: 2.74
+avg_r_multiple: 0.55
+cagr_pct: 7.34
+sharpe: 1.15
+EMA15/100:
+initial_capital: 100000
+ending_equity: 175108.12
+total_return_pct: 75.11
+max_drawdown_pct: -9.36
+num_trades: 103
+win_rate_pct: 66.02
+profit_factor: 2.64
+avg_r_multiple: 0.56
+cagr_pct: 7.32
+sharpe: 1.15
+EMA15/110:
+initial_capital: 100000
+ending_equity: 170073.02
+total_return_pct: 70.07
+max_drawdown_pct: -9.38
+num_trades: 103
+win_rate_pct: 66.02
+profit_factor: 2.56
+avg_r_multiple: 0.53
+cagr_pct: 6.92
+sharpe: 1.09
+Alla variationer hamnar mellan 0.8-1.15 sharpe vilket är bra, balansen verkar ligga runt EMA15/80. Vi testar detta i OOS:
+initial_capital: 100000
+ending_equity: 126019.69
+total_return_pct: 26.02
+max_drawdown_pct: -5.48
+num_trades: 48
+win_rate_pct: 64.58
+profit_factor: 2.54
+avg_r_multiple: 0.49
+cagr_pct: 4.79
+sharpe: 1.13
+Detta är ett väldigt bra out of sample resultat. Det vi vill göra nu är att ta reda på ännu mer statistik från denna modellen och sedan robusthetstesta den med fler parameter variationer och högre kostnader. Vi kör hela perioden 2011 - 2026/04/17
+och delar upp statistiken år för år och separerar longs och shorts.
+initial_capital: 100000
+ending_equity: 217382.75
+total_return_pct: 117.38
+max_drawdown_pct: -8.09
+num_trades: 187
+win_rate_pct: 61.5
+profit_factor: 2.29
+avg_r_multiple: 0.43
+cagr_pct: 5.23
+sharpe: 0.96
+=== LONG / SHORT SUMMARY ===
+   group  num_trades  win_rate_pct  profit_factor  avg_r_multiple  total_pnl  total_return_on_initial_pct  avg_pnl  median_pnl  best_trade  worst_trade  avg_bars_held
+0   long          91         65.93           2.54            0.48   65963.39                        65.96   724.87      479.00     8180.11     -6686.91         267.03
+1  short          96         57.29           2.07            0.37   51221.98                        51.22   533.56      388.58    11721.03     -3254.87         268.64
+=== YEARLY TRADE SUMMARY ===
+    year direction  num_trades  win_rate_pct  profit_factor  avg_r_multiple  total_pnl  total_return_on_initial_pct  avg_pnl  median_pnl  best_trade  worst_trade  avg_bars_held
+0   2011       all          14         57.14           5.27            0.61    8753.36                         8.75   625.24      637.95     2863.03      -684.00         261.71
+1   2011      long           5         80.00         787.21            1.34    6879.35                         6.88  1375.87     1331.71     2863.03        -8.75         274.60
+2   2011     short           9         44.44           1.92            0.20    1874.01                         1.87   208.22       -3.56     1460.73      -684.00         254.56
+3   2012       all          17         52.94           0.99            0.00    -134.68                        -0.13    -7.92       11.46     3831.87     -2275.34         266.82
+4   2012      long           7         71.43           0.70           -0.08    -598.69                        -0.60   -85.53       55.66      660.58     -1253.29         220.14
+5   2012     short          10         40.00           1.06            0.06     464.01                         0.46    46.40     -268.29     3831.87     -2275.34         299.50
+6   2013       all          10         70.00           6.93            1.48   16793.18                        16.79  1679.32      864.48     8180.11     -1276.28         313.40
+7   2013      long           9         66.67           5.26            1.20   12052.56                        12.05  1339.17      732.59     8180.11     -1276.28         318.89
+8   2013     short           1        100.00            inf            4.04    4740.62                         4.74  4740.62     4740.62     4740.62      4740.62         264.00
+9   2014       all          14         71.43           2.51            0.58   10270.94                        10.27   733.64      848.91     5459.90     -3254.87         308.43
+10  2014      long           2          0.00           0.00           -0.52   -1295.44                        -1.30  -647.72     -647.72     -166.37     -1129.07         318.50
+11  2014     short          12         83.33           3.10            0.76   11566.38                        11.57   963.86      930.92     5459.90     -3254.87         306.75
+12  2015       all          17         58.82           2.24            0.35    8128.23                         8.13   478.13      257.66     3912.33     -2542.29         235.29
+13  2015      long           5         80.00           2.73            0.33    2227.68                         2.23   445.54      332.19     2446.86     -1288.03         218.40
+14  2015     short          12         50.00           2.12            0.36    5900.55                         5.90   491.71       57.69     3912.33     -2542.29         242.33
+15  2016       all          10         60.00           1.11            0.04     549.77                         0.55    54.98      278.81     1616.41     -2320.29         268.40
+16  2016      long           2         50.00           0.55           -0.22    -639.01                        -0.64  -319.51     -319.51      778.43     -1417.44         296.00
+17  2016     short           8         62.50           1.33            0.11    1188.78                         1.19   148.60      278.81     1616.41     -2320.29         261.50
+18  2017       all           9         55.56           4.14            0.45    5948.81                         5.95   660.98      426.50     2413.28      -779.32         218.56
+19  2017      long           7         57.14           4.49            0.41    4219.52                         4.22   602.79      426.50     2357.77      -779.32         251.71
+20  2017     short           2         50.00           3.53            0.61    1729.29                         1.73   864.65      864.65     2413.28      -683.99         102.50
+21  2018       all          12         66.67           2.95            0.67   12353.61                        12.35  1029.47     1645.80     3505.16     -2666.97         282.08
+22  2018      long           7         71.43           6.99            1.05   11313.09                        11.31  1616.16     2211.15     3505.16     -1763.99         278.14
+23  2018     short           5         60.00           1.23            0.13    1040.52                         1.04   208.10     1452.90     2505.07     -2666.97         287.60
+24  2019       all          17         52.94           2.04            0.20    5501.03                         5.50   323.59       18.59     2952.51     -1921.79         262.94
+25  2019      long           3         66.67          28.36            0.67    3307.54                         3.31  1102.51     1498.21     1930.23      -120.90         222.67
+26  2019     short          14         50.00           1.42            0.10    2193.49                         2.19   156.68     -131.24     2952.51     -1921.79         271.57
+27  2020       all          13         69.23           5.47            1.02   23302.61                        23.30  1792.51      885.45    11721.03     -3302.93         270.62
+28  2020      long           8         62.50           2.12            0.25    4179.47                         4.18   522.43      574.15     3297.88     -3302.93         261.75
+29  2020     short           5         80.00          13.75            2.26   19123.14                        19.12  3824.63     3523.68    11721.03     -1500.42         284.80
+30  2021       all          15         66.67           2.70            0.50   14788.65                        14.79   985.91     1437.25     5057.19     -3240.12         284.20
+31  2021      long           7         85.71          22.41            1.06   14591.50                        14.59  2084.50     2151.15     5057.19      -681.50         278.57
+32  2021     short           8         50.00           1.02            0.02     197.15                         0.20    24.64      -88.60     4094.07     -3240.12         289.12
+33  2022       all           6         50.00           1.68            0.31    3750.70                         3.75   625.12       27.06     5122.94     -2569.67         260.33
+34  2022      long           4         50.00           1.90            0.46    3696.57                         3.70   924.14      571.65     5122.94     -2569.67         277.75
+35  2022     short           2         50.00           1.04            0.00      54.13                         0.05    27.06       27.06     1494.85     -1440.72         225.50
+36  2023       all           9         66.67           1.14            0.05     831.19                         0.83    92.35      258.81     3061.56     -5418.81         277.67
+37  2023      long           9         66.67           1.14            0.05     831.19                         0.83    92.35      258.81     3061.56     -5418.81         277.67
+38  2023     short           0          0.00            NaN             NaN       0.00                          NaN      NaN         NaN         NaN          NaN            NaN
+39  2024       all           7         42.86           0.44           -0.23   -3370.60                        -3.37  -481.51     -326.93     1028.78     -3010.23         235.29
+40  2024      long           3         66.67           0.68           -0.15    -963.58                        -0.96  -321.19     1017.87     1028.78     -3010.23         194.67
+41  2024     short           4         25.00           0.20           -0.28   -2407.02                        -2.41  -601.75     -518.91      611.47     -1980.67         265.75
+42  2025       all          14         64.29           1.36            0.18    4811.47                         4.81   343.68      471.88     7901.02     -6686.91         259.14
+43  2025      long          10         50.00           1.09            0.08    1254.54                         1.25   125.45     -307.13     7901.02     -6686.91         276.60
+44  2025     short           4        100.00            inf            0.43    3556.93                         3.56   889.23      757.42     1817.63       224.45         215.50
+45  2026       all           3        100.00            inf            0.76    4907.10                         4.91  1635.70     1685.54     2206.91      1014.65         271.33
+46  2026      long           3        100.00            inf            0.76    4907.10                         4.91  1635.70     1685.54     2206.91      1014.65         271.33
+47  2026     short           0          0.00            NaN             NaN       0.00                          NaN      NaN         NaN         NaN          NaN            NaN
+=== YEARLY EQUITY SUMMARY ===
+    year  start_equity  end_equity  return_pct  max_drawdown_pct  sharpe
+0   2011     100000.00   109159.60        9.16             -2.44    0.42
+1   2012     108870.28   110022.33        1.06             -6.87    0.03
+2   2013     110022.33   126242.84       14.74             -4.84    0.28
+3   2014     126242.84   136626.46        8.23             -6.18    0.26
+4   2015     136325.61   143379.71        5.17             -3.44    0.22
+5   2016     143270.00   144360.81        0.76             -4.02    0.04
+6   2017     144360.81   152002.81        5.29             -2.55    0.33
+7   2018     152257.83   162398.47        6.66             -3.45    0.31
+8   2019     162406.82   166489.24        2.51             -3.74    0.10
+9   2020     166669.43   192248.22       15.35             -4.22    0.52
+10  2021     192508.75   206255.49        7.14             -4.18    0.27
+11  2022     206255.49   211891.78        2.73             -3.14    0.16
+12  2023     211620.83   210837.40       -0.37             -3.91   -0.02
+13  2024     210837.40   207466.80       -1.60             -3.17   -0.12
+14  2025     207466.80   212112.12        2.24             -5.99    0.09
+15  2026     212191.80   217382.75        2.45             -1.97    0.36
+Strategin är inte beroende av varken longs eller shorts. longs står för 66k Pnl och shorts för 51k Pnl. Longs har bättre winrate och profit factor men shorts bidrar fortfarande tydligt. Det är väldigt starkt att nästan alla
+år är positiva, out of sample resultatet drivs främst av 2020 och 2021 medan senare år är rätt mediokert. Det betyder att modellen klarar av kris/inflation-regim bra men får det svårare i mer choppy miljö. Det är nödvändigt
+att kolla på om edge kommer från en specifik exit-typ eller om Pnl förstörs av någon typ, därför tar vi också fram sammanfattning av exits baserat på max_holding_days och macro_flip. (OBS, fel med entry/exit price, tydligen
+gjorde vi fel med next_open, vi loopade över data i backtesten men hämtade next_open från df: next_row = df.iloc[i + 1]. Efter prepare_data() har data droppat rader och fått annan indexposition. Då kunde next_open bli fel
+bar vilket kan ge orealistiska fills, när vi istället ändrar till att loopa rätt och sätta next_open till next_row = data.iloc[i + 1] får vi för daily baseline versionen in sample:
+initial_capital: 100000
+ending_equity: 119121.76
+total_return_pct: 19.12
+max_drawdown_pct: -11.22
+num_trades: 137
+win_rate_pct: 54.01
+profit_factor: 1.34
+avg_r_multiple: 0.13
+cagr_pct: 1.99
+sharpe_daily: 0.41
+och OOS:
+initial_capital: 100000
+ending_equity: 109647.76
+total_return_pct: 9.65
+max_drawdown_pct: -10.52
+num_trades: 69
+win_rate_pct: 49.28
+profit_factor: 1.33
+avg_r_multiple: 0.15
+cagr_pct: 1.6
+sharpe_daily: 0.37
+Hourly baseline utan EMAs in sample:
+initial_capital: 100000
+ending_equity: 121889.13
+total_return_pct: 21.89
+max_drawdown_pct: -11.35
+num_trades: 118
+win_rate_pct: 55.93
+profit_factor: 1.41
+avg_r_multiple: 0.18
+cagr_pct: 2.53
 sharpe: 0.47
-Baseline på daily är fortfarande bättre, vi börjar nu kolla på execution regler, vi börjar testa en pullpack regel. För longs (OBS vi måste byta till next bar open som entry price istället för close)
+OOS:
+initial_capital: 100000
+ending_equity: 107777.63
+total_return_pct: 7.78
+max_drawdown_pct: -8.3
+num_trades: 55
+win_rate_pct: 50.91
+profit_factor: 1.32
+avg_r_multiple: 0.14
+cagr_pct: 1.53
+sharpe: 0.41
+Hourly med EMAs för entries in sample:
+initial_capital: 100000
+ending_equity: 117501.68
+total_return_pct: 17.5
+max_drawdown_pct: -14.86
+num_trades: 103
+win_rate_pct: 51.46
+profit_factor: 1.38
+avg_r_multiple: 0.17
+cagr_pct: 2.05
+sharpe: 0.41
+OOS:
+initial_capital: 100000
+ending_equity: 115488.16
+total_return_pct: 15.49
+max_drawdown_pct: -7.25
+num_trades: 48
+win_rate_pct: 58.33
+profit_factor: 1.72
+avg_r_multiple: 0.31
+cagr_pct: 2.96
+sharpe: 0.76
+Hourly version med EMAs över hela samplet:
+initial_capital: 100000
+ending_equity: 142025.35
+total_return_pct: 42.03
+max_drawdown_pct: -14.86
+num_trades: 187
+win_rate_pct: 54.01
+profit_factor: 1.48
+avg_r_multiple: 0.2
+cagr_pct: 2.33
+sharpe: 0.5
+Det är fortfarande bra att det finns någon slags edge i dessa tester och dessa resultaten är mer verklig. Efter denna upptäckt går vi tillbaka till Hourly baseline och letar optimerings alternativ. In sample 
+baselinen är här:
+initial_capital: 100000
+ending_equity: 121889.13
+total_return_pct: 21.89
+max_drawdown_pct: -11.35
+num_trades: 118
+win_rate_pct: 55.93
+profit_factor: 1.41
+avg_r_multiple: 0.18
+cagr_pct: 2.53
+sharpe: 0.47
