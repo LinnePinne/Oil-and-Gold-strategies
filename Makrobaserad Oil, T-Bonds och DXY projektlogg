@@ -235,4 +235,4 @@ profit_factor: 1.41
 avg_r_multiple: 0.18
 cagr_pct: 2.51
 sharpe: 0.47
-Baseline på daily är fortfarande bättre, vi börjar nu kolla på execution regler, vi börjar testa en pullpack regel. För longs
+Baseline på daily är fortfarande bättre, vi börjar nu kolla på execution regler, vi börjar testa en pullpack regel. För longs (OBS vi måste byta till next bar open som entry price istället för close)
