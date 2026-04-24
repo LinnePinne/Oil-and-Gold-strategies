@@ -118,3 +118,121 @@ profit_factor: 1.56
 avg_r_multiple: 0.15
 cagr_pct: 1.75
 sharpe_daily: 0.5
+Det verkar som att kvalitén blir bättre ju lägre maximal tröskel vi lägger, men sample size minskas från 100+ till 38, vilket har låg statistisk signifikans. Rätt beslut för att fortsätta forskningen är att droppa yields och fortsätta med
+baseline med DXY och T-bonds. Vi gör en ny baseline som är så simpel som möjligt utan ATR entry/exit, exits sker bara när max holding bar = 20 går igenom eller när det blir en ny signal åt andra hållet. Vi utgår från EMA20 och parameterkänslighetstestar
+det värdet och väljer att gå vidare med något balanserat innan vi börjar med mer tillägg och optimeringar. EMA20:
+initial_capital: 100000
+ending_equity: 131232.7
+total_return_pct: 31.23
+max_drawdown_pct: -10.16
+num_trades: 165
+win_rate_pct: 52.12
+profit_factor: 1.42
+avg_r_multiple: 0.17
+cagr_pct: 3.11
+sharpe_daily: 0.59
+EMA40:
+initial_capital: 100000
+ending_equity: 135816.3
+total_return_pct: 35.82
+max_drawdown_pct: -9.3
+num_trades: 132
+win_rate_pct: 50.0
+profit_factor: 1.56
+avg_r_multiple: 0.24
+cagr_pct: 3.51
+sharpe_daily: 0.69
+EMA60:
+initial_capital: 100000
+ending_equity: 138626.82
+total_return_pct: 38.63
+max_drawdown_pct: -9.71
+num_trades: 115
+win_rate_pct: 52.17
+profit_factor: 1.82
+avg_r_multiple: 0.29
+cagr_pct: 3.75
+sharpe_daily: 0.76
+EMA80:
+initial_capital: 100000
+ending_equity: 138852.17
+total_return_pct: 38.85
+max_drawdown_pct: -7.76
+num_trades: 105
+win_rate_pct: 53.33
+profit_factor: 1.85
+avg_r_multiple: 0.32
+cagr_pct: 3.77
+sharpe_daily: 0.76
+EMA100:
+initial_capital: 100000
+ending_equity: 138089.66
+total_return_pct: 38.09
+max_drawdown_pct: -8.56
+num_trades: 97
+win_rate_pct: 54.64
+profit_factor: 1.83
+avg_r_multiple: 0.34
+cagr_pct: 3.71
+sharpe_daily: 0.77
+EMA120:
+initial_capital: 100000
+ending_equity: 130823.94
+total_return_pct: 30.82
+max_drawdown_pct: -9.23
+num_trades: 96
+win_rate_pct: 54.17
+profit_factor: 1.61
+avg_r_multiple: 0.28
+cagr_pct: 3.08
+sharpe_daily: 0.65
+Strategin är inte parameterkänslig vilket är positivt. Lite högre EMA mellan 60-100 är mest balanserat så vi väljer att gå vidare med EMA80. Det är positivt att färre regler än tidigare ger bättre resultat. Nu bör vi 
+låsa denna som Baseline och endast lägga till en komponent åt gången ovanpå den. Annars vet ni inte vad som faktiskt förbättrar edge. Denna version ser alltså ut såhär:
+Baseline:
+- Instrument: Crude Oil
+- Macro filters: DXY + T-Bonds
+- Bias:
+  Long: DXY < EMA80 and T-Bonds < EMA80
+  Short: DXY > EMA80 and T-Bonds > EMA80
+- Entry: när bias-signal uppstår
+- Exit: opposite bias signal eller max holding period 20 bars
+- Ingen ATR entry/exit
+- Ingen breakout
+In-sample: 2011–2019, daily:
+  initial_capital: 100000
+  ending_equity: 138852.17
+  total_return_pct: 38.85
+  max_drawdown_pct: -7.76
+  num_trades: 105
+  win_rate_pct: 53.33
+  profit_factor: 1.85
+  avg_r_multiple: 0.32
+  cagr_pct: 3.77
+  sharpe_daily: 0.76
+Vi vill validera denna baseline genom out of sample 2020-2025 så vi vet om vi har en riktig makro edge eller bara en snygg 2011-2019 fit.
+OOS 2020-2025:
+initial_capital: 100000
+ending_equity: 110128.69
+total_return_pct: 10.13
+max_drawdown_pct: -10.91
+num_trades: 51
+win_rate_pct: 56.86
+profit_factor: 1.43
+avg_r_multiple: 0.21
+cagr_pct: 1.67
+sharpe_daily: 0.38
+Fortfarande positiv profit factor och sharpe men betydligt svagare än in sample. Edge finns kvar vilket säger att modellen inte är överfittad till in sample. Nu när vi har en valierad edge i baseline out of sample ska vi börja optimera den modellen
+in sample. Det första "problemet" är att modellen generar ganska få trades, det vi kan göra är att minska tidsramen till 1 hour för olja och behålla vår makro bias med dxy och tbonds på daily och lägga till ett mer precist entry villkor för olja, 
+vilket saknas nu. Utan olje specifikt entry villkor kommer vi troligtvis få liknande resultat, kanske lite bättre eftersom reglerna endast då baserar på daily dxy och tbonds. Vi börjar att testa hourly oil med baseline regler först, atr som vi baserar
+risk på kalkyleras på daily oil:
+initial_capital: 100000
+ending_equity: 121732.59
+total_return_pct: 21.73
+max_drawdown_pct: -11.39
+num_trades: 118
+win_rate_pct: 56.78
+profit_factor: 1.41
+avg_r_multiple: 0.18
+cagr_pct: 2.51
+sharpe: 0.47
+Baseline på daily är fortfarande bättre, vi börjar nu kolla på execution regler, vi börjar testa en pullpack regel. För longs
