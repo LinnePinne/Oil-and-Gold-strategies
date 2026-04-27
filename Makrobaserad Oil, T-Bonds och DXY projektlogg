@@ -568,3 +568,70 @@ profit_factor: 1.41
 avg_r_multiple: 0.18
 cagr_pct: 2.53
 sharpe: 0.47
+EMA70/70:
+initial_capital: 100000
+ending_equity: 129573.35
+total_return_pct: 29.57
+max_drawdown_pct: -11.35
+num_trades: 125
+win_rate_pct: 52.8
+profit_factor: 1.48
+avg_r_multiple: 0.22
+cagr_pct: 3.32
+sharpe: 0.6
+EMA60/60:
+initial_capital: 100000
+ending_equity: 131773.51
+total_return_pct: 31.77
+max_drawdown_pct: -10.69
+num_trades: 125
+win_rate_pct: 53.6
+profit_factor: 1.48
+avg_r_multiple: 0.23
+cagr_pct: 3.54
+sharpe: 0.61
+EMA50/50:
+initial_capital: 100000
+ending_equity: 135064.31
+total_return_pct: 35.06
+max_drawdown_pct: -12.58
+num_trades: 129
+win_rate_pct: 51.94
+profit_factor: 1.54
+avg_r_multiple: 0.24
+cagr_pct: 3.86
+sharpe: 0.54
+EMA40/40:
+initial_capital: 100000
+ending_equity: 131354.45
+total_return_pct: 31.35
+max_drawdown_pct: -12.19
+num_trades: 148
+win_rate_pct: 52.03
+profit_factor: 1.43
+avg_r_multiple: 0.19
+cagr_pct: 3.5
+sharpe: 0.48
+Balansoptimum verkar nu istället ligga runt 60-70, vi fortsätter med 60. Vi går över till entry filter på en hourly olja. Först testar vi en simpel pris/moving average crossover. Föregående
+stängning ska vara under EMA25 och nästa ska vara över nuvarande EMA25:
+initial_capital: 100000
+ending_equity: 133009.46
+total_return_pct: 33.01
+max_drawdown_pct: -10.16
+num_trades: 119
+win_rate_pct: 57.14
+profit_factor: 1.57
+avg_r_multiple: 0.25
+cagr_pct: 3.66
+sharpe: 0.72
+Lite förbättring, vi testar en moving average crossover också, där förgående ema25 ska måsta vara under föregående ema50 och nuvarande bar ska den vara över:
+initial_capital: 100000
+ending_equity: 127206.77
+total_return_pct: 27.21
+max_drawdown_pct: -9.1
+num_trades: 79
+win_rate_pct: 58.23
+profit_factor: 1.75
+avg_r_multiple: 0.32
+cagr_pct: 3.08
+sharpe: 0.73
